@@ -424,7 +424,7 @@ p{ margin: 0; }
 
 /* ---------- Selected Experience ---------- */
 .experience-card{
-  padding: 20px 20px 32px;
+  padding: 44px 32px;
   background: var(--paper);
   border: 1px solid var(--beige-line);
   border-radius: var(--radius);
@@ -435,18 +435,7 @@ p{ margin: 0; }
   border-color: var(--taupe-soft);
   box-shadow: 0 24px 48px -24px rgba(22,20,15,0.18);
 }
-.experience-media{
-  position: relative;
-  aspect-ratio: 3 / 2;
-  border-radius: var(--radius);
-  overflow: hidden;
-  margin-bottom: 24px;
-  background: var(--beige);
-}
-.experience-media .photo{
-  transition: transform .8s var(--ease);
-}
-.experience-card:hover .experience-media .photo{ transform: scale(1.04); }
+.experience-card .offer-index{ margin-bottom: 20px; }
 
 .work-category{
   font-size: 0.72rem;
