@@ -160,15 +160,11 @@
   if (contactForm) {
     /*
      * No custom backend exists for this static site, and this form must never
-     * report success it can't verify. It submits to a hosted form endpoint
-     * (Formspree-compatible: POST + Accept: application/json, JSON error body).
-     *
-     * To activate: create a form at https://formspree.io (or any compatible
-     * provider), then replace YOUR_FORM_ID below with the real endpoint id.
-     * Until that's done, submissions are correctly blocked with a message
-     * pointing people to the direct email address instead of a fake success.
+     * report success it can't verify. It submits to the iLens Contact Form on
+     * Formspree (POST + Accept: application/json, JSON error body), which
+     * notifies hello@ilens.co on every submission.
      */
-    var CONTACT_FORM_ENDPOINT = "https://formspree.io/f/YOUR_FORM_ID";
+    var CONTACT_FORM_ENDPOINT = "https://formspree.io/f/myeyrnjy";
 
     var submitBtn = document.getElementById("contactSubmit");
     var statusEl = document.getElementById("contactStatus");
@@ -244,14 +240,6 @@
 
       if (!isValid) {
         setStatus("Please fix the highlighted fields.", "error");
-        return;
-      }
-
-      if (CONTACT_FORM_ENDPOINT.indexOf("YOUR_FORM_ID") !== -1) {
-        setStatus(
-          "This form isn't connected to an email service yet — please email hello@ilens.co directly for now.",
-          "error"
-        );
         return;
       }
 
