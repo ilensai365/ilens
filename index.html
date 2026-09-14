@@ -47,7 +47,26 @@
   <!-- ========== 1. HERO ========== -->
   <section class="hero" id="top">
     <div class="hero-visual" aria-hidden="true">
-      <img src="images/hero-side.jpg" alt="" class="photo" width="900" height="1200" fetchpriority="high">
+      <svg class="hero-graphic" viewBox="0 0 480 800" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="300" cy="380" r="250" class="hg-ring hg-ring-a"/>
+        <circle cx="300" cy="380" r="180" class="hg-ring hg-ring-b"/>
+        <circle cx="300" cy="380" r="110" class="hg-ring hg-ring-c"/>
+        <circle cx="300" cy="380" r="4" class="hg-dot"/>
+        <g class="hg-spokes">
+          <line x1="390" y1="380" x2="545" y2="380"/>
+          <line x1="378" y1="425" x2="512" y2="502.5"/>
+          <line x1="345" y1="457.9" x2="422.5" y2="592.2"/>
+          <line x1="300" y1="470" x2="300" y2="625"/>
+          <line x1="255" y1="457.9" x2="177.5" y2="592.2"/>
+          <line x1="222" y1="425" x2="88" y2="502.5"/>
+          <line x1="210" y1="380" x2="55" y2="380"/>
+          <line x1="222" y1="335" x2="88" y2="257.5"/>
+          <line x1="255" y1="302.1" x2="177.5" y2="167.8"/>
+          <line x1="300" y1="290" x2="300" y2="135"/>
+          <line x1="345" y1="302.1" x2="422.5" y2="167.8"/>
+          <line x1="378" y1="335" x2="512" y2="257.5"/>
+        </g>
+      </svg>
     </div>
     <div class="container hero-inner">
       <p class="eyebrow reveal">iLens Studio</p>
@@ -153,92 +172,45 @@
     </div>
   </section>
 
-  <!-- ========== 4. SELECTED WORK / CREATIVE BACKGROUND ========== -->
+  <!-- ========== 4. SELECTED EXPERIENCE ========== -->
   <section class="section" id="work">
     <div class="container">
       <div class="work-intro reveal">
-        <p class="section-eyebrow">Creative Background</p>
+        <p class="section-eyebrow">Selected Experience</p>
         <h2 class="section-title">The work behind the perspective.</h2>
         <p class="work-intro-text">
-          Before iLens, a career spent in the room where creative decisions actually get made — branding,
-          editorial publishing, sports marketing, out-of-home campaigns and documentary photography for
-          clients across Europe. A small, curated selection of that past work is shown below — not current
-          iLens client work, but the creative foundation the studio is built on.
+          Before iLens: branding, sports marketing and campaign work for clients across Europe — not current
+          iLens client work, but three pieces of the creative foundation the studio is built on.
         </p>
       </div>
 
-      <div class="grid work-grid">
+      <div class="grid grid-3 experience-grid">
 
-        <article class="work-card reveal">
-          <div class="work-media">
-            <img src="images/work-branding.jpg" alt="Binar Programing brand identity system — stationery, print and device mockups" class="photo" width="900" height="1125" loading="lazy" decoding="async">
-            <span class="work-index">01</span>
+        <article class="experience-card reveal">
+          <div class="experience-media">
+            <img src="images/work-branding.jpg" alt="Binar Programing brand identity system — stationery and print mockups" class="photo" width="900" height="1125" loading="lazy" decoding="async">
           </div>
-          <div class="work-meta">
-            <p class="work-category">Brand Identity</p>
-            <h3>Full-System Identity</h3>
-            <p class="work-desc">Visual identity and stationery designed as one coherent system for a Warsaw technology studio.</p>
-          </div>
+          <p class="work-category">Brand Identity</p>
+          <h3>Full-System Identity</h3>
+          <p class="work-desc">Visual identity and stationery designed as one coherent system for a Warsaw technology studio.</p>
         </article>
 
-        <article class="work-card reveal">
-          <div class="work-media">
-            <img src="images/work-editorial.jpg" alt="Genius Loci: Silesia Superior — independent photography publication, print design" class="photo" width="900" height="1125" loading="lazy" decoding="async">
-            <span class="work-index">02</span>
-          </div>
-          <div class="work-meta">
-            <p class="work-category">Editorial &amp; Publishing</p>
-            <h3>Independent Publication</h3>
-            <p class="work-desc">Art direction and print design for an independent documentary photography publication.</p>
-          </div>
-        </article>
-
-        <article class="work-card reveal">
-          <div class="work-media">
+        <article class="experience-card reveal">
+          <div class="experience-media">
             <img src="images/work-sports.jpg" alt="Sportowa Platforma — sports media brand and cover design" class="photo" width="900" height="1125" loading="lazy" decoding="async">
-            <span class="work-index">03</span>
           </div>
-          <div class="work-meta">
-            <p class="work-category">Sports</p>
-            <h3>Sports Media Branding</h3>
-            <p class="work-desc">Brand and cover design for a football media platform — one chapter in a career spent inside sports marketing, including bet365 and Betclic.</p>
-          </div>
+          <p class="work-category">Sports</p>
+          <h3>Sports Media Branding</h3>
+          <p class="work-desc">Brand and cover design for a football media platform — one chapter in a career spent inside sports marketing, including bet365 and Betclic.</p>
         </article>
 
-        <article class="work-card reveal">
-          <div class="work-media">
+        <article class="experience-card reveal">
+          <div class="experience-media">
             <img src="images/work-campaigns.jpg" alt="Billboard campaign for Kamona, photographed on site in Katowice" class="photo" width="900" height="1125" loading="lazy" decoding="async">
-            <span class="work-index">04</span>
           </div>
-          <div class="work-meta">
-            <p class="work-category">Campaigns</p>
-            <h3>Out-of-Home Advertising</h3>
-            <p class="work-desc">Concept-to-print campaign design, followed from the studio file to a billboard on the street.</p>
-          </div>
-        </article>
-
-        <article class="work-card reveal">
-          <div class="work-media">
-            <img src="images/work-travel.jpg" alt="International Zone — documentary photography exhibition catalogue on modern airports" class="photo" width="900" height="1125" loading="lazy" decoding="async">
-            <span class="work-index">05</span>
-          </div>
-          <div class="work-meta">
-            <p class="work-category">Travel &amp; Documentary</p>
-            <h3>Photography Exhibition</h3>
-            <p class="work-desc">A documentary photography project on modern airports, later published as an exhibition catalogue.</p>
-          </div>
-        </article>
-
-        <article class="work-card reveal">
-          <div class="work-media">
-            <img src="images/work-commercial.jpg" alt="IOspace architecture studio business card and identity design" class="photo" width="900" height="1125" loading="lazy" decoding="async">
-            <span class="work-index">06</span>
-          </div>
-          <div class="work-meta">
-            <p class="work-category">Commercial Identity</p>
-            <h3>Studio Branding</h3>
-            <p class="work-desc">Identity design for an architecture practice — the same precision applied to a different craft.</p>
-          </div>
+          <p class="work-category">Campaigns</p>
+          <h3>Out-of-Home Advertising</h3>
+          <p class="work-desc">Concept-to-print campaign design, followed from the studio file to a billboard on the street.</p>
         </article>
 
       </div>
@@ -308,8 +280,27 @@
   <!-- ========== 6. ABOUT ========== -->
   <section class="section about" id="about">
     <div class="container about-grid">
-      <div class="about-media reveal">
-        <img src="images/about-portrait.jpg" alt="Promotional poster design for an international photography event in Madrid, combining street photography and typography" class="photo" width="1000" height="1250" loading="lazy" decoding="async">
+      <div class="about-media reveal" aria-hidden="true">
+        <svg class="about-graphic" viewBox="0 0 500 625" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="250" cy="310" r="200" class="hg-ring hg-ring-a"/>
+          <circle cx="250" cy="310" r="140" class="hg-ring hg-ring-b"/>
+          <circle cx="250" cy="310" r="80" class="hg-ring hg-ring-c"/>
+          <circle cx="250" cy="310" r="4" class="hg-dot"/>
+          <g class="hg-spokes">
+            <line x1="345" y1="310" x2="435" y2="310"/>
+            <line x1="332.3" y1="357.5" x2="410.2" y2="402.5"/>
+            <line x1="297.5" y1="392.2" x2="342.5" y2="470.2"/>
+            <line x1="250" y1="405" x2="250" y2="495"/>
+            <line x1="202.5" y1="392.2" x2="157.5" y2="470.2"/>
+            <line x1="167.7" y1="357.5" x2="89.8" y2="402.5"/>
+            <line x1="155" y1="310" x2="65" y2="310"/>
+            <line x1="167.7" y1="262.5" x2="89.8" y2="217.5"/>
+            <line x1="202.5" y1="227.8" x2="157.5" y2="149.8"/>
+            <line x1="250" y1="215" x2="250" y2="125"/>
+            <line x1="297.5" y1="227.8" x2="342.5" y2="149.8"/>
+            <line x1="332.3" y1="262.5" x2="410.2" y2="217.5"/>
+          </g>
+        </svg>
         <div class="about-frame-border"></div>
       </div>
       <div class="about-content reveal">
