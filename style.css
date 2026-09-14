@@ -805,6 +805,7 @@ p{ margin: 0; }
 
 @media (max-width: 860px){
   .container{ padding: 0 24px; }
+  .footer-bottom{ padding-top: 24px; padding-bottom: 24px; }
 
   .main-nav{
     position: fixed;
