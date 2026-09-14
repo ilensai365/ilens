@@ -355,7 +355,7 @@
     </div>
   </section>
 
-  <!-- ========== 8. FINAL CTA ========== -->
+  <!-- ========== 8. FINAL CTA / CONTACT ========== -->
   <section class="cta-final" id="contact">
     <div class="container cta-final-inner">
       <p class="section-eyebrow eyebrow-light reveal">Let's Work Together</p>
@@ -364,9 +364,38 @@
         Whether it's creative direction, brand strategy or an AI-powered content system —
         let's talk about what iLens can build for you.
       </p>
-      <div class="reveal">
-        <a href="mailto:hello@ilens.studio" class="btn btn-light">Start a Conversation</a>
-      </div>
+
+      <p class="cta-email reveal">
+        <a href="mailto:hello@ilens.co">hello@ilens.co</a>
+      </p>
+
+      <form class="contact-form reveal" id="contactForm" novalidate>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="cf-name">Name</label>
+            <input type="text" id="cf-name" name="name" autocomplete="name" required>
+            <span class="form-error"></span>
+          </div>
+          <div class="form-field">
+            <label for="cf-email">Email</label>
+            <input type="email" id="cf-email" name="email" autocomplete="email" required>
+            <span class="form-error"></span>
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label for="cf-message">Message</label>
+          <textarea id="cf-message" name="message" rows="5" required minlength="10"></textarea>
+          <span class="form-error"></span>
+        </div>
+
+        <!-- Honeypot spam trap: real visitors never fill this in -->
+        <input type="text" name="_gotcha" class="form-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+        <button type="submit" class="btn btn-light" id="contactSubmit">Send Message</button>
+
+        <p class="form-status" id="contactStatus" role="status" aria-live="polite"></p>
+      </form>
     </div>
   </section>
 
