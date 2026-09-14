@@ -333,20 +333,12 @@ p{ margin: 0; }
   margin-bottom: 64px;
 }
 
-.section-head-row{
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  gap: 40px;
-  margin-bottom: 64px;
-}
-.section-head-row .section-title{ margin-bottom: 12px; }
-.section-note{
-  font-size: 0.9rem;
-  color: var(--taupe);
-  max-width: 220px;
-  text-align: right;
-  padding-bottom: 6px;
+.work-intro{ margin-bottom: 64px; }
+.work-intro .section-title{ margin-bottom: 24px; }
+.work-intro-text{
+  font-size: 1.05rem;
+  color: #55503F;
+  max-width: 640px;
 }
 
 .grid{ display: grid; gap: 32px; }
@@ -439,12 +431,8 @@ p{ margin: 0; }
 }
 .work-card:hover .work-media .photo{ transform: scale(1.045); }
 
-.work-media::after{
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(22,20,15,0) 55%, rgba(22,20,15,0.32) 100%);
-  pointer-events: none;
+.work-media{
+  border: 1px solid var(--beige-line);
 }
 
 .work-index{
