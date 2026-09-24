@@ -378,6 +378,7 @@ p{ margin: 0; }
   font-size: 1.5rem;
   color: var(--ivory);
   margin: 18px 0 12px;
+  color: var(--ivory);
 }
 .method-num{
   font-family: var(--serif);
@@ -515,8 +516,8 @@ p{ margin: 0; }
 .product-link:hover,
 .product-link:active{ opacity: 0.6; }
 
-/* The one live, purchasable product gets a real button — not a bare text
-   link — so it reads as unmistakably clickable and buyable at a glance. */
+/* Live, purchasable products get a real button — not a bare text
+   link — so they read as unmistakably clickable and buyable at a glance. */
 .product-link-buy{
   display: inline-flex;
   align-items: center;
@@ -546,6 +547,68 @@ p{ margin: 0; }
   background: var(--ink);
   transform: translateY(0);
 }
+
+/* ---------- Bundle banner (all ebooks in one) ---------- */
+.bundle{
+  margin-top: 72px;
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 56px;
+  align-items: center;
+  padding: 48px 56px;
+  background: var(--black);
+  color: var(--ivory);
+  border-radius: var(--radius);
+}
+.bundle-cover{
+  aspect-ratio: 320 / 460;
+  box-shadow: 0 24px 48px -20px rgba(0,0,0,0.6);
+}
+.bundle-cover img{ display: block; width: 100%; height: 100%; }
+.bundle-eyebrow{
+  display: inline-block;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  border-radius: 20px;
+  background: var(--taupe);
+  color: var(--black);
+}
+.bundle h3{
+  font-size: clamp(1.8rem, 3.4vw, 2.6rem);
+  margin: 18px 0 12px;
+  color: var(--ivory);
+}
+.bundle p{
+  max-width: 560px;
+  font-size: 0.95rem;
+  color: rgba(245,241,232,0.75);
+}
+.bundle-price{
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin: 22px 0 26px;
+}
+.bundle-price s{ font-size: 1.1rem; color: rgba(245,241,232,0.45); }
+.bundle-price strong{ font-family: var(--serif); font-size: 2rem; font-weight: 400; color: var(--ivory); }
+.bundle-price span{ font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--taupe-soft); }
+.bundle-btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 14px 32px;
+  background: var(--ivory);
+  color: var(--black);
+  border-radius: var(--radius);
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  transition: background-color .3s var(--ease), transform .3s var(--ease);
+}
+.bundle-btn:hover{ background: var(--taupe-soft); transform: translateY(-2px); }
 
 /* ---------- Floating "Get the Guide" CTA ---------- */
 .floating-cta{
@@ -877,6 +940,11 @@ p{ margin: 0; }
 }
 
 @media (max-width: 860px){
+  .bundle{ grid-template-columns: 1fr; gap: 32px; padding: 40px 28px; text-align: center; }
+  .bundle-cover{ width: 180px; margin: 0 auto; }
+  .bundle p{ margin-left: auto; margin-right: auto; }
+  .bundle-price{ justify-content: center; }
+  .bundle-btn{ width: 100%; }
   .container{ padding: 0 24px; }
   .footer-bottom{ padding-top: 24px; padding-bottom: 24px; }
 
