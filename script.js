@@ -302,4 +302,49 @@
       el.classList.add("is-visible");
     });
   }
+
+  /* ---------- Floating "Get the Guide" CTA ---------- */
+  /* Visible on every section except the hero (where it would compete with
+     the hero's own buttons) and the products/contact/footer area (where the
+     real button, or the lead form, is already on screen). */
+  var floatingCta = document.getElementById("floatingCta");
+  if (floatingCta && "IntersectionObserver" in window) {
+    var heroEl = document.getElementById("top");
+    var hideZones = document.querySelectorAll("#products, #contact, .site-footer");
+    var zonesInView = new Set();
+    var heroInView = true;
+
+    function updateFloatingCta() {
+      floatingCta.classList.toggle("is-hidden", heroInView || zonesInView.size > 0);
+    }
+
+    if (heroEl) {
+      new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            heroInView = entry.isIntersecting;
+          });
+          updateFloatingCta();
+        },
+        { threshold: 0 }
+      ).observe(heroEl);
+    }
+
+    var zoneObserver = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            zonesInView.add(entry.target);
+          } else {
+            zonesInView.delete(entry.target);
+          }
+        });
+        updateFloatingCta();
+      },
+      { threshold: 0.15 }
+    );
+    hideZones.forEach(function (zone) {
+      zoneObserver.observe(zone);
+    });
+  }
 })();
