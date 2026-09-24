@@ -341,7 +341,10 @@
         });
         updateFloatingCta();
       },
-      { threshold: 0.15 }
+      // A zone counts as "in view" once it covers the middle band of the
+      // screen. A ratio threshold never fires for #products on phones, where
+      // the stacked product cards make it many screens tall.
+      { threshold: 0, rootMargin: "-40% 0px -40% 0px" }
     );
     hideZones.forEach(function (zone) {
       zoneObserver.observe(zone);
