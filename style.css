@@ -550,7 +550,7 @@ p{ margin: 0; }
 
 /* ---------- Bundle banner (all ebooks in one) ---------- */
 .bundle{
-  margin-top: 72px;
+  margin: 0 0 56px;
   display: grid;
   grid-template-columns: 240px 1fr;
   gap: 56px;
@@ -655,28 +655,41 @@ p{ margin: 0; }
   gap: 72px;
   align-items: center;
 }
-.about-media{
-  aspect-ratio: 4 / 5;
-  position: relative;
+.about-panel{
+  background: var(--black);
+  color: var(--ivory);
+  padding: 48px 44px;
   border-radius: var(--radius);
-  overflow: hidden;
-  background: var(--beige);
 }
-.about-caption{
-  margin-top: 20px;
-  padding-left: 2px;
-}
-.about-caption-name{
-  font-family: var(--serif);
-  font-size: 1rem;
-  color: var(--ink);
-  margin-bottom: 4px;
-}
-.about-caption-role{
+.about-panel-label{
   font-size: 0.7rem;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--taupe);
+  color: var(--taupe-soft);
+  margin-bottom: 28px;
+}
+.about-principles li{
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  padding: 22px 0;
+  border-top: 1px solid rgba(245,241,232,0.14);
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: rgba(245,241,232,0.7);
+}
+.about-principles li:last-child{ padding-bottom: 0; }
+.about-principles span{
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--taupe-soft);
+}
+.about-principles strong{
+  display: block;
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: var(--ivory);
+  margin-bottom: 4px;
 }
 .about-content .section-title{ margin-bottom: 24px; }
 .about-lead{
@@ -936,7 +949,7 @@ p{ margin: 0; }
   .method-grid{ grid-template-columns: 1fr 1fr; row-gap: 48px; }
   .method-connector{ display: none; }
   .about-grid{ grid-template-columns: 1fr; }
-  .about-media-wrap{ max-width: 420px; }
+  .about-panel{ padding: 36px 28px; }
 }
 
 @media (max-width: 860px){
