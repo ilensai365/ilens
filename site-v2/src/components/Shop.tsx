@@ -65,7 +65,10 @@ function BundleCard({ p }: { p: Product }) {
                 <span className="mt-[3px] grid h-4 w-4 shrink-0 place-items-center rounded-full bg-accent/15 text-[9px] text-accent" aria-hidden="true">
                   ✓
                 </span>
-                {g.title}
+                <span>
+                  {g.title}
+                  {g.pages && <span className="ml-1.5 font-mono text-[11px] text-ivory/40">{g.pages.replace(" pages", " p.")}</span>}
+                </span>
               </li>
             ))}
           </ul>
@@ -106,10 +109,23 @@ function ProductCard({ p }: { p: Product }) {
         <Cover p={p} />
         <div className="flex flex-1 flex-col px-3 pb-2 pt-5">
           <span className={`font-mono text-[11px] uppercase tracking-[0.25em] ${soon ? "text-ivory/40" : "text-accent"}`}>
-            {soon ? "Coming soon" : "Guide · PDF"}
+            {soon ? "Coming soon" : `Guide · PDF${p.pages ? ` · ${p.pages}` : ""}`}
           </span>
           <h3 className="mt-2.5 text-[20px] font-medium leading-snug tracking-[-0.01em]">{p.title}</h3>
           <p className="text-muted mb-6 mt-2 line-clamp-2 text-[15px] leading-relaxed">{p.blurb}</p>
+          {p.includes && (
+            <div className="mb-6">
+              <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-ivory/40">Inside</p>
+              <ul className="mt-3 space-y-2 text-[14px] leading-snug text-ivory/80">
+                {p.includes.map((item) => (
+                  <li key={item} className="flex gap-2.5">
+                    <span className="mt-[7px] h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden="true" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
 
           <div className="mt-auto flex items-center justify-between border-t hairline pt-4">
             <span className={`text-[18px] font-semibold tracking-[-0.01em] ${soon ? "text-ivory/40" : ""}`}>

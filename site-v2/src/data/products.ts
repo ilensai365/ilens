@@ -10,6 +10,10 @@ export type Product = {
   compareAt?: string;
   href: string;
   status: "available" | "soon";
+  /** Page count shown on the card, e.g. "40 pages". */
+  pages?: string;
+  /** "What's inside" bullets — keep in sync with the Payhip description (ilens-ebooks/payhip-descriptions.html). */
+  includes?: string[];
   featured?: boolean;
   /** Columns out of 12 on desktop. */
   span: 4 | 6 | 8;
@@ -37,6 +41,13 @@ export const products: Product[] = [
     price: "€19",
     href: PAYHIP("RX0Q7"),
     status: "available",
+    pages: "29 pages",
+    includes: [
+      "Five-stage content loop, from strategy to repurposing",
+      "30 copy-ready AI prompts for ideas, hooks and captions",
+      "Seven hook types and a weekly content system",
+      "7-day implementation challenge",
+    ],
     span: 4,
   },
   {
@@ -47,6 +58,13 @@ export const products: Product[] = [
     price: "€39",
     href: PAYHIP("Wgjuq"),
     status: "available",
+    pages: "40 pages",
+    includes: [
+      "Minute-by-minute build plan",
+      "Master AI prompt for a clean, mobile-first site",
+      "Payhip shop, Buy buttons and a working contact form",
+      "Live on your own domain via GitHub + Cloudflare",
+    ],
     span: 4,
   },
   {
@@ -57,6 +75,13 @@ export const products: Product[] = [
     price: "€39",
     href: PAYHIP("ujzSi"),
     status: "available",
+    pages: "40 pages",
+    includes: [
+      "The 1-1-1 test to pick a topic people pay for",
+      "Hour-by-hour writing sprint and chapter template",
+      "AI as co-writer — in your own voice",
+      "Pricing, Payhip checkout and launch scripts",
+    ],
     span: 4,
   },
   {
@@ -67,6 +92,13 @@ export const products: Product[] = [
     price: "€39",
     href: PAYHIP("0qJPn"),
     status: "available",
+    pages: "40 pages",
+    includes: [
+      "Validate your offer in 15 minutes",
+      "Storefront trust stack and a product card that converts",
+      "Checkout, EU VAT basics and refund policy",
+      "10–10–10 plan for your first hundred visitors",
+    ],
     span: 4,
   },
   {
