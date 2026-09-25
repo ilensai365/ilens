@@ -1,3 +1,5 @@
+import { socials } from "../data/site";
+
 const cols = [
   {
     title: "Studio",
@@ -14,8 +16,7 @@ const cols = [
     title: "Connect",
     links: [
       { label: "Contact", href: "#contact" },
-      { label: "LinkedIn", href: "https://linkedin.com" },
-      { label: "Instagram", href: "https://instagram.com" },
+      ...socials,
     ],
   },
 ];

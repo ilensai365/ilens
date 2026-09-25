@@ -6,6 +6,9 @@ export const BUNDLE_URL = PAYHIP("j4i6s");
 export const CONTACT_EMAIL = "hello@ilens.co";
 export const CONTACT_FORM_ENDPOINT = "https://formspree.io/f/myeyrnjy";
 
+/** Social profiles shown in the footer — add Facebook / LinkedIn here once they exist. */
+export const socials = [{ label: "Instagram", href: "https://www.instagram.com/ilens.co/" }];
+
 /**
  * Optional hero background video. Leave `src` empty to use the animated
  * gradient + floating covers. An `.m3u8` source streams via hls.js
