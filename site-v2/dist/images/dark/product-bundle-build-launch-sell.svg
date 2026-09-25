@@ -1,0 +1,40 @@
+<svg viewBox="0 0 320 460" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Build. Launch. Sell. bundle cover">
+  <title>Build. Launch. Sell.</title>
+  <defs>
+    <filter id="grainC"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch" result="n"/><feColorMatrix in="n" type="saturate" values="0"/></filter>
+    <linearGradient id="spineC" x1="0" y1="0" x2="1" y2="0"><stop offset="0.94" stop-color="#F5F1E8" stop-opacity="0"/><stop offset="1" stop-color="#F5F1E8" stop-opacity="0.2"/></linearGradient>
+  </defs>
+  <rect width="320" height="460" fill="#1B1914"/>
+
+  <g font-family="Georgia, 'Iowan Old Style', 'Times New Roman', serif">
+    <text x="28" y="52" font-size="21" font-weight="700" fill="#F5F1E8">iLens</text>
+    <text x="292" y="46" font-size="9" letter-spacing="1.5" fill="#F5F1E8" fill-opacity="0.65" text-anchor="end">BUNDLE</text>
+    <text x="292" y="58" font-size="9" letter-spacing="1.5" fill="#F5F1E8" fill-opacity="0.65" text-anchor="end">4 GUIDES</text>
+
+    <g font-size="8" letter-spacing="1.5" fill="#F5F1E8" fill-opacity="0.6">
+      <text x="28" y="116">01</text><text x="28" y="182">02</text><text x="28" y="248">03</text>
+    </g>
+    <g font-size="52" fill="#F5F1E8">
+      <text x="50" y="140">Build.</text>
+      <text x="50" y="206">Launch.</text>
+      <text x="50" y="272" fill="#D4FF4F">Sell.</text>
+    </g>
+
+    <line x1="28" y1="300" x2="292" y2="300" stroke="#F5F1E8" stroke-opacity="0.35"/>
+    <g font-size="7.5" letter-spacing="1.2" fill="#F5F1E8" fill-opacity="0.75">
+      <text x="28" y="322">AI CONTENT SYSTEM</text><text x="292" y="322" text-anchor="end">THE 60-MINUTE STOREFRONT</text>
+      <text x="28" y="340">THE 24-HOUR EBOOK</text><text x="292" y="340" text-anchor="end">ZERO TO FIRST SALE</text>
+    </g>
+
+    <text x="28" y="404" font-size="11" font-style="italic" fill="#F5F1E8" fill-opacity="0.85">The complete iLens library</text>
+    <text x="28" y="420" font-size="11" font-style="italic" fill="#F5F1E8" fill-opacity="0.85">for your first launch.</text>
+    <text x="160" y="442" font-size="7" letter-spacing="2" fill="#F5F1E8" fill-opacity="0.45" text-anchor="middle">ILENS.STUDIO — COMPLETE EDITION</text>
+  </g>
+
+  <g stroke="#F5F1E8" stroke-opacity="0.12">
+    <line x1="311" y1="14" x2="311" y2="446"/><line x1="314" y1="18" x2="314" y2="442"/><line x1="317" y1="22" x2="317" y2="438"/>
+  </g>
+  <rect width="320" height="460" filter="url(#grainC)" opacity="0.05"/>
+  <rect width="320" height="460" fill="url(#spineC)"/>
+  <rect x="0.5" y="0.5" width="319" height="459" fill="none" stroke="#F5F1E8" stroke-opacity="0.1"/>
+</svg>
