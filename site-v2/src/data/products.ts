@@ -1,4 +1,4 @@
-import { PAYHIP } from "./site";
+import { BUNDLE, PAYHIP } from "./site";
 
 export type Product = {
   id: string;
@@ -22,8 +22,8 @@ export const products: Product[] = [
     blurb:
       "All four guides in one download — AI Content System, The 60-Minute Storefront, The 24-Hour Ebook and Zero to First Sale. Everything from idea to first sale.",
     cover: "/images/product-bundle-build-launch-sell.svg",
-    price: "€120",
-    compareAt: "€180",
+    price: BUNDLE.price,
+    compareAt: BUNDLE.compareAt,
     href: PAYHIP("j4i6s"),
     status: "available",
     featured: true,
@@ -34,7 +34,7 @@ export const products: Product[] = [
     title: "AI Content System",
     blurb: "Plan, create and repurpose content with AI — faster and smarter.",
     cover: "/images/product-ai-content-system.svg",
-    price: "€37.50",
+    price: "€19",
     href: PAYHIP("RX0Q7"),
     status: "available",
     span: 4,
@@ -44,7 +44,7 @@ export const products: Product[] = [
     title: "The 60-Minute Storefront",
     blurb: "Launch a real website and shop in about an hour.",
     cover: "/images/product-site-shop-1h.svg",
-    price: "€47.50",
+    price: "€39",
     href: PAYHIP("Wgjuq"),
     status: "available",
     span: 4,
@@ -54,7 +54,7 @@ export const products: Product[] = [
     title: "The 24-Hour Ebook",
     blurb: "Write, publish and sell your first ebook before the day is over.",
     cover: "/images/product-first-ebook-24h.svg",
-    price: "€47.50",
+    price: "€39",
     href: PAYHIP("ujzSi"),
     status: "available",
     span: 4,
@@ -64,7 +64,7 @@ export const products: Product[] = [
     title: "Zero to First Sale",
     blurb: "Website, product and payment — the exact system behind this site, in one evening.",
     cover: "/images/product-zero-to-first-sale.svg",
-    price: "€47.50",
+    price: "€39",
     href: PAYHIP("0qJPn"),
     status: "available",
     span: 4,

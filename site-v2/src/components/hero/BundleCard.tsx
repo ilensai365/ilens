@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { SHOP_URL } from "../../data/site";
+import { BUNDLE, SHOP_URL } from "../../data/site";
 import { products } from "../../data/products";
 
 /** Hero "checkout card" for the Build. Launch. Sell. bundle. */
@@ -11,7 +11,7 @@ export default function BundleCard() {
       <div className="rounded-[18px] border hairline bg-ink/70 p-6 md:p-7">
         <div className="flex items-center justify-between">
           <span className="font-mono text-[11px] uppercase tracking-[0.25em] text-accent">Bundle · Best value</span>
-          <span className="shrink-0 whitespace-nowrap rounded-full bg-accent px-2.5 py-1 font-mono text-[11px] font-medium text-ink">Save €60</span>
+          <span className="shrink-0 whitespace-nowrap rounded-full bg-accent px-2.5 py-1 font-mono text-[11px] font-medium text-ink">Save {BUNDLE.save}</span>
         </div>
 
         <div className="mt-6 flex gap-5">
@@ -42,8 +42,8 @@ export default function BundleCard() {
 
         <div className="mt-6 flex items-end justify-between gap-4">
           <div>
-            <p className="font-mono text-[12px] text-ivory/40 line-through">€180</p>
-            <p className="font-display text-[44px] leading-none">€120</p>
+            <p className="font-mono text-[12px] text-ivory/40 line-through">{BUNDLE.compareAt}</p>
+            <p className="font-display text-[44px] leading-none">{BUNDLE.price}</p>
             <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.2em] text-ivory/50">VAT incl. · PDF</p>
           </div>
           <motion.a href={SHOP_URL} className="btn btn-accent" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>

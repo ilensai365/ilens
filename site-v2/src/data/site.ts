@@ -4,6 +4,9 @@ export const PAYHIP = (code: string) => `https://payhip.com/buy?link=${code}`;
 
 /** Where the main "Get the bundle" buttons lead: the shop section on this page, not straight to checkout. */
 export const SHOP_URL = "#shop";
+
+/** Bundle pricing (VAT incl.) — keep in sync with Payhip. Single-guide prices live in products.ts. */
+export const BUNDLE = { price: "€99", compareAt: "€136", save: "€37" };
 export const CONTACT_EMAIL = "hello@ilens.co";
 export const CONTACT_FORM_ENDPOINT = "https://formspree.io/f/myeyrnjy";
 
@@ -83,7 +86,7 @@ export const method = [
 export const insideStats = [
   { value: "4", label: "step-by-step guides" },
   { value: "149", label: "pages in the bundle" },
-  { value: "€60", label: "saved with the bundle" },
+  { value: BUNDLE.save, label: "saved with the bundle" },
   { value: "0", label: "subscriptions — pay once" },
 ];
 
@@ -121,7 +124,7 @@ export const faq = [
   },
   {
     q: "What's the difference between the bundle and single guides?",
-    a: "The Build. Launch. Sell. bundle includes all four guides for €120 instead of €180 bought separately. If you only need one step — content, storefront, ebook or first sale — pick that guide on its own.",
+    a: `The Build. Launch. Sell. bundle includes all four guides for ${BUNDLE.price} instead of ${BUNDLE.compareAt} bought separately. If you only need one step — content, storefront, ebook or first sale — pick that guide on its own.`,
   },
   {
     q: "Why does the bundle checkout ask me to create an account?",
