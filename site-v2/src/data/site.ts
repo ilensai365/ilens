@@ -2,7 +2,8 @@
 
 export const PAYHIP = (code: string) => `https://payhip.com/buy?link=${code}`;
 
-export const BUNDLE_URL = PAYHIP("j4i6s");
+/** Where the main "Get the bundle" buttons lead: the shop section on this page, not straight to checkout. */
+export const SHOP_URL = "#shop";
 export const CONTACT_EMAIL = "hello@ilens.co";
 export const CONTACT_FORM_ENDPOINT = "https://formspree.io/f/myeyrnjy";
 

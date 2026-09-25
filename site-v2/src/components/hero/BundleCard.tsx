@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { BUNDLE_URL } from "../../data/site";
+import { SHOP_URL } from "../../data/site";
 import { products } from "../../data/products";
 
 /** Hero "checkout card" for the Build. Launch. Sell. bundle. */
@@ -46,7 +46,7 @@ export default function BundleCard() {
             <p className="font-display text-[44px] leading-none">€120</p>
             <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.2em] text-ivory/50">VAT incl. · PDF</p>
           </div>
-          <motion.a href={BUNDLE_URL} className="btn btn-accent" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+          <motion.a href={SHOP_URL} className="btn btn-accent" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
             Get it now →
           </motion.a>
         </div>

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { BUNDLE_URL, CONTACT_EMAIL, marquee } from "../data/site";
+import { SHOP_URL, CONTACT_EMAIL, marquee } from "../data/site";
 import ContactForm from "./ContactForm";
 
 function Marquee() {
@@ -40,7 +40,7 @@ export default function FinalCta() {
           <span className="serif-i text-accent">Or still scrolling for ideas?</span>
         </h2>
         <div data-reveal className="mt-10">
-          <motion.a href={BUNDLE_URL} className="btn btn-accent" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+          <motion.a href={SHOP_URL} className="btn btn-accent" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
             Get the bundle — €120 <span aria-hidden="true">→</span>
           </motion.a>
         </div>

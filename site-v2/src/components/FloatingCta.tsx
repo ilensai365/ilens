@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { BUNDLE_URL } from "../data/site";
+import { SHOP_URL } from "../data/site";
 
 /** Bundle pill that appears after the hero and hides again near the contact section. */
 export default function FloatingCta() {
@@ -22,8 +22,8 @@ export default function FloatingCta() {
     <AnimatePresence>
       {show && (
         <motion.a
-          href={BUNDLE_URL}
-          aria-label="Get the Build. Launch. Sell. bundle on Payhip"
+          href={SHOP_URL}
+          aria-label="Go to the shop — Build. Launch. Sell. bundle, €120"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 20 }}
