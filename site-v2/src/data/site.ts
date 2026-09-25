@@ -83,12 +83,24 @@ export const method = [
   { n: "04", title: "Scale", body: "Sell, repurpose and systemise what works, so every launch is easier than the last." },
 ];
 
+/**
+ * "By the numbers" cards: what each guide promises. `count` animates up to that number.
+ * Only real, verifiable numbers here — no invented customer counts.
+ */
 export const insideStats = [
-  { value: "4", label: "step-by-step guides" },
-  { value: "149", label: "pages in the bundle" },
-  { value: BUNDLE.save, label: "saved with the bundle" },
-  { value: "0", label: "subscriptions — pay once" },
+  { count: 60, unit: "min", title: "to a live website & shop", source: "The 60-Minute Storefront", progress: 0.25 },
+  { count: 24, unit: "h", title: "from blank page to published ebook", source: "The 24-Hour Ebook", progress: 0.5 },
+  { count: 1, unit: "evening", title: "to set up the system behind your first sale", source: "Zero to First Sale", progress: 0.75 },
+  { count: 99, prefix: "€", title: `for all four guides — ${BUNDLE.compareAt} separately`, source: "Build. Launch. Sell.", progress: 1 },
 ];
+
+export const insideFacts = ["149 pages", "Instant PDF download", "VAT included", "Pay once — no subscription"];
+
+/**
+ * Social proof. Leave `customers` at null until there is a real number (Payhip → Customers);
+ * the counter card appears automatically once it is set, e.g. { customers: 120 }.
+ */
+export const proof: { customers: number | null } = { customers: null };
 
 export const services = [
   {
