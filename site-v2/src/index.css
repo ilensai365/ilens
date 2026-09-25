@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Acid lime accent; kept as variables so the colour can change in one place. */
+  --accent: 212 255 79;
+  --accent-ink: 14 13 11;
+  --glow: rgba(212, 255, 79, 0.16);
+  color-scheme: dark;
+}
+
+@layer base {
+  html {
+    background: #0e0d0b;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-ink font-sans text-ivory antialiased;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  ::selection {
+    background: rgb(var(--accent));
+    color: rgb(var(--accent-ink));
+  }
+  section[id] {
+    scroll-margin-top: 88px;
+  }
+  :focus-visible {
+    outline: 2px solid rgb(var(--accent));
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-content px-6;
+  }
+  .eyebrow {
+    @apply font-mono text-[12px] uppercase tracking-eyebrow text-accent;
+  }
+  .text-muted {
+    color: rgba(245, 241, 232, 0.64);
+  }
+  .glass {
+    background: rgba(245, 241, 232, 0.04);
+    border: 1px solid rgba(245, 241, 232, 0.08);
+    @apply backdrop-blur-xl;
+  }
+  .surface {
+    background: rgba(245, 241, 232, 0.03);
+    border: 1px solid rgba(245, 241, 232, 0.08);
+  }
+  .hairline {
+    border-color: rgba(245, 241, 232, 0.08);
+  }
+  .serif-i {
+    @apply font-display font-light italic;
+    letter-spacing: -0.01em;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full px-6 py-3.5 text-[15px] font-medium transition-colors duration-200;
+  }
+  .btn-accent {
+    background: rgb(var(--accent));
+    color: rgb(var(--accent-ink));
+  }
+  .btn-accent:hover {
+    background: rgb(var(--accent) / 0.88);
+  }
+  .btn-ghost {
+    border: 1px solid rgba(245, 241, 232, 0.2);
+    @apply text-ivory;
+  }
+  .btn-ghost:hover {
+    border-color: rgba(245, 241, 232, 0.5);
+    background: rgba(245, 241, 232, 0.04);
+  }
+}
+
+/* Elements animated in by GSAP start hidden only when JS + motion are allowed. */
+.js-motion [data-reveal] {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

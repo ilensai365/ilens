@@ -1,0 +1,56 @@
+<svg viewBox="0 0 320 460" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The Content Template Kit cover">
+  <title>The Content Template Kit</title>
+  <defs>
+    <filter id="grain9"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch" result="n"/><feColorMatrix in="n" type="saturate" values="0"/></filter>
+    <linearGradient id="spine9" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0.94" stop-color="#16140F" stop-opacity="0"/>
+      <stop offset="1" stop-color="#16140F" stop-opacity="0.16"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="320" height="460" fill="#E4DAC6"/>
+
+  <!-- a 3×3 feed grid: the posts the templates build -->
+  <g transform="translate(176 290)">
+    <rect x="0" y="0" width="32" height="32" fill="#16140F"/>
+    <rect x="36" y="0" width="32" height="32" fill="none" stroke="#16140F" stroke-opacity="0.35"/>
+    <rect x="72" y="0" width="32" height="32" fill="#A9967F"/>
+    <rect x="0" y="36" width="32" height="32" fill="none" stroke="#16140F" stroke-opacity="0.35"/>
+    <rect x="36" y="36" width="32" height="32" fill="#F5F1E8"/>
+    <rect x="72" y="36" width="32" height="32" fill="none" stroke="#16140F" stroke-opacity="0.35"/>
+    <rect x="0" y="72" width="32" height="32" fill="#A9967F"/>
+    <rect x="36" y="72" width="32" height="32" fill="none" stroke="#16140F" stroke-opacity="0.35"/>
+    <rect x="72" y="72" width="32" height="32" fill="#16140F"/>
+    <line x1="42" y1="48" x2="62" y2="48" stroke="#16140F" stroke-opacity="0.5"/>
+    <line x1="42" y1="55" x2="56" y2="55" stroke="#16140F" stroke-opacity="0.5"/>
+  </g>
+
+  <g font-family="Georgia, 'Iowan Old Style', 'Times New Roman', serif">
+    <text x="28" y="52" font-size="21" font-weight="700" fill="#16140F">iLens</text>
+
+    <text x="292" y="46" font-size="9" letter-spacing="1.5" fill="#16140F" fill-opacity="0.55" text-anchor="end">TEMPLATES</text>
+    <text x="292" y="58" font-size="9" letter-spacing="1.5" fill="#16140F" fill-opacity="0.55" text-anchor="end">08</text>
+
+    <text x="26" y="152" font-size="34" fill="#16140F">The Content</text>
+    <text x="26" y="194" font-size="34" fill="#16140F">Template</text>
+    <text x="26" y="236" font-size="34" fill="#16140F">Kit</text>
+
+    <text x="28" y="266" font-size="9.5" letter-spacing="1.4" fill="#16140F" fill-opacity="0.6">POSTS — CAROUSELS — STORIES</text>
+
+    <text x="28" y="404" font-size="11" font-style="italic" fill="#16140F" fill-opacity="0.75">Edit. Post.</text>
+    <text x="28" y="420" font-size="11" font-style="italic" fill="#16140F" fill-opacity="0.75">Done.</text>
+
+    <text x="160" y="442" font-size="7" letter-spacing="2" fill="#16140F" fill-opacity="0.45" text-anchor="middle">ILENS.STUDIO — DIGITAL EDITION</text>
+  </g>
+
+  <g stroke="#16140F" stroke-opacity="0.1">
+    <line x1="311" y1="14" x2="311" y2="446"/>
+    <line x1="314" y1="18" x2="314" y2="442"/>
+    <line x1="317" y1="22" x2="317" y2="438"/>
+  </g>
+
+  <rect width="320" height="460" filter="url(#grain9)" opacity="0.035"/>
+  <rect width="320" height="460" fill="url(#spine9)"/>
+  <rect width="320" height="2" fill="#FFFFFF" opacity="0.25"/>
+  <rect x="0.5" y="0.5" width="319" height="459" fill="none" stroke="#16140F" stroke-opacity="0.08"/>
+</svg>
