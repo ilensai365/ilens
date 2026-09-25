@@ -71,14 +71,14 @@ export default function Hero({ ready }: { ready: boolean }) {
           >
             <span className="sr-only">Create content, launch an ebook, build a shop — that actually sells.</span>
             <span aria-hidden="true" className="relative block h-[1.1em] overflow-hidden whitespace-nowrap">
-              <AnimatePresence mode="wait" initial={false}>
+              <AnimatePresence mode="popLayout" initial={false}>
                 <motion.span
                   key={phrases[i]}
                   className="block"
-                  initial={{ y: "40%", opacity: 0, filter: "blur(6px)" }}
-                  animate={{ y: "0%", opacity: 1, filter: "blur(0px)" }}
-                  exit={{ y: "-40%", opacity: 0, filter: "blur(6px)" }}
-                  transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                  initial={{ y: "100%", opacity: 0 }}
+                  animate={{ y: "0%", opacity: 1 }}
+                  exit={{ y: "-100%", opacity: 0 }}
+                  transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
                 >
                   {phrases[i]}
                 </motion.span>
