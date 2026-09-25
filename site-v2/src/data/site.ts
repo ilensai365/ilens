@@ -6,10 +6,11 @@ export const BUNDLE_URL = PAYHIP("j4i6s");
 export const CONTACT_EMAIL = "hello@ilens.co";
 export const CONTACT_FORM_ENDPOINT = "https://formspree.io/f/myeyrnjy";
 
-/** Social profiles shown in the footer — add LinkedIn here once it exists. */
+/** Social profiles shown in the footer. */
 export const socials = [
   { label: "Instagram", href: "https://www.instagram.com/ilens.co/" },
   { label: "Facebook", href: "https://www.facebook.com/profile.php?id=61594417455543" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/company/ilenscreativestudio/" },
 ];
 
 /**
