@@ -6,8 +6,11 @@ export const BUNDLE_URL = PAYHIP("j4i6s");
 export const CONTACT_EMAIL = "hello@ilens.co";
 export const CONTACT_FORM_ENDPOINT = "https://formspree.io/f/myeyrnjy";
 
-/** Social profiles shown in the footer — add Facebook / LinkedIn here once they exist. */
-export const socials = [{ label: "Instagram", href: "https://www.instagram.com/ilens.co/" }];
+/** Social profiles shown in the footer — add LinkedIn here once it exists. */
+export const socials = [
+  { label: "Instagram", href: "https://www.instagram.com/ilens.co/" },
+  { label: "Facebook", href: "https://www.facebook.com/profile.php?id=61594417455543" },
+];
 
 /**
  * Optional hero background video. Leave `src` empty to use the animated
