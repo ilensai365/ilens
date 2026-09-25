@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { products, type Product } from "../data/products";
+import { BUNDLE } from "../data/site";
 import SectionHead from "./SectionHead";
 
 const spanClass: Record<Product["span"], string> = {
@@ -35,47 +36,94 @@ function Cover({ p, large }: { p: Product; large?: boolean }) {
   );
 }
 
-function Card({ p }: { p: Product }) {
+/** Featured bundle: short title, scannable list of what's included, clear price row. */
+function BundleCard({ p }: { p: Product }) {
+  const included = products.filter((g) => g.status === "available" && !g.featured);
+  return (
+    <div data-reveal className={spanClass[p.span]}>
+      <motion.a
+        href={p.href}
+        whileHover={{ y: -6 }}
+        transition={{ type: "spring", stiffness: 300, damping: 24 }}
+        className="group glass flex h-full flex-col gap-3 rounded-card !border-accent/50 p-3 shadow-[0_0_60px_-20px_var(--glow)] md:grid md:grid-cols-2"
+      >
+        <Cover p={p} large />
+        <div className="flex flex-col p-5 md:p-8">
+          <div className="flex items-center justify-between gap-3">
+            <span className="font-mono text-[11px] uppercase tracking-[0.25em] text-accent">Bundle · 4 guides</span>
+            <span className="whitespace-nowrap rounded-full bg-accent px-2.5 py-1 font-mono text-[11px] font-medium text-ink">
+              Save {BUNDLE.save}
+            </span>
+          </div>
+
+          <h3 className="mt-5 text-[30px] font-medium leading-tight tracking-[-0.02em] md:text-[34px]">{p.title}</h3>
+          <p className="text-muted mt-2 text-[15px] leading-relaxed">The complete iLens library — from idea to first sale.</p>
+
+          <ul className="mt-6 grid gap-x-5 gap-y-2.5 border-t hairline pt-5 text-[14px] sm:grid-cols-2">
+            {included.map((g) => (
+              <li key={g.id} className="flex items-start gap-2.5 text-ivory/85">
+                <span className="mt-[3px] grid h-4 w-4 shrink-0 place-items-center rounded-full bg-accent/15 text-[9px] text-accent" aria-hidden="true">
+                  ✓
+                </span>
+                {g.title}
+              </li>
+            ))}
+          </ul>
+
+          <div className="mt-8 flex flex-wrap items-end justify-between gap-4 border-t hairline pt-6 md:mt-auto">
+            <div>
+              <p className="flex items-baseline gap-2.5">
+                <span className="text-[40px] font-semibold leading-none tracking-[-0.03em]">{p.price}</span>
+                {p.compareAt && <s className="font-mono text-[14px] text-ivory/40">{p.compareAt}</s>}
+              </p>
+              <p className="mt-2 font-mono text-[11px] uppercase tracking-[0.2em] text-ivory/45">One-time · VAT incl.</p>
+            </div>
+            <span className="btn btn-accent">
+              Get the bundle
+              <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">
+                →
+              </span>
+            </span>
+          </div>
+        </div>
+      </motion.a>
+    </div>
+  );
+}
+
+/** Single guide / coming-soon card: label, title, two-line blurb, price + action pinned to the bottom. */
+function ProductCard({ p }: { p: Product }) {
   const soon = p.status === "soon";
-  const large = p.span === 8;
   // Reveal (GSAP) and hover lift (Framer) sit on separate elements so their transforms don't fight.
   return (
     <div data-reveal className={spanClass[p.span]}>
-    <motion.a
-      href={p.href}
-      whileHover={{ y: -6 }}
-      transition={{ type: "spring", stiffness: 300, damping: 24 }}
-      className={`group glass flex h-full flex-col rounded-card p-3 ${
-        p.featured ? "!border-accent/50 shadow-[0_0_60px_-20px_var(--glow)]" : ""
-      } ${large ? "md:grid md:grid-cols-2 md:gap-3" : ""}`}
-    >
-      <Cover p={p} large={large} />
-      <div className={`flex flex-1 flex-col p-4 ${large ? "md:justify-center md:p-8" : ""}`}>
-        <div className="flex items-center justify-between gap-3">
+      <motion.a
+        href={p.href}
+        whileHover={{ y: -6 }}
+        transition={{ type: "spring", stiffness: 300, damping: 24 }}
+        className="group glass flex h-full flex-col rounded-card p-3"
+      >
+        <Cover p={p} />
+        <div className="flex flex-1 flex-col px-3 pb-2 pt-5">
           <span className={`font-mono text-[11px] uppercase tracking-[0.25em] ${soon ? "text-ivory/40" : "text-accent"}`}>
-            {p.featured ? "Bundle · Best value" : soon ? "Coming soon" : "Guide · PDF"}
+            {soon ? "Coming soon" : "Guide · PDF"}
           </span>
-          {p.price && (
-            <span className="font-mono text-[13px]">
-              {p.compareAt && <s className="mr-2 text-ivory/40">{p.compareAt}</s>}
-              <span className="text-ivory">{p.price}</span>
+          <h3 className="mt-2.5 text-[20px] font-medium leading-snug tracking-[-0.01em]">{p.title}</h3>
+          <p className="text-muted mb-6 mt-2 line-clamp-2 text-[15px] leading-relaxed">{p.blurb}</p>
+
+          <div className="mt-auto flex items-center justify-between border-t hairline pt-4">
+            <span className={`text-[18px] font-semibold tracking-[-0.01em] ${soon ? "text-ivory/40" : ""}`}>
+              {p.price ?? "Soon"}
             </span>
-          )}
+            <span className={`inline-flex items-center gap-2 text-[14px] font-medium ${soon ? "text-ivory/60" : "text-accent"}`}>
+              {soon ? "Get notified" : "Get the guide"}
+              <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">
+                →
+              </span>
+            </span>
+          </div>
         </div>
-        <h3 className={`mt-3 font-medium ${large ? "font-display text-h1" : "text-[20px]"}`}>{p.title}</h3>
-        <p className="text-muted mt-2 text-[15px]">{p.blurb}</p>
-        <span
-          className={`mt-6 inline-flex items-center gap-2 text-[14px] font-medium ${
-            large ? "btn btn-accent self-start" : soon ? "text-ivory/60" : "text-accent"
-          } md:mt-auto md:pt-6`}
-        >
-          {soon ? "Get notified" : large ? "Get the bundle" : "Get the guide"}
-          <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">
-            →
-          </span>
-        </span>
-      </div>
-    </motion.a>
+      </motion.a>
     </div>
   );
 }
@@ -94,7 +142,7 @@ export default function Shop() {
         />
         <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-12">
           {products.map((p) => (
-            <Card key={p.id} p={p} />
+            p.featured ? <BundleCard key={p.id} p={p} /> : <ProductCard key={p.id} p={p} />
           ))}
         </div>
         <p data-reveal className="mt-8 text-center font-mono text-[12px] uppercase tracking-[0.2em] text-ivory/45">
