@@ -17,7 +17,7 @@
     <g font-size="52" fill="#F5F1E8">
       <text x="50" y="140">Build.</text>
       <text x="50" y="206">Launch.</text>
-      <text x="50" y="272" fill="#D4FF4F">Sell.</text>
+      <text x="50" y="272" fill="#E2B464">Sell.</text>
     </g>
 
     <line x1="28" y1="300" x2="292" y2="300" stroke="#F5F1E8" stroke-opacity="0.35"/>

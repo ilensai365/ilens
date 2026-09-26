@@ -20,9 +20,9 @@
     <line x1="0" y1="32" x2="64" y2="32" stroke-opacity="0.8"/>
     <line x1="0" y1="64" x2="150" y2="64" stroke-opacity="0.8"/>
     <line x1="0" y1="96" x2="94" y2="96" stroke-opacity="0.8"/>
-    <circle cx="120" cy="0" r="5" fill="#D4FF4F" stroke-opacity="0.8"/>
-    <circle cx="64" cy="32" r="5" fill="#D4FF4F" stroke="none"/>
-    <circle cx="150" cy="64" r="5" fill="#D4FF4F" stroke-opacity="0.8"/>
+    <circle cx="120" cy="0" r="5" fill="#E2B464" stroke-opacity="0.8"/>
+    <circle cx="64" cy="32" r="5" fill="#E2B464" stroke="none"/>
+    <circle cx="150" cy="64" r="5" fill="#E2B464" stroke-opacity="0.8"/>
     <circle cx="94" cy="96" r="5" fill="#F5F1E8" stroke="none"/>
   </g>
 

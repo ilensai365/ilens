@@ -3,12 +3,14 @@
 @tailwind utilities;
 
 :root {
-  /* Acid lime accent; kept as variables so the colour can change in one place. */
-  --accent: 212 255 79;
+  /* Gold accent (matches the iLens Instagram); kept as variables so the colour can change in one place. */
+  --accent: 226 180 100;
   --accent-ink: 14 13 11;
-  --glow: rgba(212, 255, 79, 0.16);
+  --glow: rgba(226, 180, 100, 0.16);
+  --beam: rgba(226, 180, 100, 0.24);
   color-scheme: dark;
 }
+
 
 @layer base {
   html {

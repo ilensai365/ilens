@@ -1,5 +1,8 @@
 import { BUNDLE, PAYHIP } from "./site";
 
+/** Base-relative image prefix, so the site also works from a sub-path (e.g. the accent preview build). */
+const IMG = import.meta.env.BASE_URL;
+
 export type Product = {
   id: string;
   title: string;
@@ -25,7 +28,7 @@ export const products: Product[] = [
     title: "Build. Launch. Sell.",
     blurb:
       "All four guides in one download — AI Content System, The 60-Minute Storefront, The 24-Hour Ebook and Zero to First Sale. Everything from idea to first sale.",
-    cover: "/images/dark/product-bundle-build-launch-sell.svg",
+    cover: IMG + "images/dark/product-bundle-build-launch-sell.svg",
     price: BUNDLE.price,
     compareAt: BUNDLE.compareAt,
     href: PAYHIP("j4i6s"),
@@ -37,7 +40,7 @@ export const products: Product[] = [
     id: "ai-content-system",
     title: "AI Content System",
     blurb: "Plan, create and repurpose content with AI — faster and smarter.",
-    cover: "/images/dark/product-ai-content-system.svg",
+    cover: IMG + "images/dark/product-ai-content-system.svg",
     price: "€19",
     href: PAYHIP("RX0Q7"),
     status: "available",
@@ -54,7 +57,7 @@ export const products: Product[] = [
     id: "storefront",
     title: "The 60-Minute Storefront",
     blurb: "Launch a real website and shop in about an hour.",
-    cover: "/images/dark/product-site-shop-1h.svg",
+    cover: IMG + "images/dark/product-site-shop-1h.svg",
     price: "€39",
     href: PAYHIP("Wgjuq"),
     status: "available",
@@ -71,7 +74,7 @@ export const products: Product[] = [
     id: "ebook-24h",
     title: "The 24-Hour Ebook",
     blurb: "Write, publish and sell your first ebook before the day is over.",
-    cover: "/images/dark/product-first-ebook-24h.svg",
+    cover: IMG + "images/dark/product-first-ebook-24h.svg",
     price: "€39",
     href: PAYHIP("ujzSi"),
     status: "available",
@@ -88,7 +91,7 @@ export const products: Product[] = [
     id: "first-sale",
     title: "Zero to First Sale",
     blurb: "Website, product and payment — the exact system behind this site, in one evening.",
-    cover: "/images/dark/product-zero-to-first-sale.svg",
+    cover: IMG + "images/dark/product-zero-to-first-sale.svg",
     price: "€39",
     href: PAYHIP("0qJPn"),
     status: "available",
@@ -105,7 +108,7 @@ export const products: Product[] = [
     id: "template-kit",
     title: "The Content Template Kit",
     blurb: "Ready-to-edit posts, carousels and stories for a consistent, premium feed.",
-    cover: "/images/dark/product-content-template-kit.svg",
+    cover: IMG + "images/dark/product-content-template-kit.svg",
     href: "#contact",
     status: "soon",
     span: 4,
@@ -114,7 +117,7 @@ export const products: Product[] = [
     id: "prompt-vault",
     title: "The Prompt Vault",
     blurb: "Tested AI prompts for hooks, captions and sales copy that sound like you.",
-    cover: "/images/dark/product-prompt-vault.svg",
+    cover: IMG + "images/dark/product-prompt-vault.svg",
     href: "#contact",
     status: "soon",
     span: 4,
@@ -123,7 +126,7 @@ export const products: Product[] = [
     id: "presets",
     title: "Editorial Presets",
     blurb: "Warm, clean photo presets for a timeless editorial look in one tap.",
-    cover: "/images/dark/product-editorial-presets.svg",
+    cover: IMG + "images/dark/product-editorial-presets.svg",
     href: "#contact",
     status: "soon",
     span: 4,

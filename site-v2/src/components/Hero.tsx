@@ -35,7 +35,7 @@ export default function Hero({ ready }: { ready: boolean }) {
         <div className="absolute left-[18%] top-[-25%] h-[95%] w-[36vw] rotate-[18deg]">
           <div
             className="h-full w-full animate-drift blur-3xl"
-            style={{ background: "linear-gradient(to bottom, rgba(212,255,79,0.22), transparent 75%)" }}
+            style={{ background: "linear-gradient(to bottom, var(--beam), transparent 75%)" }}
           />
         </div>
         <div className="absolute left-[48%] top-[-25%] h-[95%] w-[28vw] -rotate-[16deg]">

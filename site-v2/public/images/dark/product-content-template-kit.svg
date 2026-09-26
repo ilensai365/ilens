@@ -14,11 +14,11 @@
   <g transform="translate(176 290)">
     <rect x="0" y="0" width="32" height="32" fill="#F5F1E8"/>
     <rect x="36" y="0" width="32" height="32" fill="none" stroke="#F5F1E8" stroke-opacity="0.35"/>
-    <rect x="72" y="0" width="32" height="32" fill="#D4FF4F"/>
+    <rect x="72" y="0" width="32" height="32" fill="#E2B464"/>
     <rect x="0" y="36" width="32" height="32" fill="none" stroke="#F5F1E8" stroke-opacity="0.35"/>
-    <rect x="36" y="36" width="32" height="32" fill="#D4FF4F"/>
+    <rect x="36" y="36" width="32" height="32" fill="#E2B464"/>
     <rect x="72" y="36" width="32" height="32" fill="none" stroke="#F5F1E8" stroke-opacity="0.35"/>
-    <rect x="0" y="72" width="32" height="32" fill="#D4FF4F"/>
+    <rect x="0" y="72" width="32" height="32" fill="#E2B464"/>
     <rect x="36" y="72" width="32" height="32" fill="none" stroke="#F5F1E8" stroke-opacity="0.35"/>
     <rect x="72" y="72" width="32" height="32" fill="#F5F1E8"/>
     <line x1="42" y1="48" x2="62" y2="48" stroke="#F5F1E8" stroke-opacity="0.5"/>

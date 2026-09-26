@@ -11,7 +11,7 @@
   <rect width="320" height="460" fill="#1B1914"/>
 
   <circle cx="252" cy="332" r="72" fill="none" stroke="#F5F1E8" stroke-opacity="0.12" stroke-width="1"/>
-  <circle cx="222" cy="300" r="46" fill="none" stroke="#D4FF4F" stroke-opacity="0.4" stroke-width="1"/>
+  <circle cx="222" cy="300" r="46" fill="none" stroke="#E2B464" stroke-opacity="0.4" stroke-width="1"/>
 
   <g font-family="Georgia, 'Iowan Old Style', 'Times New Roman', serif">
     <text x="28" y="52" font-size="21" font-weight="700" fill="#F5F1E8">iLens</text>

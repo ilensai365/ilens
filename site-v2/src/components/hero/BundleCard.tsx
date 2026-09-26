@@ -16,7 +16,7 @@ export default function BundleCard() {
 
         <div className="mt-6 flex gap-5">
           <img
-            src="/images/dark/product-bundle-build-launch-sell.svg"
+            src={`${import.meta.env.BASE_URL}images/dark/product-bundle-build-launch-sell.svg`}
             alt="Build. Launch. Sell. bundle cover"
             width={320}
             height={460}
