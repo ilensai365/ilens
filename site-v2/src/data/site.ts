@@ -1,6 +1,7 @@
 // All editable copy and links live in src/data — change text here, not in components.
 
-export const PAYHIP = (code: string) => `https://payhip.com/buy?link=${code}`;
+/** Payhip product page (description, mockups, then Buy) — not the bare checkout. */
+export const PAYHIP = (code: string) => `https://payhip.com/b/${code}`;
 
 /** Where the main "Get the bundle" buttons lead: the shop section on this page, not straight to checkout. */
 export const SHOP_URL = "#shop";
