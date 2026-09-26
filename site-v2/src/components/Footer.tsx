@@ -10,6 +10,7 @@ const cols = [
       { label: "About", href: "#about" },
       { label: "1:1 & Projects", href: "#services" },
       { label: "FAQ", href: "#faq" },
+      { label: "Free prompts", href: "/free/" },
     ],
   },
   {
