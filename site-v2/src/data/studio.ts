@@ -4,8 +4,9 @@
 // Prices are "from" ranges proposed 2026-09-27 — confirm with the owner before changing.
 
 const IMG = import.meta.env.BASE_URL + "images/work/";
+const EB = import.meta.env.BASE_URL + "images/ebooks/";
 
-export type Category = "Branding" | "Web" | "Social & campaigns" | "Print & packaging" | "Events";
+export type Category = "Branding" | "Web" | "Social & campaigns" | "Print & packaging" | "Ebooks" | "Events";
 
 export type Project = {
   id: string;
@@ -21,7 +22,7 @@ export type Project = {
   wide?: boolean;
 };
 
-export const categories: Category[] = ["Branding", "Web", "Social & campaigns", "Print & packaging", "Events"];
+export const categories: Category[] = ["Branding", "Web", "Social & campaigns", "Print & packaging", "Ebooks", "Events"];
 
 export const projects: Project[] = [
   {
@@ -116,14 +117,14 @@ export const projects: Project[] = [
     images: [IMG + "tech-webinar.webp"],
   },
   {
-    id: "sportowa-platforma",
-    cover: IMG + "covers/sportowa-platforma.webp",
-    title: "Sportowa Platforma",
-    sector: "Sport",
-    categories: ["Branding", "Social & campaigns", "Print & packaging"],
-    summary: "Identity for a football jobs and listings platform: logo system, A5 brochure and a social campaign.",
-    deliverables: ["Logo & sign", "Colour and mono versions", "A5 brochure", "Social campaign", "Web banners"],
-    images: [IMG + "sportowa-platforma.webp", IMG + "sportowa-platforma-logo.webp", IMG + "sportowa-platforma-versions.webp", IMG + "sportowa-platforma-brochure.webp", IMG + "sportowa-platforma-brochure-inside.webp", IMG + "sportowa-platforma-social.webp"],
+    id: "ilens-guides",
+    cover: EB + "bundle.webp",
+    title: "iLens Guides",
+    sector: "Ebooks",
+    categories: ["Ebooks", "Branding"],
+    summary: "Our own library of four PDF guides: covers, editorial layout, device and print mockups, and the store pages that sell them.",
+    deliverables: ["Cover system", "Editorial layout", "Mockups", "Store pages"],
+    images: [EB + "collection.webp", EB + "stack.webp", EB + "devices.webp", EB + "spread.webp"],
   },
   {
     id: "kancelaria",
@@ -165,6 +166,23 @@ export const projects: Project[] = [
     deliverables: ["Campaign visuals", "AI art direction"],
     images: [IMG + "immersive.webp"],
   },
+  {
+    id: "sportowa-platforma",
+    cover: IMG + "covers/sportowa-platforma.webp",
+    title: "Sportowa Platforma",
+    sector: "Sport",
+    categories: ["Branding", "Social & campaigns", "Print & packaging"],
+    summary: "Identity for a football jobs and listings platform: logo system, A5 brochure and a social campaign.",
+    deliverables: ["Logo & sign", "Colour and mono versions", "A5 brochure", "Social campaign", "Web banners"],
+    images: [IMG + "sportowa-platforma.webp", IMG + "sportowa-platforma-logo.webp", IMG + "sportowa-platforma-versions.webp", IMG + "sportowa-platforma-brochure.webp", IMG + "sportowa-platforma-brochure-inside.webp", IMG + "sportowa-platforma-social.webp"],
+  },
+];
+
+/** Studio hero: the iLens guides as ebook-design showcase; each card opens the product page. */
+export const heroEbooks = [
+  { id: "hero-bundle", title: "Build. Launch. Sell.", price: "€99", cover: EB + "bundle.webp", href: "https://payhip.com/b/j4i6s" },
+  { id: "hero-ai", title: "AI Content System", price: "€19", cover: EB + "ai-content-system.webp", href: "https://payhip.com/b/RX0Q7" },
+  { id: "hero-24h", title: "The 24-Hour Ebook", price: "€39", cover: EB + "24-hour-ebook.webp", href: "https://payhip.com/b/ujzSi" },
 ];
 
 export const services = [
@@ -181,6 +199,13 @@ export const services = [
       { label: "AI Content System — €19", href: "https://payhip.com/b/RX0Q7" },
       { label: "Free: 10 AI prompts", href: "/free/" },
     ],
+  },
+  {
+    title: "Ebooks & digital products",
+    body: "Ebooks, guides and lead magnets designed to sell: cover, editorial layout, device and print mockups, and a store page. The same system behind our own guides.",
+    from: "from €299",
+    image: EB + "devices.webp",
+    links: [{ label: "See our guides", href: "/#shop" }],
   },
 ];
 

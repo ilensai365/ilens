@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState, type FormEvent } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { categories, packages, process, projects, sectors, services, studioFaq, type Category, type Project } from "../data/studio";
+import { categories, heroEbooks, packages, process, projects, sectors, services, studioFaq, type Category, type Project } from "../data/studio";
 import { CONTACT_EMAIL, CONTACT_FORM_ENDPOINT, socials } from "../data/site";
 
 const nav = [
@@ -150,6 +150,26 @@ function ProjectCard({ p, index, onOpen, className = "", compact = false }: { p:
         </span>
       </div>
     </button>
+  );
+}
+
+/** Hero ebook mockup: the cover already carries the title, so the card only adds a quiet label, price and arrow. */
+function EbookCard({ e, tall, className }: { e: (typeof heroEbooks)[number]; tall: boolean; className: string }) {
+  return (
+    <a href={e.href} target="_blank" rel="noopener noreferrer" className={`group relative block overflow-hidden rounded-[20px] bg-[#0B0A08] ${className}`}>
+      <img
+        src={e.cover}
+        alt={`${e.title} ebook mockup`}
+        className={`absolute inset-0 h-full w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.05] ${tall ? "object-[50%_45%]" : "scale-[1.12] object-[50%_55%] group-hover:scale-[1.18]"}`}
+      />
+      <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#0B0A08] to-transparent" aria-hidden="true" />
+      <div className="absolute inset-0 rounded-[20px] ring-1 ring-inset ring-ivory/10 transition-colors group-hover:ring-accent/50" aria-hidden="true" />
+      <span className="absolute left-4 top-4 rounded-full bg-black/55 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.22em] text-accent backdrop-blur-md">Ebook design</span>
+      <div className="absolute inset-x-4 bottom-4 flex items-center justify-between gap-3">
+        <span className="truncate font-mono text-[10px] uppercase tracking-[0.2em] text-ivory/75">{e.price}</span>
+        <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-ivory/25 text-ivory transition-all duration-300 group-hover:rotate-[-45deg] group-hover:border-accent group-hover:bg-accent group-hover:text-ink" aria-hidden="true">→</span>
+      </div>
+    </a>
   );
 }
 
@@ -318,33 +338,25 @@ export default function StudioPage() {
                 A creative studio for brands that <span className="serif-i text-accent">want to be seen.</span>
               </h1>
               <p className="text-muted mt-7 max-w-xl text-[18px]">
-                Brand identity, websites, campaigns and social media, designed with editorial craft and built faster with
-                AI.
+                Brand identity, websites, campaigns, social media and ebooks, designed with editorial craft and built
+                faster with AI.
               </p>
               <div className="mt-10 flex flex-col gap-3 sm:flex-row">
                 <a href="#work" className="btn btn-accent">See the work →</a>
                 <a href="#contact" className="btn btn-ghost">Start a project</a>
               </div>
               <ul className="mt-10 flex flex-wrap gap-x-5 gap-y-2 font-mono text-[12px] uppercase tracking-[0.2em] text-ivory/50">
-                {["Branding", "Web", "Social media", "Campaigns", "Packaging", "AI systems"].map((t) => (
+                {["Branding", "Web", "Social media", "Campaigns", "Packaging", "Ebooks", "AI systems"].map((t) => (
                   <li key={t}><span className="mr-2 text-accent">·</span>{t}</li>
                 ))}
               </ul>
             </div>
             <div className="lg:col-span-5">
-              {/* One tall + two stacked cards, same dark treatment as the portfolio grid. */}
+              {/* Ebook mockups (our own guides): one tall + two stacked cards, same dark treatment as the portfolio grid. */}
               <div className="grid grid-cols-2 gap-3">
-                {(() => {
-                  const pick = (id: string) => projects.find((x) => x.id === id)!;
-                  const toWork = () => document.getElementById("work")?.scrollIntoView({ behavior: "smooth" });
-                  return (
-                    <>
-                      <ProjectCard p={pick("lumiere")} index={1} onOpen={toWork} compact className="row-span-2 h-[340px] sm:h-[460px]" />
-                      <ProjectCard p={pick("cube-casino")} index={3} onOpen={toWork} compact className="h-[164px] sm:h-[224px]" />
-                      <ProjectCard p={pick("flamart")} index={4} onOpen={toWork} compact className="h-[164px] sm:h-[224px]" />
-                    </>
-                  );
-                })()}
+                {heroEbooks.map((e, i) => (
+                  <EbookCard key={e.id} e={e} tall={i === 0} className={i === 0 ? "row-span-2 h-[340px] sm:h-[460px]" : "h-[164px] sm:h-[224px]"} />
+                ))}
               </div>
             </div>
           </div>
@@ -359,19 +371,27 @@ export default function StudioPage() {
             <h2 className="mt-5 max-w-3xl text-h1 font-medium">What we <span className="serif-i text-accent">design and build.</span></h2>
             <div className="mt-12 grid gap-px overflow-hidden rounded-card border hairline bg-ivory/[0.08] sm:grid-cols-2 lg:grid-cols-3">
               {services.map((s) => (
-                <article key={s.title} className="flex flex-col bg-ink p-8">
-                  <h3 className="text-h3 font-medium">{s.title}</h3>
-                  <p className="text-muted mt-3 flex-1">{s.body}</p>
-                  <p className="mt-6 font-mono text-[12px] uppercase tracking-[0.2em] text-accent">{s.from}</p>
-                  {"links" in s && s.links && (
-                    <div className="mt-4 flex flex-wrap gap-2">
-                      {s.links.map((l) => (
-                        <a key={l.href} href={l.href} className="rounded-full border hairline px-3.5 py-1.5 text-[13px] text-ivory/85 transition-colors hover:border-accent hover:text-accent">
-                          {l.label} →
-                        </a>
-                      ))}
-                    </div>
+                <article
+                  key={s.title}
+                  className={`flex flex-col bg-ink p-8 ${"image" in s ? "sm:col-span-2 lg:col-span-3 lg:grid lg:grid-cols-2 lg:items-center lg:gap-10" : ""}`}
+                >
+                  {"image" in s && (
+                    <img src={s.image} alt="Ebook mockups on tablet and phone" loading="lazy" className="mb-6 aspect-[4/3] w-full rounded-[16px] object-cover lg:order-2 lg:mb-0" />
                   )}
+                  <div className="flex flex-1 flex-col">
+                    <h3 className="text-h3 font-medium">{s.title}</h3>
+                    <p className="text-muted mt-3 flex-1">{s.body}</p>
+                    <p className="mt-6 font-mono text-[12px] uppercase tracking-[0.2em] text-accent">{s.from}</p>
+                    {"links" in s && s.links && (
+                      <div className="mt-4 flex flex-wrap gap-2">
+                        {s.links.map((l) => (
+                          <a key={l.href} href={l.href} className="rounded-full border hairline px-3.5 py-1.5 text-[13px] text-ivory/85 transition-colors hover:border-accent hover:text-accent">
+                            {l.label} →
+                          </a>
+                        ))}
+                      </div>
+                    )}
+                  </div>
                 </article>
               ))}
             </div>
