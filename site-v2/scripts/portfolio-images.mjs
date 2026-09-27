@@ -13,18 +13,19 @@ const SRC = process.argv[2];
 if (!SRC) throw new Error("Pass the folder with the pNN.png page renders");
 
 // [output name, page, crop box as fractions of the page: x0, y0, x1, y1]
+// x0 sits at the end of the blank gutter after the text column, so no cut-off words show at the left edge.
 const CROPS = [
   ["centrum-seo", 3, 0.31, 0.07, 0.99, 0.95],
   ["property-developer", 4, 0.33, 0.07, 0.99, 0.93],
   ["block-street", 8, 0.33, 0.07, 0.99, 0.94],
-  ["g-volt", 9, 0.335, 0.07, 0.99, 0.95],
-  ["g-volt-campaign", 10, 0.33, 0.07, 0.99, 0.95],
-  ["lumiere", 11, 0.33, 0.06, 0.99, 0.95],
+  ["g-volt", 9, 0.395, 0.07, 0.99, 0.95],
+  ["g-volt-campaign", 10, 0.36, 0.07, 0.99, 0.95],
+  ["lumiere", 11, 0.364, 0.06, 0.99, 0.95],
   ["finik-family", 12, 0.32, 0.06, 0.99, 0.62],
   ["summerhill", 13, 0.29, 0.06, 0.99, 0.95],
   ["cube-casino", 14, 0.33, 0.07, 0.99, 0.93],
   ["flamart-catalogue", 15, 0.31, 0.06, 0.99, 0.95],
-  ["flamart", 16, 0.29, 0.06, 0.99, 0.95],
+  ["flamart", 16, 0.33, 0.06, 0.99, 0.95],
   ["immersive", 18, 0.53, 0.06, 0.99, 0.6],
   ["tech-webinar", 19, 0.36, 0.06, 0.99, 0.95],
 ];
