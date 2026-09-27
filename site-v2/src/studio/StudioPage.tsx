@@ -406,20 +406,20 @@ export default function StudioPage() {
         <section id="packages" className="border-t hairline py-section">
           <div className="container-x">
             <p className="eyebrow">Packages</p>
-            <h2 className="mt-5 max-w-3xl text-h1 font-medium">Three ways <span className="serif-i text-accent">to work with us.</span></h2>
-            <div className="mt-12 grid gap-5 lg:grid-cols-3">
+            <h2 className="mt-5 max-w-3xl text-h1 font-medium">Four ways <span className="serif-i text-accent">to work with us.</span></h2>
+            <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
               {packages.map((p) => (
                 <article
                   key={p.name}
                   className={`flex flex-col rounded-card p-8 ${p.premium ? "border-2 border-accent bg-accent/[0.05] shadow-[0_0_80px_-30px_var(--glow)]" : "surface"}`}
                 >
-                  <div className="flex items-center justify-between">
+                  <div className="flex items-start justify-between gap-3 xl:min-h-[2.6em]">
                     <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-accent">{p.tagline}</p>
                     {p.premium && <span className="rounded-full bg-accent px-2.5 py-1 font-mono text-[10px] font-medium uppercase text-ink">Premium</span>}
                   </div>
-                  <h3 className="mt-4 font-display text-h2">{p.name}</h3>
-                  <p className="mt-5 flex items-baseline gap-2">
-                    <span className="text-[34px] font-semibold tracking-[-0.02em]">{p.price}</span>
+                  <h3 className="mt-4 font-display text-h2 xl:min-h-[2.5em]">{p.name}</h3>
+                  <p className="mt-5 flex flex-wrap items-baseline gap-x-2">
+                    <span className="whitespace-nowrap text-[32px] font-semibold tracking-[-0.02em]">{p.price}</span>
                     <span className="text-muted text-[14px]">{p.unit}</span>
                   </p>
                   <ul className="mt-6 flex-1 space-y-3 border-t hairline pt-6 text-[15px]">
@@ -431,7 +431,7 @@ export default function StudioPage() {
                     ))}
                   </ul>
                   <a href="#contact" className={`btn mt-8 ${p.premium ? "btn-accent" : "btn-ghost"}`}>
-                    {p.premium ? "Apply for 1:1 →" : "Ask about this →"}
+                    {"cta" in p && p.cta ? p.cta : "Ask about this →"}
                   </a>
                 </article>
               ))}

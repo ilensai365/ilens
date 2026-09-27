@@ -220,17 +220,26 @@ export const packages = [
   {
     name: "Launch",
     tagline: "Brand + website, ready to sell",
-    price: "from €2,400",
+    price: "from €199",
     unit: "/ project",
     features: ["Brand identity and guide", "Website or landing page", "Launch campaign visuals", "Social templates"],
   },
   {
     name: "1:1 Creative Partner",
-    tagline: "Our most complete way to work together",
-    price: "from €2,500",
+    tagline: "Your design team on call",
+    price: "from €299",
+    unit: "/ month",
+    cta: "Apply for 1:1 →",
+    features: ["Strategy, design and social in one team", "Direct 1:1 line and monthly session", "AI workflows set up for your brand", "Limited places"],
+  },
+  {
+    name: "1:1 Partner Pro",
+    tagline: "The complete partnership",
+    price: "from €999",
     unit: "/ month",
     premium: true,
-    features: ["Strategy, design and social in one team", "Direct 1:1 line and regular sessions", "AI workflows set up for your brand", "Priority turnaround, limited places"],
+    cta: "Apply for Pro →",
+    features: ["Everything in 1:1 Creative Partner", "Brand, web, social and campaigns covered", "Weekly strategy sessions", "Custom AI content system for your team", "Priority turnaround, first in the queue"],
   },
 ];
 
