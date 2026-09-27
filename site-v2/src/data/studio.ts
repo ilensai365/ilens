@@ -27,13 +27,13 @@ export const categories: Category[] = ["Branding", "Web", "Social & campaigns", 
 export const projects: Project[] = [
   {
     id: "luxe-rest",
-    cover: IMG + "covers/luxe-rest.webp",
+    cover: IMG + "covers/luxe-rest-bed.webp",
     title: "Luxe Rest",
     sector: "Home & sleep",
     categories: ["AI video", "Social & campaigns"],
-    summary: "A 45-second AI brand film for a luxury mattress: generated scenes, editorial type and a calm, premium edit.",
-    deliverables: ["AI brand film (45 s)", "Scene generation", "Copy & typography", "Edit & sound"],
-    images: [IMG + "video/luxe-rest.mp4"],
+    summary: "AI films for a luxury mattress brand: a 10-second hero film generated in Google Flow and a 45-second brand edit with editorial type.",
+    deliverables: ["AI hero film (10 s)", "Brand film edit (45 s)", "Scene generation", "Copy & typography"],
+    images: [IMG + "video/luxe-rest-bed.mp4", IMG + "video/luxe-rest.mp4"],
   },
   {
     id: "penthouse-tour",

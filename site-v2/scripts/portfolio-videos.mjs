@@ -18,6 +18,7 @@ fs.mkdirSync(VIDEO, { recursive: true });
 
 // [id, source file, poster time (s), cover keeps top fraction (edits burn captions in bottom-left, under the card title)]
 const FILMS = [
+  ["luxe-rest-bed", "PUFFY/Model_rests_on_luxury_bed_20260918121254.mp4", 0.5], // Flow clip, shown first; clean wide opening = card cover
   ["luxe-rest", "PUFFY/Luxury_Bed_Promo_45s_PRO.mp4", 37, 0.8],
   ["penthouse-tour", "PUFFY/Touring_luxury_penthouse_apartment_1080p_20260918120521.mp4", 5],
   ["penthouse-interior", "PUFFY/gemini_generated_video_FA44A15B (1).mp4", 5],
