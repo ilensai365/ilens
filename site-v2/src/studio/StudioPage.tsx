@@ -373,13 +373,19 @@ export default function StudioPage() {
               {services.map((s) => (
                 <article
                   key={s.title}
-                  className={`flex flex-col bg-ink p-8 ${"image" in s ? "sm:col-span-2 lg:col-span-3 lg:grid lg:grid-cols-2 lg:items-center lg:gap-10" : ""}`}
+                  className={`relative flex flex-col overflow-hidden bg-ink ${"image" in s ? "sm:col-span-2 lg:col-span-3 lg:min-h-[440px] lg:justify-center" : "p-8"}`}
                 >
+                  {/* Feature card: the dark mockup bleeds off the right edge and fades into the card, no frame. */}
                   {"image" in s && (
-                    <img src={s.image} alt="Ebook mockups on tablet and phone" loading="lazy" className="mb-6 aspect-[4/3] w-full rounded-[16px] object-cover lg:order-2 lg:mb-0" />
+                    <div className="relative aspect-[16/10] lg:absolute lg:inset-y-0 lg:right-0 lg:aspect-auto lg:w-[60%]" aria-hidden="true">
+                      <img src={s.image} alt="" loading="lazy" className="h-full w-full object-cover object-[50%_8%]" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-ink via-transparent to-transparent lg:bg-gradient-to-r lg:from-ink lg:via-ink/30" />
+                      <div className="absolute inset-x-0 bottom-0 hidden h-1/3 bg-gradient-to-t from-ink to-transparent lg:block" />
+                    </div>
                   )}
-                  <div className="flex flex-1 flex-col">
-                    <h3 className="text-h3 font-medium">{s.title}</h3>
+                  <div className={`relative flex flex-1 flex-col ${"image" in s ? "p-8 pt-0 lg:max-w-[46%] lg:flex-none lg:p-12" : ""}`}>
+                    {"image" in s && <p className="mb-4 font-mono text-[11px] uppercase tracking-[0.25em] text-accent">New · Ebook design</p>}
+                    <h3 className={`font-medium ${"image" in s ? "text-h2" : "text-h3"}`}>{s.title}</h3>
                     <p className="text-muted mt-3 flex-1">{s.body}</p>
                     <p className="mt-6 font-mono text-[12px] uppercase tracking-[0.2em] text-accent">{s.from}</p>
                     {"links" in s && s.links && (

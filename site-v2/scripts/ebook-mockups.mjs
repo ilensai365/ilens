@@ -24,3 +24,11 @@ for (const [src, id, w] of FILES) {
   await sharp(path.join(SRC, src)).resize({ width: w, withoutEnlargement: true }).webp({ quality: 84 }).toFile(path.join(OUT, id + ".webp"));
   console.log(id);
 }
+
+// Wide crop of the dark bundle fan for the full-bleed "Ebooks & digital products" service card.
+await sharp(path.join(SRC, "store-dark/build-launch-sell.png"))
+  .extract({ left: 0, top: 360, width: 1600, height: 1240 })
+  .resize({ width: 1400 })
+  .webp({ quality: 84 })
+  .toFile(path.join(OUT, "fan-wide.webp"));
+console.log("fan-wide");

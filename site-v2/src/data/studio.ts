@@ -204,7 +204,7 @@ export const services = [
     title: "Ebooks & digital products",
     body: "Ebooks, guides and lead magnets designed to sell: cover, editorial layout, device and print mockups, and a store page. The same system behind our own guides.",
     from: "from €299",
-    image: EB + "devices.webp",
+    image: EB + "fan-wide.webp",
     links: [{ label: "See our guides", href: "/#shop" }],
   },
 ];
