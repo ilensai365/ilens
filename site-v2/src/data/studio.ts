@@ -16,6 +16,8 @@ export type Project = {
   summary: string;
   /** Single-shot, dark-graded card image (scripts/portfolio-covers.mjs). */
   cover: string;
+  /** Dark toned detail for the grid card (scripts/portfolio-motifs.mjs); the cover stays for other uses. */
+  motif?: string;
   deliverables: string[];
   images: string[];
   /** Grid size on desktop: wide tiles span two columns. */
@@ -167,6 +169,9 @@ export const projects: Project[] = [
     images: [IMG + "immersive.webp"],
   },
 ];
+
+// Every project has a motif named after its id.
+for (const p of projects) p.motif = IMG + "motifs/" + p.id + ".webp";
 
 /** Studio hero: the iLens guides as ebook-design showcase; each card opens the product page. */
 export const heroEbooks = [

@@ -26,7 +26,7 @@ export default function Services() {
         <div data-reveal className="mt-12 grid grid-cols-2 gap-3 md:grid-cols-4">
           {thumbs.map((p) => (
             <a key={p.id} href="/studio/#work" className="group relative block aspect-[4/5] overflow-hidden rounded-[20px] bg-black">
-              <img src={p.cover} alt={p.title} loading="lazy" className="absolute inset-0 h-full w-full object-cover transition-all duration-700 group-hover:scale-105 group-hover:brightness-[1.35]" />
+              <img src={p.motif ?? p.cover} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover opacity-80 transition-all duration-700 group-hover:scale-105 group-hover:opacity-100 group-hover:brightness-[1.25]" />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0B0A08] via-[#0B0A08]/30 to-transparent" aria-hidden="true" />
               <div className="absolute inset-0 rounded-[20px] ring-1 ring-inset ring-ivory/10 transition-colors group-hover:ring-accent/50" aria-hidden="true" />
               <div className="absolute inset-x-4 bottom-4">

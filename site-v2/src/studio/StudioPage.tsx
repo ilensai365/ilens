@@ -136,38 +136,29 @@ function ProjectModal({ p, onClose }: { p: Project; onClose: () => void }) {
 /** Editorial project card: full-bleed image, dark gradient, serif title on the image, gold arrow on hover. */
 function ProjectCard({ p, index, onOpen, className = "", compact = false }: { p: Project; index: number; onOpen: () => void; className?: string; compact?: boolean }) {
   return (
-    <button onClick={onOpen} className={`group relative block w-full overflow-hidden rounded-[20px] bg-black text-left ${className}`}>
+    <button onClick={onOpen} className={`group relative block w-full overflow-hidden rounded-[20px] bg-[#0B0A08] text-left ${className}`}>
+      {/* Toned motif only; the full visuals open in the modal. */}
       <img
-        src={p.cover}
-        alt={p.title}
+        src={p.motif ?? p.cover}
+        alt=""
         loading="lazy"
-        className="absolute inset-0 h-full w-full object-cover transition-all duration-[900ms] ease-out group-hover:scale-[1.05] group-hover:brightness-[1.35] group-hover:saturate-[1.25]"
+        className="absolute inset-0 h-full w-full object-cover object-[50%_30%] opacity-80 transition-all duration-[1100ms] ease-out group-hover:scale-[1.04] group-hover:opacity-100 group-hover:brightness-[1.25]"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#0B0A08] via-[#0B0A08]/35 to-[#0B0A08]/10" aria-hidden="true" />
-      <div className="absolute inset-0 rounded-[20px] ring-1 ring-inset ring-ivory/10 transition-colors group-hover:ring-accent/50" aria-hidden="true" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_40%,transparent_30%,rgba(11,10,8,0.75)_100%)]" aria-hidden="true" />
+      <div className="absolute inset-x-0 bottom-0 h-3/5 bg-gradient-to-t from-[#0B0A08] via-[#0B0A08]/70 to-transparent" aria-hidden="true" />
+      <div className="absolute inset-0 rounded-[20px] ring-1 ring-inset ring-ivory/[0.08] transition-colors duration-500 group-hover:ring-accent/40" aria-hidden="true" />
 
-      <div className="absolute left-5 right-5 top-5 flex items-center justify-between">
-        <span className="flex items-center gap-3 font-mono text-[11px] tracking-[0.2em] text-ivory/70">
-          {String(index + 1).padStart(2, "0")}
-          {p.images.some(isVideo) && (
-            <span className="rounded-full border border-ivory/25 bg-black/55 px-2.5 py-1 text-[10px] uppercase text-ivory backdrop-blur-md">▶ Film</span>
-          )}
-        </span>
-        <span className="rounded-full bg-black/55 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.22em] text-accent backdrop-blur-md">{p.sector}</span>
+      <div className="absolute left-6 right-6 top-6 flex items-center justify-between font-mono text-[11px] tracking-[0.25em] text-ivory/55 md:left-8 md:right-8 md:top-7">
+        <span>{String(index + 1).padStart(2, "0")}</span>
+        {p.images.some(isVideo) && <span className="uppercase text-ivory/75">▶ Film</span>}
       </div>
 
-      <div className="absolute inset-x-5 bottom-5 flex items-end justify-between gap-4 md:inset-x-7 md:bottom-7">
-        <div className="min-w-0">
-          <h3 className={`font-display leading-[1.02] tracking-[-0.01em] text-ivory ${compact ? "text-[24px]" : "text-[30px] md:text-[38px]"}`}>{p.title}</h3>
-          {!compact && (
-            <p className="mt-2 max-w-md font-mono text-[11px] uppercase tracking-[0.18em] text-ivory/60">{p.deliverables.slice(0, 3).join(" · ")}</p>
-          )}
-        </div>
-        <span
-          className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-ivory/25 text-ivory transition-all duration-300 group-hover:rotate-[-45deg] group-hover:border-accent group-hover:bg-accent group-hover:text-ink"
-          aria-hidden="true"
-        >
-          →
+      <div className="absolute inset-x-6 bottom-6 md:inset-x-8 md:bottom-8">
+        <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-accent">{p.sector}</p>
+        <h3 className={`mt-3 font-display leading-[1.02] tracking-[-0.01em] text-ivory ${compact ? "text-[24px]" : "text-[30px] md:text-[40px]"}`}>{p.title}</h3>
+        <span className="mt-4 flex items-center gap-3 text-[13px] text-ivory/60 transition-colors duration-300 group-hover:text-accent" aria-hidden="true">
+          <span className="h-px w-8 bg-current transition-all duration-500 group-hover:w-14" />
+          View project
         </span>
       </div>
     </button>
