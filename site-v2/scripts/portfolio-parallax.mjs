@@ -109,10 +109,10 @@ await gallery(social, "sportowa-platforma-social");
 // ——— Kancelaria Adwokacka dr Karina Chodań: monogram + business card ———
 const trim = async (f) => { const m = await sharp(f).metadata(); const b = Math.round(m.width * 2 / 94); return sharp(f).extract({ left: b, top: b, width: m.width - 2 * b, height: m.height - 2 * b }).png().toBuffer(); };
 const kFront = await trim(path.join(PDF, "Projekt_wizytówki_dr_Karina_Chodan_adwokat_2.png"));
-const kBack = await trim(path.join(PDF, "Projekt_wizytówki_dr_Karina_Chodan_adwokat_1.png"));
 const b64 = (buf) => "data:image/png;base64," + buf.toString("base64");
 const kancelaria = shoot("kancelaria", `.stage{background:radial-gradient(ellipse at 45% 35%,#16241d 0%,#0B0A08 68%)}.c{position:absolute;width:860px;border-radius:6px}`,
-  `<img class="c shadow" style="left:600px;top:340px;transform:rotate(6deg)" src="${b64(kBack)}"><img class="c shadow" style="left:150px;top:120px;transform:rotate(-5deg)" src="${b64(kFront)}">`);
+  // Monogram side only: the back carries personal contact details.
+  `<img class="c shadow" style="left:370px;top:250px;transform:rotate(-4deg)" src="${b64(kFront)}">`);
 await gallery(kancelaria, "kancelaria");
 await cover(kancelaria, "kancelaria");
 

@@ -121,8 +121,8 @@ export const projects: Project[] = [
     title: "Kancelaria dr Chodań",
     sector: "Legal",
     categories: ["Branding", "Print & packaging"],
-    summary: "A quiet monogram and deep-green stationery for a law practice.",
-    deliverables: ["Monogram", "Business cards", "Print-ready files"],
+    summary: "A quiet monogram and deep-green business card for a law practice.",
+    deliverables: ["Monogram", "Business card", "Print-ready files"],
     images: [IMG + "kancelaria.webp"],
   },
   {
