@@ -5,7 +5,7 @@
 
 const IMG = import.meta.env.BASE_URL + "images/work/";
 
-export type Category = "Branding" | "Web" | "Social & campaigns" | "Packaging" | "Events";
+export type Category = "Branding" | "Web" | "Social & campaigns" | "Print & packaging" | "Events";
 
 export type Project = {
   id: string;
@@ -21,7 +21,7 @@ export type Project = {
   wide?: boolean;
 };
 
-export const categories: Category[] = ["Branding", "Web", "Social & campaigns", "Packaging", "Events"];
+export const categories: Category[] = ["Branding", "Web", "Social & campaigns", "Print & packaging", "Events"];
 
 export const projects: Project[] = [
   {
@@ -70,10 +70,30 @@ export const projects: Project[] = [
     cover: IMG + "covers/flamart.webp",
     title: "Flamart System",
     sector: "Wellness",
-    categories: ["Packaging", "Branding"],
+    categories: ["Print & packaging", "Branding"],
     summary: "Packaging system and product catalogue for a CBD wellness line.",
     deliverables: ["Packaging system", "Catalogue", "Product visuals"],
     images: [IMG + "flamart.webp", IMG + "flamart-catalogue.webp"],
+  },
+  {
+    id: "autobatex",
+    cover: IMG + "covers/autobatex.webp",
+    title: "Auto Batex",
+    sector: "Automotive",
+    categories: ["Branding", "Print & packaging"],
+    summary: "A bold red-and-graphite identity and business cards for a French-car parts and service shop.",
+    deliverables: ["Logotype", "Business cards", "Dark and light versions"],
+    images: [IMG + "autobatex.webp", IMG + "autobatex-set.webp"],
+  },
+  {
+    id: "summerhill",
+    cover: IMG + "covers/summerhill.webp",
+    title: "Summerhill",
+    sector: "Food & drink",
+    categories: ["Print & packaging"],
+    summary: "A tea packaging series with a calm, pastel colour system.",
+    deliverables: ["Packaging series", "Colour system"],
+    images: [IMG + "summerhill.webp"],
   },
   {
     id: "property-developer",
@@ -96,6 +116,26 @@ export const projects: Project[] = [
     images: [IMG + "tech-webinar.webp"],
   },
   {
+    id: "kancelaria",
+    cover: IMG + "covers/kancelaria.webp",
+    title: "Kancelaria dr Chodań",
+    sector: "Legal",
+    categories: ["Branding", "Print & packaging"],
+    summary: "A quiet monogram and deep-green stationery for a law practice.",
+    deliverables: ["Monogram", "Business cards", "Print-ready files"],
+    images: [IMG + "kancelaria.webp"],
+  },
+  {
+    id: "finik-family",
+    cover: IMG + "covers/finik-family.webp",
+    title: "Finik Family",
+    sector: "Natural products",
+    categories: ["Print & packaging", "Branding"],
+    summary: "Packaging and a monogram identity for a natural products line.",
+    deliverables: ["Packaging", "Monogram identity"],
+    images: [IMG + "finik-family.webp"],
+  },
+  {
     id: "block-street",
     cover: IMG + "covers/block-street.webp",
     title: "Block Street",
@@ -116,24 +156,24 @@ export const projects: Project[] = [
     images: [IMG + "immersive.webp"],
   },
   {
-    id: "finik-family",
-    cover: IMG + "covers/finik-family.webp",
-    title: "Finik Family",
-    sector: "Natural products",
-    categories: ["Packaging", "Branding"],
-    summary: "Packaging and a monogram identity for a natural products line.",
-    deliverables: ["Packaging", "Monogram identity"],
-    images: [IMG + "finik-family.webp"],
+    id: "psary",
+    cover: IMG + "covers/psary.webp",
+    title: "KS Gminy Psary",
+    sector: "Sport",
+    categories: ["Branding", "Social & campaigns"],
+    summary: "A club crest and social media cover for a local football club.",
+    deliverables: ["Club crest", "Colour, mono and negative versions", "Social cover"],
+    images: [IMG + "psary.webp"],
   },
   {
-    id: "summerhill",
-    cover: IMG + "covers/summerhill.webp",
-    title: "Summerhill",
-    sector: "Food & drink",
-    categories: ["Packaging"],
-    summary: "A tea packaging series with a calm, pastel colour system.",
-    deliverables: ["Packaging series", "Colour system"],
-    images: [IMG + "summerhill.webp"],
+    id: "sportowa-platforma",
+    cover: IMG + "covers/sportowa-platforma.webp",
+    title: "Sportowa Platforma",
+    sector: "Sport",
+    categories: ["Branding", "Social & campaigns", "Print & packaging"],
+    summary: "Identity for a football jobs and listings platform: logo system, A5 brochure and a social campaign.",
+    deliverables: ["Logo & sign", "Colour and mono versions", "A5 brochure", "Social campaign", "Web banners"],
+    images: [IMG + "sportowa-platforma.webp", IMG + "sportowa-platforma-logo.webp", IMG + "sportowa-platforma-versions.webp", IMG + "sportowa-platforma-brochure.webp", IMG + "sportowa-platforma-brochure-inside.webp", IMG + "sportowa-platforma-social.webp"],
   },
 ];
 
@@ -187,7 +227,7 @@ export const process = [
   { title: "Deliver", body: "Files, templates and a system you keep using." },
 ];
 
-export const sectors = ["iGaming", "Real estate", "Energy", "Beauty & wellness", "Food & drink", "Tech"];
+export const sectors = ["iGaming", "Real estate", "Energy", "Sport", "Automotive", "Legal", "Beauty & wellness", "Food & drink", "Tech"];
 
 export const studioFaq = [
   { q: "How do we start?", a: "Send the form below with a few words about the project. We reply personally with questions and a proposal." },

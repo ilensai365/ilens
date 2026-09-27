@@ -161,6 +161,17 @@ const RHYTHM: { span: string; h: string }[] = [
   { span: "lg:col-span-6", h: "lg:h-[460px]" }, { span: "lg:col-span-6", h: "lg:h-[460px]" },
 ];
 
+/** Rows of the rhythm: [start, size]. A short last row (end of list or after filtering) is re-spread so there are no holes. */
+const ROWS: [number, number][] = [[0, 2], [2, 3], [5, 2], [7, 2]];
+function spanAt(i: number, total: number) {
+  const r = RHYTHM[i % RHYTHM.length];
+  const pos = i % RHYTHM.length;
+  const [start, size] = ROWS.find(([s, n]) => pos >= s && pos < s + n)!;
+  const inRow = Math.min(size, total - (i - (pos - start)));
+  if (inRow === size) return r;
+  return { span: inRow === 1 ? "lg:col-span-12" : "lg:col-span-6", h: r.h };
+}
+
 function Work() {
   const [filter, setFilter] = useState<Category | "All">("All");
   const [open, setOpen] = useState<Project | null>(null);
@@ -197,7 +208,7 @@ function Work() {
         <motion.div layout className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-12">
           <AnimatePresence mode="popLayout">
             {shown.map((p, i) => {
-              const r = RHYTHM[i % RHYTHM.length];
+              const r = spanAt(i, shown.length);
               return (
                 <motion.div
                   layout
