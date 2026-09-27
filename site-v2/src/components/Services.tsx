@@ -25,11 +25,14 @@ export default function Services() {
 
         <div data-reveal className="mt-12 grid grid-cols-2 gap-3 md:grid-cols-4">
           {thumbs.map((p) => (
-            <a key={p.id} href="/studio/#work" className="group overflow-hidden rounded-xl border hairline">
-              <img src={p.images[0]} alt={p.title} loading="lazy" className="aspect-[4/3] w-full object-cover transition-transform duration-700 group-hover:scale-105" />
-              <p className="px-4 py-3 text-[14px]">
-                {p.title} <span className="text-ivory/40">· {p.sector}</span>
-              </p>
+            <a key={p.id} href="/studio/#work" className="group relative block aspect-[4/5] overflow-hidden rounded-[20px] bg-black">
+              <img src={p.cover} alt={p.title} loading="lazy" className="absolute inset-0 h-full w-full object-cover transition-all duration-700 group-hover:scale-105 group-hover:brightness-[1.35]" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0B0A08] via-[#0B0A08]/30 to-transparent" aria-hidden="true" />
+              <div className="absolute inset-0 rounded-[20px] ring-1 ring-inset ring-ivory/10 transition-colors group-hover:ring-accent/50" aria-hidden="true" />
+              <div className="absolute inset-x-4 bottom-4">
+                <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-accent">{p.sector}</p>
+                <p className="mt-1 font-display text-[22px] leading-tight">{p.title}</p>
+              </div>
             </a>
           ))}
         </div>
