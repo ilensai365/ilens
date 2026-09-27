@@ -352,6 +352,15 @@ export default function StudioPage() {
                   <h3 className="text-h3 font-medium">{s.title}</h3>
                   <p className="text-muted mt-3 flex-1">{s.body}</p>
                   <p className="mt-6 font-mono text-[12px] uppercase tracking-[0.2em] text-accent">{s.from}</p>
+                  {"links" in s && s.links && (
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {s.links.map((l) => (
+                        <a key={l.href} href={l.href} className="rounded-full border hairline px-3.5 py-1.5 text-[13px] text-ivory/85 transition-colors hover:border-accent hover:text-accent">
+                          {l.label} →
+                        </a>
+                      ))}
+                    </div>
+                  )}
                 </article>
               ))}
             </div>

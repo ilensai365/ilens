@@ -138,19 +138,27 @@ export const projects: Project[] = [
 ];
 
 export const services = [
-  { title: "Social media", body: "Monthly content, templates and captions that look like one brand, not twenty posts.", from: "from €450 / month" },
+  { title: "Social media", body: "Monthly content, templates and captions that look like one brand, not twenty posts.", from: "from €99 / month" },
   { title: "Brand identity", body: "Logo, colour, typography and a brand guide your team can actually use.", from: "from €1,200" },
-  { title: "Websites & landing pages", body: "Designed and built, fast and mobile-first. Like the site you're on.", from: "from €900" },
-  { title: "Campaigns & key visuals", body: "Launches, ads, events and seasonal campaigns across social, print and OOH.", from: "from €600" },
-  { title: "Packaging & print", body: "Packaging systems, catalogues and print that hold up on the shelf.", from: "from €500" },
-  { title: "AI content systems", body: "Prompt libraries, workflows and templates so your team creates faster, on-brand.", from: "from €750" },
+  { title: "Websites & landing pages", body: "Designed and built, fast and mobile-first. Like the site you're on.", from: "from €199" },
+  { title: "Campaigns & key visuals", body: "Launches, ads, events and seasonal campaigns across social, print and OOH.", from: "from €200" },
+  { title: "Packaging & print", body: "Packaging systems, catalogues and print that hold up on the shelf.", from: "from €299" },
+  {
+    title: "AI content systems",
+    body: "Prompt libraries, workflows and templates so your team creates faster, on-brand. Start with our guide or the free prompt pack.",
+    from: "from €19",
+    links: [
+      { label: "AI Content System — €19", href: "https://payhip.com/b/RX0Q7" },
+      { label: "Free: 10 AI prompts", href: "/free/" },
+    ],
+  },
 ];
 
 export const packages = [
   {
     name: "Content",
     tagline: "Social media, done monthly",
-    price: "from €450",
+    price: "from €99",
     unit: "/ month",
     features: ["Monthly content plan", "Designed posts, carousels and stories", "Captions in your brand voice", "Reusable templates"],
   },
