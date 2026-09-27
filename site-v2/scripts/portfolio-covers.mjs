@@ -15,7 +15,7 @@ if (!SRC) throw new Error("Pass the folder with the pNN.png page renders");
 // [project id, page, x0, y0, x1, y1] as fractions of the page
 const COVERS = [
   ["g-volt", 9, 0.6, 0.06, 0.99, 0.5],
-  ["lumiere", 11, 0.36, 0.06, 0.99, 0.58],
+  ["lumiere", 11, 0.367, 0.089, 0.638, 0.346],
   ["centrum-seo", 3, 0.3, 0.07, 0.99, 0.52],
   ["cube-casino", 14, 0.4, 0.07, 0.99, 0.62],
   ["flamart", 16, 0.5, 0.06, 0.99, 0.47],
