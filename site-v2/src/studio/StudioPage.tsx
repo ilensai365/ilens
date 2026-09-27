@@ -293,7 +293,7 @@ export default function StudioPage() {
             </div>
             <div className="lg:col-span-5">
               <div className="grid grid-cols-2 gap-3">
-                {["gks-katowice", "g-volt", "cube-casino", "bass-arena"].map((id) => {
+                {["lumiere", "g-volt", "cube-casino", "centrum-seo"].map((id) => {
                   const p = projects.find((x) => x.id === id)!;
                   return (
                     <a key={id} href="#work" className="group overflow-hidden rounded-xl border hairline">

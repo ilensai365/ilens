@@ -22,24 +22,18 @@ export type Project = {
 export const categories: Category[] = ["Branding", "Web", "Social & campaigns", "Packaging", "Events"];
 
 export const projects: Project[] = [
-  {    id: "gks-katowice",
-    title: "GKS Katowice",
-    sector: "Sport",
-    categories: ["Social & campaigns", "Branding"],
-    summary: "Matchday social media system, kit design and a sponsor press wall for a football club.",
-    deliverables: ["Social media templates", "Matchday visuals", "Kit design", "Press wall"],
-    images: [IMG + "gks-katowice.webp", IMG + "gks-katowice-kit.webp", IMG + "gks-katowice-presswall.webp"],
-    wide: true,
-  },
-  {    id: "g-volt",
+  {
+    id: "g-volt",
     title: "G-Volt",
     sector: "Renewable energy",
     categories: ["Web", "Social & campaigns"],
     summary: "Website, product visuals and a digital campaign for a solar and heat-pump brand.",
     deliverables: ["Website", "Product visuals", "Social campaign", "Brand system"],
     images: [IMG + "g-volt.webp", IMG + "g-volt-campaign.webp"],
+    wide: true,
   },
-  {    id: "lumiere",
+  {
+    id: "lumiere",
     title: "Lumière",
     sector: "Beauty",
     categories: ["Social & campaigns", "Branding"],
@@ -47,7 +41,8 @@ export const projects: Project[] = [
     deliverables: ["Campaign key visuals", "Product imagery", "Social content"],
     images: [IMG + "lumiere.webp"],
   },
-  {    id: "centrum-seo",
+  {
+    id: "centrum-seo",
     title: "Centrum SEO",
     sector: "Marketing agency",
     categories: ["Branding", "Web"],
@@ -55,7 +50,8 @@ export const projects: Project[] = [
     deliverables: ["Logo & identity", "Business cards", "Responsive website"],
     images: [IMG + "centrum-seo.webp"],
   },
-  {    id: "cube-casino",
+  {
+    id: "cube-casino",
     title: "Cube Casino",
     sector: "iGaming",
     categories: ["Web", "Branding"],
@@ -63,24 +59,17 @@ export const projects: Project[] = [
     deliverables: ["Responsive website", "Brand visuals"],
     images: [IMG + "cube-casino.webp"],
   },
-  {    id: "flamart",
+  {
+    id: "flamart",
     title: "Flamart System",
     sector: "Wellness",
     categories: ["Packaging", "Branding"],
     summary: "Packaging system and product catalogue for a CBD wellness line.",
     deliverables: ["Packaging system", "Catalogue", "Product visuals"],
     images: [IMG + "flamart.webp", IMG + "flamart-catalogue.webp"],
-    wide: true,
   },
-  {    id: "bass-arena",
-    title: "Bass Arena",
-    sector: "Music festival",
-    categories: ["Events", "Branding"],
-    summary: "Festival identity: poster and line-up, wayfinding and on-site signage.",
-    deliverables: ["Festival identity", "Poster & line-up", "Wayfinding", "Signage"],
-    images: [IMG + "bass-arena.webp"],
-  },
-  {    id: "property-developer",
+  {
+    id: "property-developer",
     title: "Property Developer",
     sector: "Real estate",
     categories: ["Web"],
@@ -88,7 +77,8 @@ export const projects: Project[] = [
     deliverables: ["Web design", "Digital strategy", "Responsive layouts"],
     images: [IMG + "property-developer.webp"],
   },
-  {    id: "tech-webinar",
+  {
+    id: "tech-webinar",
     title: "Discover the Future of Tech",
     sector: "Tech events",
     categories: ["Social & campaigns", "Events"],
@@ -96,7 +86,8 @@ export const projects: Project[] = [
     deliverables: ["Key visual", "Social formats", "Landing assets"],
     images: [IMG + "tech-webinar.webp"],
   },
-  {    id: "block-street",
+  {
+    id: "block-street",
     title: "Block Street",
     sector: "Real estate",
     categories: ["Web"],
@@ -104,7 +95,8 @@ export const projects: Project[] = [
     deliverables: ["Website", "Responsive layouts"],
     images: [IMG + "block-street.webp"],
   },
-  {    id: "immersive",
+  {
+    id: "immersive",
     title: "Immersive Experiences",
     sector: "Gaming & tech",
     categories: ["Social & campaigns"],
@@ -112,7 +104,8 @@ export const projects: Project[] = [
     deliverables: ["Campaign visuals", "AI art direction"],
     images: [IMG + "immersive.webp"],
   },
-  {    id: "finik-family",
+  {
+    id: "finik-family",
     title: "Finik Family",
     sector: "Natural products",
     categories: ["Packaging", "Branding"],
@@ -120,7 +113,8 @@ export const projects: Project[] = [
     deliverables: ["Packaging", "Monogram identity"],
     images: [IMG + "finik-family.webp"],
   },
-  {    id: "summerhill",
+  {
+    id: "summerhill",
     title: "Summerhill",
     sector: "Food & drink",
     categories: ["Packaging"],
@@ -172,7 +166,7 @@ export const process = [
   { title: "Deliver", body: "Files, templates and a system you keep using." },
 ];
 
-export const sectors = ["Sport", "iGaming", "Real estate", "Energy", "Beauty & wellness", "Food & drink", "Music & events", "Tech"];
+export const sectors = ["iGaming", "Real estate", "Energy", "Beauty & wellness", "Food & drink", "Tech"];
 
 export const studioFaq = [
   { q: "How do we start?", a: "Send the form below with a few words about the project. We reply personally with questions and a proposal." },

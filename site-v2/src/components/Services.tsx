@@ -3,7 +3,7 @@ import SectionHead from "./SectionHead";
 
 /** Teaser for iLens Studio (done-for-you work) on the product-first home page; full page at /studio. */
 export default function Services() {
-  const thumbs = ["gks-katowice", "lumiere", "g-volt", "bass-arena"].map((id) => projects.find((p) => p.id === id)!);
+  const thumbs = ["centrum-seo", "lumiere", "g-volt", "cube-casino"].map((id) => projects.find((p) => p.id === id)!);
 
   return (
     <section id="services" className="border-t hairline py-section">

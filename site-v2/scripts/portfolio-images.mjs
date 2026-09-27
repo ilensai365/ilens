@@ -16,9 +16,6 @@ if (!SRC) throw new Error("Pass the folder with the pNN.png page renders");
 const CROPS = [
   ["centrum-seo", 3, 0.31, 0.07, 0.99, 0.95],
   ["property-developer", 4, 0.33, 0.07, 0.99, 0.93],
-  ["gks-katowice", 5, 0.33, 0.06, 0.99, 0.94],
-  ["gks-katowice-kit", 6, 0.31, 0.06, 0.99, 0.9],
-  ["gks-katowice-presswall", 7, 0.31, 0.06, 0.99, 0.94],
   ["block-street", 8, 0.33, 0.07, 0.99, 0.94],
   ["g-volt", 9, 0.335, 0.07, 0.99, 0.95],
   ["g-volt-campaign", 10, 0.33, 0.07, 0.99, 0.95],
@@ -28,7 +25,6 @@ const CROPS = [
   ["cube-casino", 14, 0.33, 0.07, 0.99, 0.93],
   ["flamart-catalogue", 15, 0.31, 0.06, 0.99, 0.95],
   ["flamart", 16, 0.29, 0.06, 0.99, 0.95],
-  ["bass-arena", 17, 0.31, 0.06, 0.99, 0.95],
   ["immersive", 18, 0.53, 0.06, 0.99, 0.6],
   ["tech-webinar", 19, 0.36, 0.06, 0.99, 0.95],
 ];
