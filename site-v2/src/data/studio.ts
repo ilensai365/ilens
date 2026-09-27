@@ -18,6 +18,8 @@ export type Project = {
   cover: string;
   /** Dark toned detail for the grid card (scripts/portfolio-motifs.mjs); the cover stays for other uses. */
   motif?: string;
+  /** object-position of the cover in the grid card (default 50% 45%). */
+  focus?: string;
   deliverables: string[];
   images: string[];
   /** Grid size on desktop: wide tiles span two columns. */
@@ -29,6 +31,7 @@ export const categories: Category[] = ["Branding", "Web", "Social & campaigns", 
 export const projects: Project[] = [
   {
     id: "luxe-rest",
+    focus: "50% 55%",
     cover: IMG + "covers/luxe-rest-bed.webp",
     title: "Luxe Rest",
     sector: "Home & sleep",
@@ -39,6 +42,7 @@ export const projects: Project[] = [
   },
   {
     id: "penthouse-tour",
+    focus: "60% 40%",
     cover: IMG + "covers/penthouse-tour.webp",
     title: "Penthouse Tour",
     sector: "Property developers",
@@ -49,6 +53,7 @@ export const projects: Project[] = [
   },
   {
     id: "lumiere",
+    focus: "70% 20%",
     cover: IMG + "covers/lumiere.webp",
     title: "Lumière",
     sector: "Beauty",
@@ -59,6 +64,7 @@ export const projects: Project[] = [
   },
   {
     id: "centrum-seo",
+    focus: "15% 40%",
     cover: IMG + "covers/centrum-seo.webp",
     title: "Centrum SEO",
     sector: "Marketing agency",
@@ -69,6 +75,7 @@ export const projects: Project[] = [
   },
   {
     id: "cube-casino",
+    focus: "35% 45%",
     cover: IMG + "covers/cube-casino.webp",
     title: "Cube Casino",
     sector: "iGaming",
@@ -79,6 +86,7 @@ export const projects: Project[] = [
   },
   {
     id: "flamart",
+    focus: "35% 50%",
     cover: IMG + "covers/flamart.webp",
     title: "Flamart System",
     sector: "Wellness",
@@ -109,6 +117,7 @@ export const projects: Project[] = [
   },
   {
     id: "tech-webinar",
+    focus: "70% 30%",
     cover: IMG + "covers/tech-webinar.webp",
     title: "Discover the Future of Tech",
     sector: "Tech events",

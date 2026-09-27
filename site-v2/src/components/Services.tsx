@@ -1,10 +1,6 @@
 import { packages, projects } from "../data/studio";
 import SectionHead from "./SectionHead";
 
-const FADE_MASK =
-  "linear-gradient(to right, transparent, #000 16%, #000 84%, transparent), linear-gradient(to bottom, transparent, #000 14%, #000 72%, transparent)";
-const FADE: React.CSSProperties = { maskImage: FADE_MASK, WebkitMaskImage: FADE_MASK, maskComposite: "intersect", WebkitMaskComposite: "source-in" };
-
 /** Teaser for iLens Studio (done-for-you work) on the product-first home page; full page at /studio. */
 export default function Services() {
   const thumbs = ["centrum-seo", "lumiere", "g-volt", "cube-casino"].map((id) => projects.find((p) => p.id === id)!);
@@ -30,18 +26,15 @@ export default function Services() {
         <div data-reveal className="mt-12 grid grid-cols-2 gap-3 md:grid-cols-4">
           {thumbs.map((p) => (
             <a key={p.id} href="/studio/#work" className="group relative block aspect-[4/5] overflow-hidden rounded-[20px] bg-black">
-              {/* Same card language as /studio: blurred motif for atmosphere + a sharp faded preview (never upscaled). */}
-              <img src={p.motif ?? p.cover} alt="" loading="lazy" className="absolute inset-0 h-full w-full scale-125 object-cover opacity-45 blur-2xl" aria-hidden="true" />
-              <div className="absolute inset-x-[6%] bottom-[34%] top-[8%] flex items-center justify-center">
-                <img
-                  src={p.cover}
-                  alt={p.title}
-                  loading="lazy"
-                  style={FADE}
-                  className="max-h-full max-w-full object-contain grayscale-[0.55] transition-all duration-700 group-hover:scale-[1.03] group-hover:grayscale-0 group-hover:brightness-110"
-                />
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0B0A08] via-[#0B0A08]/30 to-transparent" aria-hidden="true" />
+              {/* Same "grey mist" card as /studio. */}
+              <img
+                src={p.cover}
+                alt={p.title}
+                loading="lazy"
+                style={{ objectPosition: p.focus ?? "50% 45%" }}
+                className="absolute inset-0 h-full w-full object-cover opacity-30 brightness-90 contrast-[1.05] grayscale transition-all duration-700 group-hover:scale-[1.03] group-hover:opacity-45"
+              />
+              <div className="absolute inset-0 bg-[linear-gradient(to_top,#0B0A08_18%,rgba(11,10,8,0.55)_55%,rgba(11,10,8,0.2))]" aria-hidden="true" />
               <div className="absolute inset-0 rounded-[20px] ring-1 ring-inset ring-ivory/10 transition-colors group-hover:ring-accent/50" aria-hidden="true" />
               <div className="absolute inset-x-4 bottom-4">
                 <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-accent">{p.sector}</p>

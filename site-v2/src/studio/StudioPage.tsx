@@ -42,14 +42,6 @@ function Header() {
   );
 }
 
-const GRAIN =
-  "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")";
-
-/** Soft rectangular feather: all four edges of the card preview fade into the dark (no frame, no oval spotlight). */
-const FADE_MASK =
-  "linear-gradient(to right, transparent, #000 16%, #000 84%, transparent), linear-gradient(to bottom, transparent, #000 14%, #000 72%, transparent)";
-const FADE: React.CSSProperties = { maskImage: FADE_MASK, WebkitMaskImage: FADE_MASK, maskComposite: "intersect", WebkitMaskComposite: "source-in" };
-
 /** Project media can mix stills and films (.mp4, poster = same name .webp). */
 const isVideo = (src: string) => src.endsWith(".mp4");
 
@@ -145,23 +137,16 @@ function ProjectModal({ p, onClose }: { p: Project; onClose: () => void }) {
 function ProjectCard({ p, index, onOpen, className = "", compact = false }: { p: Project; index: number; onOpen: () => void; className?: string; compact?: boolean }) {
   return (
     <button onClick={onOpen} className={`group relative block w-full overflow-hidden rounded-[20px] bg-[#0B0A08] text-left ${className}`}>
-      {/* Atmosphere: the toned motif, heavily blurred, so no source pixel is ever enlarged on screen. */}
-      <img src={p.motif ?? p.cover} alt="" loading="lazy" className="absolute inset-0 h-full w-full scale-125 object-cover opacity-45 blur-2xl" aria-hidden="true" />
-      <div className="absolute inset-0 opacity-[0.14] mix-blend-overlay" style={{ backgroundImage: GRAIN }} aria-hidden="true" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_35%,transparent_20%,rgba(11,10,8,0.8)_100%)]" aria-hidden="true" />
-
-      {/* Faded preview: sharp (never shown larger than its source), no frame, edges dissolve into the card;
-          colour comes back on hover. */}
-      <div className="absolute inset-x-[6%] bottom-[34%] top-[8%] flex items-center justify-center">
-        <img
-          src={p.cover}
-          alt={p.title}
-          loading="lazy"
-          style={FADE}
-          className="max-h-full max-w-full object-contain grayscale-[0.55] transition-all duration-700 ease-out group-hover:scale-[1.03] group-hover:grayscale-0 group-hover:brightness-110"
-        />
-      </div>
-      <div className="absolute inset-x-0 bottom-0 h-3/5 bg-gradient-to-t from-[#0B0A08] via-[#0B0A08]/70 to-transparent" aria-hidden="true" />
+      {/* "Grey mist" (owner's pick of 4): the full cover as a faint grey haze fading into black from the text side.
+          At this opacity no source pixel reads, whatever the card size; it lifts a little on hover. */}
+      <img
+        src={p.cover}
+        alt=""
+        loading="lazy"
+        style={{ objectPosition: p.focus ?? "50% 45%" }}
+        className="absolute inset-0 h-full w-full object-cover opacity-30 brightness-90 contrast-[1.05] grayscale transition-all duration-[1100ms] ease-out group-hover:scale-[1.03] group-hover:opacity-45"
+      />
+      <div className="absolute inset-0 bg-[linear-gradient(to_top,#0B0A08_18%,rgba(11,10,8,0.55)_55%,rgba(11,10,8,0.2)),linear-gradient(to_right,rgba(11,10,8,0.6),transparent_60%)]" aria-hidden="true" />
       <div className="absolute inset-0 rounded-[20px] ring-1 ring-inset ring-ivory/[0.08] transition-colors duration-500 group-hover:ring-accent/40" aria-hidden="true" />
 
       <div className="absolute left-6 right-6 top-6 flex items-center justify-between font-mono text-[11px] tracking-[0.25em] text-ivory/55 md:left-8 md:right-8 md:top-7">
