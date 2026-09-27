@@ -116,24 +116,15 @@ export const projects: Project[] = [
     images: [IMG + "tech-webinar.webp"],
   },
   {
-    id: "ilens-guides",
-    cover: EB + "bundle.webp",
-    title: "iLens Guides",
-    sector: "Ebooks",
-    categories: ["Ebooks", "Branding"],
-    summary: "Our own library of four PDF guides: covers, editorial layout, device and print mockups, and the store pages that sell them.",
-    deliverables: ["Cover system", "Editorial layout", "Mockups", "Store pages"],
-    images: [EB + "collection.webp", EB + "stack.webp", EB + "devices.webp", EB + "spread.webp"],
-  },
-  {
-    id: "kancelaria",
-    cover: IMG + "covers/kancelaria.webp",
-    title: "Kancelaria dr Chodań",
-    sector: "Legal",
-    categories: ["Branding", "Print & packaging"],
-    summary: "A quiet monogram and deep-green business card for a law practice.",
-    deliverables: ["Monogram", "Business card", "Print-ready files"],
-    images: [IMG + "kancelaria.webp"],
+    id: "g-volt",
+    cover: IMG + "covers/g-volt.webp",
+    title: "G-Volt",
+    sector: "Renewable energy",
+    categories: ["Web", "Social & campaigns"],
+    summary: "Website, product visuals and a digital campaign for a solar and heat-pump brand.",
+    deliverables: ["Website", "Product visuals", "Social campaign", "Brand system"],
+    images: [IMG + "g-volt.webp", IMG + "g-volt-campaign.webp"],
+    wide: true,
   },
   {
     id: "finik-family",
@@ -144,6 +135,16 @@ export const projects: Project[] = [
     summary: "Packaging and a monogram identity for a natural products line.",
     deliverables: ["Packaging", "Monogram identity"],
     images: [IMG + "finik-family.webp"],
+  },
+  {
+    id: "ilens-guides",
+    cover: EB + "bundle.webp",
+    title: "iLens Guides",
+    sector: "Ebooks",
+    categories: ["Ebooks", "Branding"],
+    summary: "Our own library of four PDF guides: covers, editorial layout, device and print mockups, and the store pages that sell them.",
+    deliverables: ["Cover system", "Editorial layout", "Mockups", "Store pages"],
+    images: [EB + "collection.webp", EB + "stack.webp", EB + "devices.webp", EB + "spread.webp"],
   },
   {
     id: "block-street",
@@ -164,17 +165,6 @@ export const projects: Project[] = [
     summary: "AI-assisted campaign visuals for an immersive gaming experience.",
     deliverables: ["Campaign visuals", "AI art direction"],
     images: [IMG + "immersive.webp"],
-  },
-  {
-    id: "g-volt",
-    cover: IMG + "covers/g-volt.webp",
-    title: "G-Volt",
-    sector: "Renewable energy",
-    categories: ["Web", "Social & campaigns"],
-    summary: "Website, product visuals and a digital campaign for a solar and heat-pump brand.",
-    deliverables: ["Website", "Product visuals", "Social campaign", "Brand system"],
-    images: [IMG + "g-volt.webp", IMG + "g-volt-campaign.webp"],
-    wide: true,
   },
 ];
 
@@ -251,7 +241,7 @@ export const process = [
   { title: "Deliver", body: "Files, templates and a system you keep using." },
 ];
 
-export const sectors = ["iGaming", "Real estate", "Energy", "Legal", "Beauty & wellness", "Food & drink", "Tech"];
+export const sectors = ["iGaming", "Real estate", "Energy", "Beauty & wellness", "Food & drink", "Tech"];
 
 export const studioFaq = [
   { q: "How do we start?", a: "Send the form below with a few words about the project. We reply personally with questions and a proposal." },
