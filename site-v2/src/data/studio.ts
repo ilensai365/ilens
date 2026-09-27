@@ -116,6 +116,16 @@ export const projects: Project[] = [
     images: [IMG + "tech-webinar.webp"],
   },
   {
+    id: "sportowa-platforma",
+    cover: IMG + "covers/sportowa-platforma.webp",
+    title: "Sportowa Platforma",
+    sector: "Sport",
+    categories: ["Branding", "Social & campaigns", "Print & packaging"],
+    summary: "Identity for a football jobs and listings platform: logo system, A5 brochure and a social campaign.",
+    deliverables: ["Logo & sign", "Colour and mono versions", "A5 brochure", "Social campaign", "Web banners"],
+    images: [IMG + "sportowa-platforma.webp", IMG + "sportowa-platforma-logo.webp", IMG + "sportowa-platforma-versions.webp", IMG + "sportowa-platforma-brochure.webp", IMG + "sportowa-platforma-brochure-inside.webp", IMG + "sportowa-platforma-social.webp"],
+  },
+  {
     id: "kancelaria",
     cover: IMG + "covers/kancelaria.webp",
     title: "Kancelaria dr Chodań",
@@ -154,26 +164,6 @@ export const projects: Project[] = [
     summary: "AI-assisted campaign visuals for an immersive gaming experience.",
     deliverables: ["Campaign visuals", "AI art direction"],
     images: [IMG + "immersive.webp"],
-  },
-  {
-    id: "psary",
-    cover: IMG + "covers/psary.webp",
-    title: "KS Gminy Psary",
-    sector: "Sport",
-    categories: ["Branding", "Social & campaigns"],
-    summary: "A club crest and social media cover for a local football club.",
-    deliverables: ["Club crest", "Colour, mono and negative versions", "Social cover"],
-    images: [IMG + "psary.webp"],
-  },
-  {
-    id: "sportowa-platforma",
-    cover: IMG + "covers/sportowa-platforma.webp",
-    title: "Sportowa Platforma",
-    sector: "Sport",
-    categories: ["Branding", "Social & campaigns", "Print & packaging"],
-    summary: "Identity for a football jobs and listings platform: logo system, A5 brochure and a social campaign.",
-    deliverables: ["Logo & sign", "Colour and mono versions", "A5 brochure", "Social campaign", "Web banners"],
-    images: [IMG + "sportowa-platforma.webp", IMG + "sportowa-platforma-logo.webp", IMG + "sportowa-platforma-versions.webp", IMG + "sportowa-platforma-brochure.webp", IMG + "sportowa-platforma-brochure-inside.webp", IMG + "sportowa-platforma-social.webp"],
   },
 ];
 

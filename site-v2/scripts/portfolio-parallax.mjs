@@ -1,5 +1,5 @@
 // Portfolio entries from the Parallax Studio archive (realised client work, 2018–2019):
-// Sportowa Platforma, Auto Batex, Kancelaria dr Chodań, KS Gminy Psary.
+// Sportowa Platforma, Auto Batex and Kancelaria dr Chodań (KS Gminy Psary removed at the owner's request).
 // Builds gallery boards (dark presentation, headless Chrome) + graded single covers.
 // Usage: node scripts/portfolio-parallax.mjs <archive-dir> <pdf-render-dir>
 //   archive-dir:    D:/AAAAAA PORTFOLIO Z PULPITU/PARALLAX ZREALIZOWANE
@@ -116,14 +116,6 @@ const kancelaria = shoot("kancelaria", `.stage{background:radial-gradient(ellips
 await gallery(kancelaria, "kancelaria");
 await cover(kancelaria, "kancelaria");
 
-// ——— KS Gminy Psary: club crest + social cover ———
-const PS = path.join(SP, "KLUB SPORTOWY PSARY");
-const psary = shoot("psary", `.stage{background:radial-gradient(ellipse at 30% 45%,#10261a 0%,#0B0A08 65%)}
-  .crest{position:absolute;left:110px;top:150px;height:700px;filter:drop-shadow(0 30px 50px rgba(0,0,0,.8))}
-  .fb{position:absolute;left:680px;top:350px;width:820px;border-radius:10px}`,
-  `<img class="crest" src="${uri(path.join(PS, "grafikinastroninternetowklubu", "ksgp-znak_kolor.png"))}"><img class="fb shadow" src="${uri(path.join(PS, "fb-tlo_kspsary_nowe.png"))}">`);
-await gallery(psary, "psary");
-await cover(psary, "psary", { left: 60, top: 150, width: 1000, height: 1200 }); // crest only
 
 fs.rmSync(TMP, { recursive: true, force: true });
 console.log("done");
