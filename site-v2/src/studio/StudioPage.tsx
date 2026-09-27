@@ -42,6 +42,9 @@ function Header() {
   );
 }
 
+/** Project media can mix stills and films (.mp4, poster = same name .webp). */
+const isVideo = (src: string) => src.endsWith(".mp4");
+
 function ProjectModal({ p, onClose }: { p: Project; onClose: () => void }) {
   const [i, setI] = useState(0);
   useEffect(() => {
@@ -76,9 +79,22 @@ function ProjectModal({ p, onClose }: { p: Project; onClose: () => void }) {
         onClick={(e) => e.stopPropagation()}
       >
         <div className="relative bg-black">
-          <img src={p.images[i]} alt={`${p.title} — image ${i + 1}`} className="max-h-[78vh] w-full object-contain" />
+          {isVideo(p.images[i]) ? (
+            <video
+              key={p.images[i]}
+              src={p.images[i]}
+              poster={p.images[i].replace(/\.mp4$/, ".webp")}
+              controls
+              autoPlay
+              muted
+              playsInline
+              className="max-h-[78vh] w-full bg-black object-contain"
+            />
+          ) : (
+            <img src={p.images[i]} alt={`${p.title} — image ${i + 1}`} className="max-h-[78vh] w-full object-contain" />
+          )}
           {p.images.length > 1 && (
-            <div className="absolute inset-x-0 bottom-3 flex justify-center gap-2">
+            <div className={`absolute inset-x-0 flex justify-center gap-2 ${isVideo(p.images[i]) ? "top-3" : "bottom-3"}`}>
               {p.images.map((_, k) => (
                 <button
                   key={k}
@@ -131,7 +147,12 @@ function ProjectCard({ p, index, onOpen, className = "", compact = false }: { p:
       <div className="absolute inset-0 rounded-[20px] ring-1 ring-inset ring-ivory/10 transition-colors group-hover:ring-accent/50" aria-hidden="true" />
 
       <div className="absolute left-5 right-5 top-5 flex items-center justify-between">
-        <span className="font-mono text-[11px] tracking-[0.2em] text-ivory/70">{String(index + 1).padStart(2, "0")}</span>
+        <span className="flex items-center gap-3 font-mono text-[11px] tracking-[0.2em] text-ivory/70">
+          {String(index + 1).padStart(2, "0")}
+          {p.images.some(isVideo) && (
+            <span className="rounded-full border border-ivory/25 bg-black/55 px-2.5 py-1 text-[10px] uppercase text-ivory backdrop-blur-md">▶ Film</span>
+          )}
+        </span>
         <span className="rounded-full bg-black/55 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.22em] text-accent backdrop-blur-md">{p.sector}</span>
       </div>
 

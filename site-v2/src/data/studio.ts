@@ -6,7 +6,7 @@
 const IMG = import.meta.env.BASE_URL + "images/work/";
 const EB = import.meta.env.BASE_URL + "images/ebooks/";
 
-export type Category = "Branding" | "Web" | "Social & campaigns" | "Print & packaging" | "Ebooks" | "Events";
+export type Category = "Branding" | "Web" | "Social & campaigns" | "AI video" | "Print & packaging" | "Ebooks" | "Events";
 
 export type Project = {
   id: string;
@@ -22,7 +22,7 @@ export type Project = {
   wide?: boolean;
 };
 
-export const categories: Category[] = ["Branding", "Web", "Social & campaigns", "Print & packaging", "Ebooks", "Events"];
+export const categories: Category[] = ["Branding", "Web", "Social & campaigns", "AI video", "Print & packaging", "Ebooks", "Events"];
 
 export const projects: Project[] = [
   {
@@ -165,6 +165,26 @@ export const projects: Project[] = [
     summary: "AI-assisted campaign visuals for an immersive gaming experience.",
     deliverables: ["Campaign visuals", "AI art direction"],
     images: [IMG + "immersive.webp"],
+  },
+  {
+    id: "luxe-rest",
+    cover: IMG + "covers/luxe-rest.webp",
+    title: "Luxe Rest",
+    sector: "Home & sleep",
+    categories: ["AI video", "Social & campaigns"],
+    summary: "A 45-second AI brand film for a luxury mattress: generated scenes, editorial type and a calm, premium edit.",
+    deliverables: ["AI brand film (45 s)", "Scene generation", "Copy & typography", "Edit & sound"],
+    images: [IMG + "video/luxe-rest.mp4"],
+  },
+  {
+    id: "penthouse-tour",
+    cover: IMG + "covers/penthouse-tour.webp",
+    title: "Penthouse Tour",
+    sector: "Property developers",
+    categories: ["AI video"],
+    summary: "AI walkthrough films for property developers: sell the view and the light before the building is finished.",
+    deliverables: ["AI property films", "Camera moves", "Social cut-downs"],
+    images: [IMG + "video/penthouse-tour.mp4", IMG + "video/penthouse-interior.mp4"],
   },
   {
     id: "sportowa-platforma",
