@@ -7,10 +7,11 @@ export default defineConfig({
   server: { port: 5173, strictPort: true },
   build: {
     rollupOptions: {
-      // Main one-pager plus the /free landing page linked from Instagram DMs.
+      // Main one-pager, /free (Instagram DM landing page) and /studio (portfolio + services).
       input: {
         main: resolve(__dirname, "index.html"),
         free: resolve(__dirname, "free/index.html"),
+        studio: resolve(__dirname, "studio/index.html"),
       },
     },
   },

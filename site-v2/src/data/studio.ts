@@ -1,0 +1,182 @@
+// Content for ilens.co/studio — portfolio, services and packages.
+// Projects: images cropped from the 2026 portfolio PDF (scripts/portfolio-images.mjs).
+// Honesty rule: the set mixes client and self-initiated work, so no project claims a client or a result.
+// Prices are "from" ranges proposed 2026-09-27 — confirm with the owner before changing.
+
+const IMG = import.meta.env.BASE_URL + "images/work/";
+
+export type Category = "Branding" | "Web" | "Social & campaigns" | "Packaging" | "Events";
+
+export type Project = {
+  id: string;
+  title: string;
+  sector: string;
+  categories: Category[];
+  summary: string;
+  deliverables: string[];
+  images: string[];
+  /** Grid size on desktop: wide tiles span two columns. */
+  wide?: boolean;
+};
+
+export const categories: Category[] = ["Branding", "Web", "Social & campaigns", "Packaging", "Events"];
+
+export const projects: Project[] = [
+  {    id: "gks-katowice",
+    title: "GKS Katowice",
+    sector: "Sport",
+    categories: ["Social & campaigns", "Branding"],
+    summary: "Matchday social media system, kit design and a sponsor press wall for a football club.",
+    deliverables: ["Social media templates", "Matchday visuals", "Kit design", "Press wall"],
+    images: [IMG + "gks-katowice.webp", IMG + "gks-katowice-kit.webp", IMG + "gks-katowice-presswall.webp"],
+    wide: true,
+  },
+  {    id: "g-volt",
+    title: "G-Volt",
+    sector: "Renewable energy",
+    categories: ["Web", "Social & campaigns"],
+    summary: "Website, product visuals and a digital campaign for a solar and heat-pump brand.",
+    deliverables: ["Website", "Product visuals", "Social campaign", "Brand system"],
+    images: [IMG + "g-volt.webp", IMG + "g-volt-campaign.webp"],
+  },
+  {    id: "lumiere",
+    title: "Lumière",
+    sector: "Beauty",
+    categories: ["Social & campaigns", "Branding"],
+    summary: "A beauty campaign: key visuals, product imagery and social content in one editorial look.",
+    deliverables: ["Campaign key visuals", "Product imagery", "Social content"],
+    images: [IMG + "lumiere.webp"],
+  },
+  {    id: "centrum-seo",
+    title: "Centrum SEO",
+    sector: "Marketing agency",
+    categories: ["Branding", "Web"],
+    summary: "Brand identity, stationery and a responsive website for an SEO agency.",
+    deliverables: ["Logo & identity", "Business cards", "Responsive website"],
+    images: [IMG + "centrum-seo.webp"],
+  },
+  {    id: "cube-casino",
+    title: "Cube Casino",
+    sector: "iGaming",
+    categories: ["Web", "Branding"],
+    summary: "A dark, premium website and brand visuals for an online casino.",
+    deliverables: ["Responsive website", "Brand visuals"],
+    images: [IMG + "cube-casino.webp"],
+  },
+  {    id: "flamart",
+    title: "Flamart System",
+    sector: "Wellness",
+    categories: ["Packaging", "Branding"],
+    summary: "Packaging system and product catalogue for a CBD wellness line.",
+    deliverables: ["Packaging system", "Catalogue", "Product visuals"],
+    images: [IMG + "flamart.webp", IMG + "flamart-catalogue.webp"],
+    wide: true,
+  },
+  {    id: "bass-arena",
+    title: "Bass Arena",
+    sector: "Music festival",
+    categories: ["Events", "Branding"],
+    summary: "Festival identity: poster and line-up, wayfinding and on-site signage.",
+    deliverables: ["Festival identity", "Poster & line-up", "Wayfinding", "Signage"],
+    images: [IMG + "bass-arena.webp"],
+  },
+  {    id: "property-developer",
+    title: "Property Developer",
+    sector: "Real estate",
+    categories: ["Web"],
+    summary: "Digital strategy and a web presentation for a property developer.",
+    deliverables: ["Web design", "Digital strategy", "Responsive layouts"],
+    images: [IMG + "property-developer.webp"],
+  },
+  {    id: "tech-webinar",
+    title: "Discover the Future of Tech",
+    sector: "Tech events",
+    categories: ["Social & campaigns", "Events"],
+    summary: "Live webinar campaign: key visual, social formats and registration assets.",
+    deliverables: ["Key visual", "Social formats", "Landing assets"],
+    images: [IMG + "tech-webinar.webp"],
+  },
+  {    id: "block-street",
+    title: "Block Street",
+    sector: "Real estate",
+    categories: ["Web"],
+    summary: "A clean, responsive website for a residential project.",
+    deliverables: ["Website", "Responsive layouts"],
+    images: [IMG + "block-street.webp"],
+  },
+  {    id: "immersive",
+    title: "Immersive Experiences",
+    sector: "Gaming & tech",
+    categories: ["Social & campaigns"],
+    summary: "AI-assisted campaign visuals for an immersive gaming experience.",
+    deliverables: ["Campaign visuals", "AI art direction"],
+    images: [IMG + "immersive.webp"],
+  },
+  {    id: "finik-family",
+    title: "Finik Family",
+    sector: "Natural products",
+    categories: ["Packaging", "Branding"],
+    summary: "Packaging and a monogram identity for a natural products line.",
+    deliverables: ["Packaging", "Monogram identity"],
+    images: [IMG + "finik-family.webp"],
+  },
+  {    id: "summerhill",
+    title: "Summerhill",
+    sector: "Food & drink",
+    categories: ["Packaging"],
+    summary: "A tea packaging series with a calm, pastel colour system.",
+    deliverables: ["Packaging series", "Colour system"],
+    images: [IMG + "summerhill.webp"],
+  },
+];
+
+export const services = [
+  { title: "Social media", body: "Monthly content, templates and captions that look like one brand, not twenty posts.", from: "from €450 / month" },
+  { title: "Brand identity", body: "Logo, colour, typography and a brand guide your team can actually use.", from: "from €1,200" },
+  { title: "Websites & landing pages", body: "Designed and built, fast and mobile-first. Like the site you're on.", from: "from €900" },
+  { title: "Campaigns & key visuals", body: "Launches, ads, events and seasonal campaigns across social, print and OOH.", from: "from €600" },
+  { title: "Packaging & print", body: "Packaging systems, catalogues and print that hold up on the shelf.", from: "from €500" },
+  { title: "AI content systems", body: "Prompt libraries, workflows and templates so your team creates faster, on-brand.", from: "from €750" },
+];
+
+export const packages = [
+  {
+    name: "Content",
+    tagline: "Social media, done monthly",
+    price: "from €450",
+    unit: "/ month",
+    features: ["Monthly content plan", "Designed posts, carousels and stories", "Captions in your brand voice", "Reusable templates"],
+  },
+  {
+    name: "Launch",
+    tagline: "Brand + website, ready to sell",
+    price: "from €2,400",
+    unit: "/ project",
+    features: ["Brand identity and guide", "Website or landing page", "Launch campaign visuals", "Social templates"],
+  },
+  {
+    name: "1:1 Creative Partner",
+    tagline: "Our most complete way to work together",
+    price: "from €2,500",
+    unit: "/ month",
+    premium: true,
+    features: ["Strategy, design and social in one team", "Direct 1:1 line and regular sessions", "AI workflows set up for your brand", "Priority turnaround, limited places"],
+  },
+];
+
+export const process = [
+  { title: "Discover", body: "Your goals, audience and what already works." },
+  { title: "Define", body: "One clear direction and the brief we both sign off." },
+  { title: "Ideate", body: "Concepts and routes, with AI to test more ideas faster." },
+  { title: "Design", body: "The chosen route, crafted to detail." },
+  { title: "Deliver", body: "Files, templates and a system you keep using." },
+];
+
+export const sectors = ["Sport", "iGaming", "Real estate", "Energy", "Beauty & wellness", "Food & drink", "Music & events", "Tech"];
+
+export const studioFaq = [
+  { q: "How do we start?", a: "Send the form below with a few words about the project. We reply personally with questions and a proposal." },
+  { q: "Do you work with small brands?", a: "Yes. The Content package is built for small teams; larger brands usually start with Launch or the 1:1 partnership." },
+  { q: "What does “from” mean in the prices?", a: "It's the starting price for a typical scope. After a short call we send a fixed quote, so you know the total before we begin." },
+  { q: "Can you work in English and Polish?", a: "Yes, we work with brands in both languages." },
+];

@@ -30,7 +30,7 @@ export const nav = [
   { label: "Offer", href: "#offer" },
   { label: "Method", href: "#method" },
   { label: "About", href: "#about" },
-  { label: "1:1 & Projects", href: "#services" },
+  { label: "Studio", href: "/studio/" },
   { label: "FAQ", href: "#faq" },
 ];
 
@@ -153,7 +153,7 @@ export const faq = [
   },
   {
     q: "Can I work with iLens directly?",
-    a: "Yes. A limited number of 1:1 consultations and custom projects are available each month — send a message through the form below.",
+    a: "Yes. iLens Studio designs brands, websites, campaigns and social media, and our top tier is a 1:1 creative partnership. See ilens.co/studio or send a message below.",
   },
 ];
 

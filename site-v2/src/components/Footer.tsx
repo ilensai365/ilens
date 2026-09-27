@@ -2,13 +2,13 @@ import { socials } from "../data/site";
 
 const cols = [
   {
-    title: "Studio",
+    title: "iLens",
     links: [
       { label: "Shop", href: "#shop" },
       { label: "Offer", href: "#offer" },
       { label: "Method", href: "#method" },
       { label: "About", href: "#about" },
-      { label: "1:1 & Projects", href: "#services" },
+      { label: "Studio", href: "/studio/" },
       { label: "FAQ", href: "#faq" },
       { label: "Free prompts", href: "/free/" },
     ],
