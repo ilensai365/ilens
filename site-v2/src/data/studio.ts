@@ -46,17 +46,6 @@ export const projects: Project[] = [
     images: [IMG + "video/penthouse-tour.mp4", IMG + "video/penthouse-interior.mp4"],
   },
   {
-    id: "g-volt",
-    cover: IMG + "covers/g-volt.webp",
-    title: "G-Volt",
-    sector: "Renewable energy",
-    categories: ["Web", "Social & campaigns"],
-    summary: "Website, product visuals and a digital campaign for a solar and heat-pump brand.",
-    deliverables: ["Website", "Product visuals", "Social campaign", "Brand system"],
-    images: [IMG + "g-volt.webp", IMG + "g-volt-campaign.webp"],
-    wide: true,
-  },
-  {
     id: "lumiere",
     cover: IMG + "covers/lumiere.webp",
     title: "Lumière",
@@ -95,16 +84,6 @@ export const projects: Project[] = [
     summary: "Packaging system and product catalogue for a CBD wellness line.",
     deliverables: ["Packaging system", "Catalogue", "Product visuals"],
     images: [IMG + "flamart.webp", IMG + "flamart-catalogue.webp"],
-  },
-  {
-    id: "autobatex",
-    cover: IMG + "covers/autobatex.webp",
-    title: "Auto Batex",
-    sector: "Automotive",
-    categories: ["Branding", "Print & packaging"],
-    summary: "A bold red-and-graphite identity and business cards for a French-car parts and service shop.",
-    deliverables: ["Logotype", "Business cards", "Dark and light versions"],
-    images: [IMG + "autobatex.webp", IMG + "autobatex-set.webp"],
   },
   {
     id: "summerhill",
@@ -187,14 +166,15 @@ export const projects: Project[] = [
     images: [IMG + "immersive.webp"],
   },
   {
-    id: "sportowa-platforma",
-    cover: IMG + "covers/sportowa-platforma.webp",
-    title: "Sportowa Platforma",
-    sector: "Sport",
-    categories: ["Branding", "Social & campaigns", "Print & packaging"],
-    summary: "Identity for a football jobs and listings platform: logo system, A5 brochure and a social campaign.",
-    deliverables: ["Logo & sign", "Colour and mono versions", "A5 brochure", "Social campaign", "Web banners"],
-    images: [IMG + "sportowa-platforma.webp", IMG + "sportowa-platforma-logo.webp", IMG + "sportowa-platforma-versions.webp", IMG + "sportowa-platforma-brochure.webp", IMG + "sportowa-platforma-brochure-inside.webp", IMG + "sportowa-platforma-social.webp"],
+    id: "g-volt",
+    cover: IMG + "covers/g-volt.webp",
+    title: "G-Volt",
+    sector: "Renewable energy",
+    categories: ["Web", "Social & campaigns"],
+    summary: "Website, product visuals and a digital campaign for a solar and heat-pump brand.",
+    deliverables: ["Website", "Product visuals", "Social campaign", "Brand system"],
+    images: [IMG + "g-volt.webp", IMG + "g-volt-campaign.webp"],
+    wide: true,
   },
 ];
 
@@ -271,7 +251,7 @@ export const process = [
   { title: "Deliver", body: "Files, templates and a system you keep using." },
 ];
 
-export const sectors = ["iGaming", "Real estate", "Energy", "Sport", "Automotive", "Legal", "Beauty & wellness", "Food & drink", "Tech"];
+export const sectors = ["iGaming", "Real estate", "Energy", "Legal", "Beauty & wellness", "Food & drink", "Tech"];
 
 export const studioFaq = [
   { q: "How do we start?", a: "Send the form below with a few words about the project. We reply personally with questions and a proposal." },
