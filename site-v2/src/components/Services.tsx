@@ -48,7 +48,7 @@ export default function Services() {
               <span className="font-mono text-[11px] uppercase tracking-[0.25em] text-accent">{p.tagline}</span>
               <h3 className="mt-3 text-h3 font-medium">{p.name}</h3>
               <p className="mt-4 flex items-baseline gap-2">
-                <span className="text-[24px] font-semibold">{p.price}</span>
+                <span className="text-[18px] font-medium">{p.price}</span>
                 <span className="text-muted text-[13px]">{p.unit}</span>
               </p>
             </a>

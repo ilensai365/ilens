@@ -424,8 +424,8 @@ export default function StudioPage() {
                     {p.premium && <span className="rounded-full bg-accent px-2.5 py-1 font-mono text-[10px] font-medium uppercase text-ink">Premium</span>}
                   </div>
                   <h3 className="mt-4 font-display text-h2 xl:min-h-[2.5em]">{p.name}</h3>
-                  <p className="mt-5 flex flex-wrap items-baseline gap-x-2">
-                    <span className="whitespace-nowrap text-[32px] font-semibold tracking-[-0.02em]">{p.price}</span>
+                  <p className="mt-3 flex flex-wrap items-baseline gap-x-2">
+                    <span className="whitespace-nowrap text-[22px] font-medium tracking-[-0.01em]">{p.price}</span>
                     <span className="text-muted text-[14px]">{p.unit}</span>
                   </p>
                   <ul className="mt-6 flex-1 space-y-3 border-t hairline pt-6 text-[15px]">
