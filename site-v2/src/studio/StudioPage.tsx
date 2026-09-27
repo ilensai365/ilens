@@ -117,6 +117,50 @@ function ProjectModal({ p, onClose }: { p: Project; onClose: () => void }) {
   );
 }
 
+/** Editorial project card: full-bleed image, dark gradient, serif title on the image, gold arrow on hover. */
+function ProjectCard({ p, index, onOpen, className = "", compact = false }: { p: Project; index: number; onOpen: () => void; className?: string; compact?: boolean }) {
+  return (
+    <button onClick={onOpen} className={`group relative block w-full overflow-hidden rounded-[20px] bg-black text-left ${className}`}>
+      <img
+        src={p.cover}
+        alt={p.title}
+        loading="lazy"
+        className="absolute inset-0 h-full w-full object-cover transition-all duration-[900ms] ease-out group-hover:scale-[1.05] group-hover:brightness-[1.35] group-hover:saturate-[1.25]"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#0B0A08] via-[#0B0A08]/35 to-[#0B0A08]/10" aria-hidden="true" />
+      <div className="absolute inset-0 rounded-[20px] ring-1 ring-inset ring-ivory/10 transition-colors group-hover:ring-accent/50" aria-hidden="true" />
+
+      <div className="absolute left-5 right-5 top-5 flex items-center justify-between">
+        <span className="font-mono text-[11px] tracking-[0.2em] text-ivory/70">{String(index + 1).padStart(2, "0")}</span>
+        <span className="rounded-full bg-black/55 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.22em] text-accent backdrop-blur-md">{p.sector}</span>
+      </div>
+
+      <div className="absolute inset-x-5 bottom-5 flex items-end justify-between gap-4 md:inset-x-7 md:bottom-7">
+        <div className="min-w-0">
+          <h3 className={`font-display leading-[1.02] tracking-[-0.01em] text-ivory ${compact ? "text-[24px]" : "text-[30px] md:text-[38px]"}`}>{p.title}</h3>
+          {!compact && (
+            <p className="mt-2 max-w-md font-mono text-[11px] uppercase tracking-[0.18em] text-ivory/60">{p.deliverables.slice(0, 3).join(" · ")}</p>
+          )}
+        </div>
+        <span
+          className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-ivory/25 text-ivory transition-all duration-300 group-hover:rotate-[-45deg] group-hover:border-accent group-hover:bg-accent group-hover:text-ink"
+          aria-hidden="true"
+        >
+          →
+        </span>
+      </div>
+    </button>
+  );
+}
+
+/** Asymmetric editorial rhythm on desktop: [7|5] [4|4|4] [5|7] [6|6] … (spans of a 12-col grid). */
+const RHYTHM: { span: string; h: string }[] = [
+  { span: "lg:col-span-7", h: "lg:h-[560px]" }, { span: "lg:col-span-5", h: "lg:h-[560px]" },
+  { span: "lg:col-span-4", h: "lg:h-[440px]" }, { span: "lg:col-span-4", h: "lg:h-[440px]" }, { span: "lg:col-span-4", h: "lg:h-[440px]" },
+  { span: "lg:col-span-5", h: "lg:h-[500px]" }, { span: "lg:col-span-7", h: "lg:h-[500px]" },
+  { span: "lg:col-span-6", h: "lg:h-[460px]" }, { span: "lg:col-span-6", h: "lg:h-[460px]" },
+];
+
 function Work() {
   const [filter, setFilter] = useState<Category | "All">("All");
   const [open, setOpen] = useState<Project | null>(null);
@@ -150,39 +194,24 @@ function Work() {
           </div>
         </div>
 
-        <motion.div layout className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-flow-dense lg:grid-cols-3">
+        <motion.div layout className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-12">
           <AnimatePresence mode="popLayout">
-            {shown.map((p) => (
-              <motion.button
-                layout
-                key={p.id}
-                initial={{ opacity: 0, scale: 0.97 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.97 }}
-                transition={{ duration: 0.3 }}
-                onClick={() => setOpen(p)}
-                className={`group relative overflow-hidden rounded-card border hairline text-left ${p.wide ? "lg:col-span-2" : ""}`}
-              >
-                <div className="aspect-[4/3] overflow-hidden bg-black lg:aspect-auto lg:h-[300px]">
-                  <img
-                    src={p.images[0]}
-                    alt={p.title}
-                    loading="lazy"
-                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
-                  />
-                </div>
-                <div className="flex items-end justify-between gap-4 p-5">
-                  <div>
-                    <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-accent">{p.sector}</p>
-                    <h3 className="mt-2 text-[20px] font-medium">{p.title}</h3>
-                    <p className="text-muted mt-1 line-clamp-1 text-[14px]">{p.summary}</p>
-                  </div>
-                  <span className="shrink-0 text-accent transition-transform group-hover:translate-x-1" aria-hidden="true">
-                    →
-                  </span>
-                </div>
-              </motion.button>
-            ))}
+            {shown.map((p, i) => {
+              const r = RHYTHM[i % RHYTHM.length];
+              return (
+                <motion.div
+                  layout
+                  key={p.id}
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.98 }}
+                  transition={{ duration: 0.35, ease: "easeOut" }}
+                  className={r.span}
+                >
+                  <ProjectCard p={p} index={i} onOpen={() => setOpen(p)} className={`h-[420px] ${r.h}`} />
+                </motion.div>
+              );
+            })}
           </AnimatePresence>
         </motion.div>
       </div>
@@ -292,15 +321,19 @@ export default function StudioPage() {
               </ul>
             </div>
             <div className="lg:col-span-5">
+              {/* One tall + two stacked cards, same dark treatment as the portfolio grid. */}
               <div className="grid grid-cols-2 gap-3">
-                {["lumiere", "g-volt", "cube-casino", "centrum-seo"].map((id) => {
-                  const p = projects.find((x) => x.id === id)!;
+                {(() => {
+                  const pick = (id: string) => projects.find((x) => x.id === id)!;
+                  const toWork = () => document.getElementById("work")?.scrollIntoView({ behavior: "smooth" });
                   return (
-                    <a key={id} href="#work" className="group overflow-hidden rounded-xl border hairline">
-                      <img src={p.images[0]} alt={p.title} className="aspect-square w-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                    </a>
+                    <>
+                      <ProjectCard p={pick("lumiere")} index={1} onOpen={toWork} compact className="row-span-2 h-[340px] sm:h-[460px]" />
+                      <ProjectCard p={pick("cube-casino")} index={3} onOpen={toWork} compact className="h-[164px] sm:h-[224px]" />
+                      <ProjectCard p={pick("flamart")} index={4} onOpen={toWork} compact className="h-[164px] sm:h-[224px]" />
+                    </>
                   );
-                })}
+                })()}
               </div>
             </div>
           </div>

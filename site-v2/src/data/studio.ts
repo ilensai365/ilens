@@ -13,6 +13,8 @@ export type Project = {
   sector: string;
   categories: Category[];
   summary: string;
+  /** Single-shot, dark-graded card image (scripts/portfolio-covers.mjs). */
+  cover: string;
   deliverables: string[];
   images: string[];
   /** Grid size on desktop: wide tiles span two columns. */
@@ -24,6 +26,7 @@ export const categories: Category[] = ["Branding", "Web", "Social & campaigns", 
 export const projects: Project[] = [
   {
     id: "g-volt",
+    cover: IMG + "covers/g-volt.webp",
     title: "G-Volt",
     sector: "Renewable energy",
     categories: ["Web", "Social & campaigns"],
@@ -34,6 +37,7 @@ export const projects: Project[] = [
   },
   {
     id: "lumiere",
+    cover: IMG + "covers/lumiere.webp",
     title: "Lumière",
     sector: "Beauty",
     categories: ["Social & campaigns", "Branding"],
@@ -43,6 +47,7 @@ export const projects: Project[] = [
   },
   {
     id: "centrum-seo",
+    cover: IMG + "covers/centrum-seo.webp",
     title: "Centrum SEO",
     sector: "Marketing agency",
     categories: ["Branding", "Web"],
@@ -52,6 +57,7 @@ export const projects: Project[] = [
   },
   {
     id: "cube-casino",
+    cover: IMG + "covers/cube-casino.webp",
     title: "Cube Casino",
     sector: "iGaming",
     categories: ["Web", "Branding"],
@@ -61,6 +67,7 @@ export const projects: Project[] = [
   },
   {
     id: "flamart",
+    cover: IMG + "covers/flamart.webp",
     title: "Flamart System",
     sector: "Wellness",
     categories: ["Packaging", "Branding"],
@@ -70,6 +77,7 @@ export const projects: Project[] = [
   },
   {
     id: "property-developer",
+    cover: IMG + "covers/property-developer.webp",
     title: "Property Developer",
     sector: "Real estate",
     categories: ["Web"],
@@ -79,6 +87,7 @@ export const projects: Project[] = [
   },
   {
     id: "tech-webinar",
+    cover: IMG + "covers/tech-webinar.webp",
     title: "Discover the Future of Tech",
     sector: "Tech events",
     categories: ["Social & campaigns", "Events"],
@@ -88,6 +97,7 @@ export const projects: Project[] = [
   },
   {
     id: "block-street",
+    cover: IMG + "covers/block-street.webp",
     title: "Block Street",
     sector: "Real estate",
     categories: ["Web"],
@@ -97,6 +107,7 @@ export const projects: Project[] = [
   },
   {
     id: "immersive",
+    cover: IMG + "covers/immersive.webp",
     title: "Immersive Experiences",
     sector: "Gaming & tech",
     categories: ["Social & campaigns"],
@@ -106,6 +117,7 @@ export const projects: Project[] = [
   },
   {
     id: "finik-family",
+    cover: IMG + "covers/finik-family.webp",
     title: "Finik Family",
     sector: "Natural products",
     categories: ["Packaging", "Branding"],
@@ -115,6 +127,7 @@ export const projects: Project[] = [
   },
   {
     id: "summerhill",
+    cover: IMG + "covers/summerhill.webp",
     title: "Summerhill",
     sector: "Food & drink",
     categories: ["Packaging"],
