@@ -208,7 +208,7 @@ function spanAt(i: number, total: number) {
 function Work() {
   const [filter, setFilter] = useState<Category | "All">("All");
   const [open, setOpen] = useState<Project | null>(null);
-  const shown = useMemo(() => (filter === "All" ? projects : projects.filter((p) => p.categories.includes(filter))), [filter]);
+  const shown = useMemo(() => projects.filter((p) => !p.hidden && (filter === "All" || p.categories.includes(filter))), [filter]);
 
   return (
     <section id="work" className="py-section">

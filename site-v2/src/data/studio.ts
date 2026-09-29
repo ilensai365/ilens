@@ -18,6 +18,8 @@ export type Project = {
   cover: string;
   /** Dark toned detail for the grid card (scripts/portfolio-motifs.mjs); the cover stays for other uses. */
   motif?: string;
+  /** Kept in the data but not shown on the site (owner asked to hide it). */
+  hidden?: boolean;
   /** object-position of the cover in the grid card (default 50% 45%). */
   focus?: string;
   deliverables: string[];
@@ -139,6 +141,7 @@ export const projects: Project[] = [
   },
   {
     id: "finik-family",
+    hidden: true,
     cover: IMG + "covers/finik-family.webp",
     title: "Finik Family",
     sector: "Natural products",
