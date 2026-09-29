@@ -99,6 +99,7 @@ export const projects: Project[] = [
   },
   {
     id: "summerhill",
+    hidden: true,
     cover: IMG + "covers/summerhill.webp",
     title: "Summerhill",
     sector: "Food & drink",
