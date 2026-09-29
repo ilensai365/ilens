@@ -24,9 +24,8 @@ export type Product = {
   spotlight?: {
     label: string;
     lead: string;
+    /** Shown under the price, joined with " · ". */
     stats: string[];
-    /** Small page previews from inside the PDF. */
-    previews: { src: string; alt: string }[];
   };
   /** Columns out of 12 on desktop. */
   span: 3 | 4 | 6 | 8 | 12;
@@ -51,13 +50,8 @@ export const products: Product[] = [
     ],
     spotlight: {
       label: "New · Video guide",
-      lead: "Make branded videos by describing them. Claude writes the code, Remotion renders the MP4 — no editing app, no timeline dragging.",
-      stats: ["38 pages", "8 chapters", "Prompt library"],
-      previews: [
-        { src: IMG + "images/dark/cr-page-studio.webp", alt: "Page: Meet the Studio" },
-        { src: IMG + "images/dark/cr-page-fields.webp", alt: "Page: Fields you can type into" },
-        { src: IMG + "images/dark/cr-page-ai.webp", alt: "Page: AI footage, framed by code" },
-      ],
+      lead: "Make branded videos by describing them — Claude writes the code, Remotion renders the MP4.",
+      stats: ["One-time", "VAT incl.", "38 pages"],
     },
     span: 12,
   },
