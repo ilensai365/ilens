@@ -222,7 +222,7 @@ function Work() {
             <p className="text-muted mt-4 text-[15px]">A mix of client and self-initiated projects.</p>
           </div>
           <div className="flex flex-wrap gap-2" role="tablist" aria-label="Filter projects">
-            {(["All", ...categories] as const).map((c) => (
+            {(["All", ...categories.filter((cat) => projects.some((p) => !p.hidden && p.categories.includes(cat)))] as const).map((c) => (
               <button
                 key={c}
                 role="tab"
