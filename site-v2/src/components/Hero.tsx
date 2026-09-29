@@ -8,7 +8,7 @@ import HeroCtas from "./hero/HeroCtas";
 import GuideCard from "./hero/GuideCard";
 
 // Lead product in the hero: Claude × Remotion (the bundle card lives on in the Shop section).
-const phrases = ["Make branded reels", "Make product reels", "Make a video series"]; // each fits one line at 375px
+const phrases = ["Make reels", "Make videos", "Make ads"]; // short on purpose: keeps clear of the hero card
 
 /** Cinematic background (light beams, dust, giant wordmark) with a rotating headline and the bundle card. */
 export default function Hero({ ready }: { ready: boolean }) {
@@ -68,9 +68,9 @@ export default function Hero({ ready }: { ready: boolean }) {
 
           <h1
             data-hero
-            className="mt-7 font-medium leading-[1.04] tracking-[-0.02em] [font-size:clamp(36px,9.5vw,56px)] lg:[font-size:clamp(56px,5.2vw,78px)]"
+            className="mt-7 font-medium leading-[1.04] tracking-[-0.02em] [font-size:clamp(36px,9.5vw,56px)] lg:[font-size:clamp(52px,4.6vw,72px)]"
           >
-            <span className="sr-only">Make branded reels, product reels and video series — just by describing them.</span>
+            <span className="sr-only">Make reels, videos and ads — just by describing them.</span>
             <span aria-hidden="true" className="relative block h-[1.1em] overflow-hidden whitespace-nowrap">
               <AnimatePresence mode="popLayout" initial={false}>
                 <motion.span
@@ -91,8 +91,8 @@ export default function Hero({ ready }: { ready: boolean }) {
           </h1>
 
           <p data-hero className="text-muted mt-7 max-w-lg text-[17px]">
-            Claude writes the code, Remotion renders the MP4. Our new guide shows you, step by step, how to turn a
-            sentence into a finished, on-brand video — no editing app, no timeline dragging.
+            Claude writes the code, Remotion renders the MP4.
+            On-brand videos in minutes — no editing app.
           </p>
           <div data-hero>
             <HeroCtas className="mt-10" />
