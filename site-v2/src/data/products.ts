@@ -20,11 +20,47 @@ export type Product = {
   featured?: boolean;
   /** false = sold on its own, not part of the Build. Launch. Sell. bundle (kept out of the bundle lists). */
   inBundle?: boolean;
+  /** Full-width "new release" card at the top of the shop. */
+  spotlight?: {
+    label: string;
+    lead: string;
+    stats: string[];
+    /** Small page previews from inside the PDF. */
+    previews: { src: string; alt: string }[];
+  };
   /** Columns out of 12 on desktop. */
-  span: 3 | 4 | 6 | 8;
+  span: 3 | 4 | 6 | 8 | 12;
 };
 
 export const products: Product[] = [
+  {
+    id: "claude-remotion",
+    title: "Claude × Remotion",
+    blurb: "Make branded videos by describing them — no editing app, no timeline dragging.",
+    cover: IMG + "images/dark/product-claude-remotion.webp",
+    price: "€29",
+    href: PAYHIP("QbEwq"),
+    status: "available",
+    pages: "38 pages",
+    inBundle: false,
+    includes: [
+      "Setup in ten minutes with Claude Code",
+      "The prompt that builds a finished reel",
+      "Templates for series and client work",
+      "Real Remotion Studio screenshots",
+    ],
+    spotlight: {
+      label: "New · Video guide",
+      lead: "Make branded videos by describing them. Claude writes the code, Remotion renders the MP4 — no editing app, no timeline dragging.",
+      stats: ["38 pages", "8 chapters", "Prompt library"],
+      previews: [
+        { src: IMG + "images/dark/cr-page-studio.webp", alt: "Page: Meet the Studio" },
+        { src: IMG + "images/dark/cr-page-fields.webp", alt: "Page: Fields you can type into" },
+        { src: IMG + "images/dark/cr-page-ai.webp", alt: "Page: AI footage, framed by code" },
+      ],
+    },
+    span: 12,
+  },
   {
     id: "bundle",
     title: "Build. Launch. Sell.",
@@ -70,7 +106,7 @@ export const products: Product[] = [
       "Payhip shop, Buy buttons and a working contact form",
       "Live on your own domain via GitHub + Cloudflare",
     ],
-    span: 3,
+    span: 4,
   },
   {
     id: "ebook-24h",
@@ -87,7 +123,7 @@ export const products: Product[] = [
       "AI as co-writer — in your own voice",
       "Pricing, Payhip checkout and launch scripts",
     ],
-    span: 3,
+    span: 4,
   },
   {
     id: "first-sale",
@@ -104,25 +140,7 @@ export const products: Product[] = [
       "Checkout, EU VAT basics and refund policy",
       "10–10–10 plan for your first hundred visitors",
     ],
-    span: 3,
-  },
-  {
-    id: "claude-remotion",
-    title: "Claude × Remotion",
-    blurb: "Make branded videos by describing them — no editing app, no timeline dragging.",
-    cover: IMG + "images/dark/product-claude-remotion.webp",
-    price: "€29",
-    href: PAYHIP("QbEwq"),
-    status: "available",
-    pages: "38 pages",
-    inBundle: false,
-    includes: [
-      "Setup in ten minutes with Claude Code",
-      "The prompt that builds a finished reel",
-      "Templates for series and client work",
-      "Real Remotion Studio screenshots",
-    ],
-    span: 3,
+    span: 4,
   },
   {
     id: "template-kit",
