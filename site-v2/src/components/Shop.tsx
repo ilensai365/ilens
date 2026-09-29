@@ -11,19 +11,19 @@ const spanClass: Record<Product["span"], string> = {
   8: "md:col-span-12 lg:col-span-8",
 };
 
-function Cover({ p, large, accent }: { p: Product; large?: boolean; accent?: boolean }) {
+function Cover({ p, large, accent, fill }: { p: Product; large?: boolean; accent?: boolean; fill?: boolean }) {
   return (
     <div
       className={`relative grid aspect-[16/10] place-items-center overflow-hidden rounded-xl ${
         p.featured || accent ? "bg-accent/[0.07]" : "bg-ivory/[0.03]"
-      } ${large ? "md:aspect-auto md:h-full md:min-h-[380px]" : ""}`}
+      } ${large ? `md:aspect-auto md:h-full ${fill ? "md:min-h-[440px]" : "md:min-h-[380px]"}` : ""}`}
     >
       <div
         className="absolute inset-0 opacity-70 transition-opacity duration-500 group-hover:opacity-100"
         style={{ background: "radial-gradient(circle at 50% 60%, var(--glow), transparent 65%)" }}
         aria-hidden="true"
       />
-      <div className={`absolute inset-0 flex items-center justify-center ${large ? "py-[7%] md:py-[12%]" : "py-[7%]"}`}>
+      <div className={`absolute inset-0 flex items-center justify-center ${large ? (fill ? "py-[7%] md:py-[5%]" : "py-[7%] md:py-[12%]") : "py-[7%]"}`}>
         <img
           src={p.cover}
           alt={`${p.title} cover`}
@@ -105,9 +105,10 @@ function SpotlightCard({ p }: { p: Product }) {
         href={p.href}
         whileHover={{ y: -6 }}
         transition={{ type: "spring", stiffness: 300, damping: 24 }}
-        className="group glass flex h-full flex-col gap-3 rounded-card !border-accent/50 p-3 shadow-[0_0_60px_-20px_var(--glow)] md:grid md:grid-cols-2"
+        className="group glass flex h-full flex-col gap-3 rounded-card !border-accent/50 p-3 shadow-[0_0_60px_-20px_var(--glow)] md:grid md:grid-cols-[minmax(0,0.32fr)_minmax(0,0.68fr)]"
       >
-        <Cover p={p} large accent />
+        {/* Narrow, tall cover panel so the book fills it, like the bundle card. */}
+        <Cover p={p} large accent fill />
         <div className="flex flex-col p-5 md:p-8">
           <div className="flex items-center justify-between gap-3">
             <span className="font-mono text-[11px] uppercase tracking-[0.25em] text-accent">{s.label}</span>
