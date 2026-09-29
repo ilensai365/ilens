@@ -88,6 +88,7 @@ export const projects: Project[] = [
   },
   {
     id: "flamart",
+    hidden: true,
     focus: "35% 50%",
     cover: IMG + "covers/flamart.webp",
     title: "Flamart System",
