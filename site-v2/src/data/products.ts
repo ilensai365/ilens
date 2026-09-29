@@ -18,8 +18,10 @@ export type Product = {
   /** "What's inside" bullets — keep in sync with the Payhip description (ilens-ebooks/payhip-descriptions.html). */
   includes?: string[];
   featured?: boolean;
+  /** false = sold on its own, not part of the Build. Launch. Sell. bundle (kept out of the bundle lists). */
+  inBundle?: boolean;
   /** Columns out of 12 on desktop. */
-  span: 4 | 6 | 8;
+  span: 3 | 4 | 6 | 8;
 };
 
 export const products: Product[] = [
@@ -68,7 +70,7 @@ export const products: Product[] = [
       "Payhip shop, Buy buttons and a working contact form",
       "Live on your own domain via GitHub + Cloudflare",
     ],
-    span: 4,
+    span: 3,
   },
   {
     id: "ebook-24h",
@@ -85,7 +87,7 @@ export const products: Product[] = [
       "AI as co-writer — in your own voice",
       "Pricing, Payhip checkout and launch scripts",
     ],
-    span: 4,
+    span: 3,
   },
   {
     id: "first-sale",
@@ -102,7 +104,25 @@ export const products: Product[] = [
       "Checkout, EU VAT basics and refund policy",
       "10–10–10 plan for your first hundred visitors",
     ],
-    span: 4,
+    span: 3,
+  },
+  {
+    id: "claude-remotion",
+    title: "Claude × Remotion",
+    blurb: "Make branded videos by describing them — no editing app, no timeline dragging.",
+    cover: IMG + "images/dark/product-claude-remotion.webp",
+    price: "€29",
+    href: PAYHIP("QbEwq"),
+    status: "available",
+    pages: "38 pages",
+    inBundle: false,
+    includes: [
+      "Setup in ten minutes with Claude Code",
+      "The prompt that builds a finished reel",
+      "Templates for series and client work",
+      "Real Remotion Studio screenshots",
+    ],
+    span: 3,
   },
   {
     id: "template-kit",

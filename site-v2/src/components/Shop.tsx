@@ -4,6 +4,7 @@ import { BUNDLE } from "../data/site";
 import SectionHead from "./SectionHead";
 
 const spanClass: Record<Product["span"], string> = {
+  3: "md:col-span-6 lg:col-span-3",
   4: "md:col-span-6 lg:col-span-4",
   6: "md:col-span-6",
   8: "md:col-span-12 lg:col-span-8",
@@ -38,7 +39,7 @@ function Cover({ p, large }: { p: Product; large?: boolean }) {
 
 /** Featured bundle: short title, scannable list of what's included, clear price row. */
 function BundleCard({ p }: { p: Product }) {
-  const included = products.filter((g) => g.status === "available" && !g.featured);
+  const included = products.filter((g) => g.status === "available" && !g.featured && g.inBundle !== false);
   return (
     <div data-reveal className={spanClass[p.span]}>
       <motion.a

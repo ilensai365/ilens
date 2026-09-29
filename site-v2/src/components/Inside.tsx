@@ -38,7 +38,7 @@ function CountUp({ to }: { to: number }) {
 
 /** Proof without invented reviews: what each guide promises, real facts, and what's inside. */
 export default function Inside() {
-  const guides = products.filter((p) => p.status === "available" && !p.featured);
+  const guides = products.filter((p) => p.status === "available" && !p.featured && p.inBundle !== false);
 
   return (
     <section id="inside" className="py-section">

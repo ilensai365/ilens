@@ -4,7 +4,7 @@ import { products } from "../../data/products";
 
 /** Hero "checkout card" for the Build. Launch. Sell. bundle. */
 export default function BundleCard() {
-  const guides = products.filter((p) => p.status === "available" && !p.featured);
+  const guides = products.filter((p) => p.status === "available" && !p.featured && p.inBundle !== false);
 
   return (
     <div className="glass rounded-[24px] p-2 shadow-[0_40px_120px_-40px_var(--glow)]">
