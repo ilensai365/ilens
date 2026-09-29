@@ -23,7 +23,7 @@ export default function GuideCard() {
             className="w-24 shrink-0 self-start rounded-[3px] shadow-[0_20px_40px_-12px_rgba(0,0,0,0.9)] sm:w-28"
           />
           <div>
-            <h2 className="font-display text-[30px] leading-tight">{p.title}</h2>
+            <h2 className="text-[28px] font-medium leading-tight tracking-[-0.02em]">{p.title}</h2>
             <p className="text-muted mt-2 text-[14px]">{s.short}</p>
           </div>
         </div>
@@ -43,7 +43,7 @@ export default function GuideCard() {
         <div className="mt-6 flex items-end justify-between gap-4">
           <div>
             <p className="font-mono text-[12px] uppercase tracking-[0.2em] text-ivory/40">{p.pages}</p>
-            <p className="font-display text-[44px] leading-none">{p.price}</p>
+            <p className="text-[40px] font-semibold leading-none tracking-[-0.03em]">{p.price}</p>
             <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.2em] text-ivory/50">VAT incl. · PDF</p>
           </div>
           <motion.a href={p.href} className="btn btn-accent" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
