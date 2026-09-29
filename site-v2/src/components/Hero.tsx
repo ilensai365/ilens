@@ -5,9 +5,10 @@ import { gsap, prefersReducedMotion } from "../lib/motion";
 import Dust from "./Dust";
 import HeroVideo from "./HeroVideo";
 import HeroCtas from "./hero/HeroCtas";
-import BundleCard from "./hero/BundleCard";
+import GuideCard from "./hero/GuideCard";
 
-const phrases = ["Create content", "Launch an ebook", "Build a shop"];
+// Lead product in the hero: Claude × Remotion (the bundle card lives on in the Shop section).
+const phrases = ["Make branded reels", "Make product reels", "Make a video series"]; // each fits one line at 375px
 
 /** Cinematic background (light beams, dust, giant wordmark) with a rotating headline and the bundle card. */
 export default function Hero({ ready }: { ready: boolean }) {
@@ -62,14 +63,14 @@ export default function Hero({ ready }: { ready: boolean }) {
       <div className="container-x relative z-10 grid min-h-[100svh] items-center gap-14 pb-20 pt-32 lg:grid-cols-12 lg:gap-6">
         <div className="lg:col-span-7">
           <p data-hero className="eyebrow">
-            Digital products · 2026
+            New guide · Claude × Remotion
           </p>
 
           <h1
             data-hero
             className="mt-7 font-medium leading-[1.04] tracking-[-0.02em] [font-size:clamp(36px,9.5vw,56px)] lg:[font-size:clamp(56px,5.2vw,78px)]"
           >
-            <span className="sr-only">Create content, launch an ebook, build a shop — that actually sells.</span>
+            <span className="sr-only">Make branded reels, product reels and video series — just by describing them.</span>
             <span aria-hidden="true" className="relative block h-[1.1em] overflow-hidden whitespace-nowrap">
               <AnimatePresence mode="popLayout" initial={false}>
                 <motion.span
@@ -85,13 +86,13 @@ export default function Hero({ ready }: { ready: boolean }) {
               </AnimatePresence>
             </span>
             <span aria-hidden="true" className="serif-i block text-accent">
-              that actually sells.
+              just by describing them.
             </span>
           </h1>
 
           <p data-hero className="text-muted mt-7 max-w-lg text-[17px]">
-            Ebooks, templates and AI prompts that show you, step by step, how to build your site, launch your first
-            digital product and turn content into income.
+            Claude writes the code, Remotion renders the MP4. Our new guide shows you, step by step, how to turn a
+            sentence into a finished, on-brand video — no editing app, no timeline dragging.
           </p>
           <div data-hero>
             <HeroCtas className="mt-10" />
@@ -107,7 +108,7 @@ export default function Hero({ ready }: { ready: boolean }) {
         </div>
 
         <div data-hero className="lg:col-span-5">
-          <BundleCard />
+          <GuideCard />
         </div>
       </div>
 

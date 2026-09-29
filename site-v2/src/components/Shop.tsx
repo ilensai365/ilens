@@ -116,7 +116,10 @@ function SpotlightCard({ p }: { p: Product }) {
           </div>
 
           <h3 className="mt-5 text-[30px] font-medium leading-tight tracking-[-0.02em] md:text-[34px]">{p.title}</h3>
-          <p className="text-muted mt-2 text-[15px] leading-relaxed">{s.lead}</p>
+          <p className="mt-3 text-[16px] leading-relaxed text-ivory/90">{s.lead}</p>
+          {s.body.map((para) => (
+            <p key={para} className="text-muted mt-3 max-w-2xl text-[15px] leading-relaxed">{para}</p>
+          ))}
 
           <ul className="mt-6 grid gap-x-5 gap-y-2.5 border-t hairline pt-5 text-[14px] sm:grid-cols-2">
             {p.includes?.map((item) => (

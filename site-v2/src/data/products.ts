@@ -24,6 +24,11 @@ export type Product = {
   spotlight?: {
     label: string;
     lead: string;
+    /** Extra paragraphs under the lead on the shop card. */
+    body: string[];
+    /** One-liner and chapter list for the hero card. */
+    short: string;
+    chapters: string[];
     /** Shown under the price, joined with " · ". */
     stats: string[];
   };
@@ -45,12 +50,20 @@ export const products: Product[] = [
     includes: [
       "Setup in ten minutes with Claude Code",
       "The prompt that builds a finished reel",
-      "Templates for series and client work",
-      "Real Remotion Studio screenshots",
+      "Preview, edit in plain words, render to MP4",
+      "Templates for whole series and client work",
+      "Brand and label AI footage the right way",
+      "Prompt library, command sheet and fixes",
     ],
     spotlight: {
       label: "New · Video guide",
       lead: "Make branded videos by describing them — Claude writes the code, Remotion renders the MP4.",
+      body: [
+        "Every reel you build in an editor is a one-off: the title, the font, the timing, again and again. This guide turns your format into a template, so the tenth video takes minutes instead of an evening — in your colours, your fonts, every time.",
+        "Built from a real project: our own brand intro, teaching reels, client product templates and AI clips. No coding experience needed.",
+      ],
+      short: "Branded reels from plain words — no editing app.",
+      chapters: ["Set up in ten minutes", "The prompt that builds a reel", "Preview, edit, render", "One reel, many videos", "Templates clients can edit"],
       stats: ["One-time", "VAT incl.", "38 pages"],
     },
     span: 12,
