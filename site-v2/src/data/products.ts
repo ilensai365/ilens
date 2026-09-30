@@ -63,7 +63,7 @@ export const products: Product[] = [
         "Every reel you build in an editor is a one-off: the title, the font, the timing, again and again. This guide turns your format into a template, so the tenth video takes minutes instead of an evening — in your colours, your fonts, every time.",
         "We make reels — for iLens and for brands — and every one in this guide is real: our brand intro, teaching reels, client product templates, AI clips, and a full case study of our 30-second reel, frame by frame. No coding experience needed.",
       ],
-      short: "We make our reels this way. Describe it, Claude writes it, Remotion renders it.",
+      short: "We make our reels this way. Describe it, Claude writes it, Remotion renders it. Inside: our own 30-second reel, frame by frame.",
       chapters: ["Set up in ten minutes", "The prompt that builds a reel", "Preview, edit, render", "One reel, many videos", "Case study: our 30-second reel"],
       stats: ["One-time", "VAT incl.", "49 pages"],
     },
