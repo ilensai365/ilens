@@ -75,7 +75,7 @@ export const about = {
   tags: ["Brand Strategy", "Creative Direction", "Visual Identity", "Content Systems", "AI Workflows", "Digital Products"],
 };
 
-export const heroProof = ["38 pages", "8 chapters", "Instant download", "VAT included"];
+export const heroProof = ["49 pages", "9 chapters", "Instant download", "VAT included"];
 
 export const method = [
   { n: "01", title: "See", body: "Find the problem your audience will gladly pay you to solve." },
