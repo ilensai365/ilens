@@ -15,13 +15,29 @@ export default function GuideCard() {
         </div>
 
         <div className="mt-6 flex gap-5">
-          <img
-            src={p.cover}
-            alt={`${p.title} cover`}
-            width={640}
-            height={908}
-            className="w-24 shrink-0 self-start rounded-[3px] shadow-[0_20px_40px_-12px_rgba(0,0,0,0.9)] sm:w-28"
-          />
+          <div className="flex shrink-0 items-start self-start">
+            <img
+              src={p.cover}
+              alt={`${p.title} cover`}
+              width={640}
+              height={908}
+              className="w-24 rounded-[3px] shadow-[0_20px_40px_-12px_rgba(0,0,0,0.9)] sm:w-28"
+            />
+            {/* Our own reel, made the way the guide teaches, as a small gold-framed phone beside the cover. */}
+            <div className="relative z-10 -ml-8 mt-6 w-[62px] rotate-6 overflow-hidden rounded-[12px] border-[3px] border-accent bg-ink shadow-[0_20px_40px_-10px_rgba(0,0,0,0.95)] sm:w-[72px]">
+              <video
+                src={import.meta.env.BASE_URL + "video/claude-reel.mp4"}
+                poster={import.meta.env.BASE_URL + "video/claude-reel-poster.jpg"}
+                className="block aspect-[9/16] w-full object-cover"
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                aria-label="Our reel, made with Claude and Remotion"
+              />
+            </div>
+          </div>
           <div>
             <h2 className="text-[28px] font-medium leading-tight tracking-[-0.02em]">{p.title}</h2>
             <p className="text-muted mt-2 text-[14px]">{s.short}</p>

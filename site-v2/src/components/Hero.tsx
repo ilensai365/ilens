@@ -107,25 +107,8 @@ export default function Hero({ ready }: { ready: boolean }) {
           </ul>
         </div>
 
-        <div data-hero className="relative lg:col-span-5">
+        <div data-hero className="lg:col-span-5">
           <GuideCard />
-          {/* Our own reel, made with the guide, as a gold-framed phone tucked under the card (desktop only). */}
-          <figure className="pointer-events-none absolute bottom-12 -left-36 hidden w-[140px] -rotate-6 xl:block">
-            <div className="overflow-hidden rounded-[26px] border-[5px] border-accent bg-ink shadow-[0_40px_90px_-20px_rgba(0,0,0,0.9)]">
-              <video
-                src={import.meta.env.BASE_URL + "video/claude-reel.mp4"}
-                poster={import.meta.env.BASE_URL + "video/claude-reel-poster.jpg"}
-                className="block aspect-[9/16] w-full object-cover"
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="metadata"
-                aria-label="Our 30-second reel, made with Claude and Remotion"
-              />
-            </div>
-            <figcaption className="mt-3 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-accent">We make reels ↑</figcaption>
-          </figure>
         </div>
       </div>
 
