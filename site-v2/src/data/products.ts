@@ -53,6 +53,7 @@ export const products: Product[] = [
       "Preview, edit in plain words, render to MP4",
       "Templates for whole series and client work",
       "Brand and label AI footage the right way",
+      "Case study: our 30-second reel, frame by frame",
       "Prompt library, command sheet and fixes",
     ],
     spotlight: {
@@ -60,10 +61,10 @@ export const products: Product[] = [
       lead: "Make branded videos by describing them — Claude writes the code, Remotion renders the MP4.",
       body: [
         "Every reel you build in an editor is a one-off: the title, the font, the timing, again and again. This guide turns your format into a template, so the tenth video takes minutes instead of an evening — in your colours, your fonts, every time.",
-        "Built from a real project: our own brand intro, teaching reels, client product templates and AI clips. No coding experience needed.",
+        "We make reels — for iLens and for brands — and every one in this guide is real: our brand intro, teaching reels, client product templates, AI clips, and a full case study of our 30-second reel, frame by frame. No coding experience needed.",
       ],
-      short: "Branded reels from plain words — no editing app. Describe the video, Claude writes it, Remotion renders it: your fonts, your colours, every time. Built from real client work, no coding needed.",
-      chapters: ["Set up in ten minutes", "The prompt that builds a reel", "Preview, edit, render", "One reel, many videos", "Templates clients can edit"],
+      short: "We make our reels with Claude and Remotion — and this guide shows you exactly how. Describe the video in plain words, Claude writes it, Remotion renders the MP4: your fonts, your colours, every time. Includes a frame-by-frame case study of our own 30-second reel, from a 10-second phone clip to the finished post. No editing app, no coding.",
+      chapters: ["Set up in ten minutes", "The prompt that builds a reel", "Preview, edit, render", "One reel, many videos", "Templates clients can edit", "Case study: our 30-second reel"],
       stats: ["One-time", "VAT incl.", "49 pages"],
     },
     span: 12,
