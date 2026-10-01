@@ -32,11 +32,63 @@ export type Product = {
     /** Shown under the price, joined with " · ". */
     stats: string[];
   };
+  /** Slide in the hero carousel (order = order in this list). */
+  hero?: {
+    eyebrow: string;
+    /** Rotating first line — keep each short so it clears the hero card. */
+    phrases: string[];
+    /** Gold italic second line. */
+    tagline: string;
+    sub: string;
+    proof: string[];
+    /** Small looping reel beside the cover on the hero card. */
+    reel: { src: string; poster: string; label: string };
+  };
   /** Columns out of 12 on desktop. */
   span: 3 | 4 | 6 | 8 | 12;
 };
 
 export const products: Product[] = [
+  {
+    id: "chatgpt-visibility",
+    title: "Your Business in ChatGPT",
+    blurb: "Get your business and products recommended by ChatGPT — and understand the new ChatGPT ads.",
+    cover: IMG + "images/dark/product-chatgpt-visibility.jpg",
+    price: "€39",
+    href: PAYHIP("DZMga"),
+    status: "available",
+    pages: "34 pages",
+    inBundle: false,
+    includes: [
+      "How ChatGPT decides what to recommend",
+      "The one-sentence test and a page AI can read",
+      "Make sure your site doesn’t block ChatGPT",
+      "Get mentioned honestly where AI looks",
+      "A monthly audit: does ChatGPT know you?",
+      "ChatGPT ads explained, plus a small-budget first test",
+      "14-day plan, prompts and checklists",
+    ],
+    spotlight: {
+      label: "New · AI visibility guide",
+      lead: "Your next customer is asking ChatGPT. Make sure it can recommend you.",
+      body: [
+        "People don’t only google anymore — they ask ChatGPT and get two or three suggestions, not ten links. This guide shows how AI answers pick products and how to make yours easy to understand, find and recommend.",
+        "And since 2026 ChatGPT has ads: we explain how they work, what they cost and when a small test makes sense — using OpenAI’s own facts, in plain English.",
+      ],
+      short: "How AI answers pick products, how to make yours easy to recommend, and how the new ChatGPT ads fit in.",
+      chapters: ["How ChatGPT picks what to mention", "A product page AI can read", "Be talked about where AI looks", "ChatGPT ads, explained", "The 14-day plan"],
+      stats: ["One-time", "VAT incl.", "34 pages"],
+    },
+    hero: {
+      eyebrow: "New guide · Your business in ChatGPT",
+      phrases: ["Your business", "Your products", "Your brand"],
+      tagline: "recommended by ChatGPT.",
+      sub: "How AI answers pick products, how to be one of them — and what the new ChatGPT ads change.",
+      proof: ["34 pages", "8 chapters", "Instant download", "VAT included"],
+      reel: { src: IMG + "video/chatgpt-reel.mp4", poster: IMG + "video/chatgpt-reel-poster.jpg", label: "Our reel about ChatGPT ads" },
+    },
+    span: 12,
+  },
   {
     id: "claude-remotion",
     title: "Claude × Remotion",
@@ -66,6 +118,14 @@ export const products: Product[] = [
       short: "We make our reels this way. Describe it, Claude writes it, Remotion renders it. Inside: our own 30-second reel, frame by frame.",
       chapters: ["Set up in ten minutes", "The prompt that builds a reel", "Preview, edit, render", "One reel, many videos", "Case study: our 30-second reel"],
       stats: ["One-time", "VAT incl.", "49 pages"],
+    },
+    hero: {
+      eyebrow: "New guide · Claude × Remotion",
+      phrases: ["Make reels", "Make videos", "Make ads"],
+      tagline: "just by describing them.",
+      sub: "Claude writes the code, Remotion renders the MP4. On-brand videos in minutes — no editing app.",
+      proof: ["49 pages", "9 chapters", "Instant download", "VAT included"],
+      reel: { src: IMG + "video/claude-reel.mp4", poster: IMG + "video/claude-reel-poster.jpg", label: "Our reel, made with Claude and Remotion" },
     },
     span: 12,
   },

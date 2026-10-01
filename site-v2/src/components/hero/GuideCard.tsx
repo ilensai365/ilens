@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
-import { products } from "../../data/products";
+import type { Product } from "../../data/products";
 
-/** Hero "checkout card" for the lead guide (the shop's spotlight product), in the bundle card's style. */
-export default function GuideCard() {
-  const p = products.find((x) => x.spotlight)!;
+/** Hero "checkout card" for one hero-carousel guide, in the bundle card's style. */
+export default function GuideCard({ p }: { p: Product }) {
   const s = p.spotlight!;
+  const reel = p.hero?.reel;
 
   return (
     <div className="glass rounded-[24px] p-2 shadow-[0_40px_120px_-40px_var(--glow)]">
@@ -23,20 +23,22 @@ export default function GuideCard() {
               height={908}
               className="w-24 rounded-[3px] shadow-[0_20px_40px_-12px_rgba(0,0,0,0.9)] sm:w-28"
             />
-            {/* Our own reel, made the way the guide teaches, as a small gold-framed phone beside the cover. */}
-            <div className="relative z-10 -ml-8 mt-6 w-[62px] rotate-6 overflow-hidden rounded-[12px] border-[3px] border-accent bg-ink shadow-[0_20px_40px_-10px_rgba(0,0,0,0.95)] sm:w-[72px]">
-              <video
-                src={import.meta.env.BASE_URL + "video/claude-reel.mp4"}
-                poster={import.meta.env.BASE_URL + "video/claude-reel-poster.jpg"}
-                className="block aspect-[9/16] w-full object-cover"
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="metadata"
-                aria-label="Our reel, made with Claude and Remotion"
-              />
-            </div>
+            {/* Our own reel for this guide, as a small gold-framed phone beside the cover. */}
+            {reel && (
+              <div className="relative z-10 -ml-8 mt-6 w-[62px] rotate-6 overflow-hidden rounded-[12px] border-[3px] border-accent bg-ink shadow-[0_20px_40px_-10px_rgba(0,0,0,0.95)] sm:w-[72px]">
+                <video
+                  src={reel.src}
+                  poster={reel.poster}
+                  className="block aspect-[9/16] w-full object-cover"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                  aria-label={reel.label}
+                />
+              </div>
+            )}
           </div>
           <div>
             <h2 className="text-[28px] font-medium leading-tight tracking-[-0.02em]">{p.title}</h2>
