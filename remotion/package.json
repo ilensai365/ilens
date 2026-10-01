@@ -1,0 +1,38 @@
+{
+  "name": "ilens-remotion",
+  "version": "1.0.0",
+  "private": true,
+  "description": "iLens brand motion assets (Remotion video project).",
+  "scripts": {
+    "start": "remotion studio src/index.ts",
+    "build": "remotion render src/index.ts ILensIntro out/ILensIntro.mp4",
+    "build:tiktok": "remotion render src/index.ts ILensIntroTikTok out/ILensIntroTikTok.mp4",
+    "still": "remotion still src/index.ts ILensIntro out/ILensIntro.png",
+    "upgrade": "remotion upgrade",
+    "build:tips": "remotion render src/index.ts TipReel-Prompts out/TipReel-Prompts.mp4 && remotion render src/index.ts TipReel-Ebook out/TipReel-Ebook.mp4 && remotion render src/index.ts TipReel-NoSales out/TipReel-NoSales.mp4 && remotion render src/index.ts TipReel-Repurpose out/TipReel-Repurpose.mp4 && remotion render src/index.ts TipReel-FirstSale out/TipReel-FirstSale.mp4",
+    "build:claude": "remotion render src/index.ts TipReel-ClaudeSetup out/TipReel-ClaudeSetup.mp4 && remotion render src/index.ts TipReel-ClaudePrompt out/TipReel-ClaudePrompt.mp4 && remotion render src/index.ts TipReel-ClaudeRender out/TipReel-ClaudeRender.mp4",
+    "covers:tips": "remotion still src/index.ts TipReel-ClaudeSetup out/cover-ClaudeSetup.png --frame=60 && remotion still src/index.ts TipReel-ClaudePrompt out/cover-ClaudePrompt.png --frame=60 && remotion still src/index.ts TipReel-ClaudeRender out/cover-ClaudeRender.png --frame=60 && remotion still src/index.ts TipReel-Prompts out/cover-Prompts.png --frame=60 && remotion still src/index.ts TipReel-Ebook out/cover-Ebook.png --frame=60 && remotion still src/index.ts TipReel-NoSales out/cover-NoSales.png --frame=60 && remotion still src/index.ts TipReel-Repurpose out/cover-Repurpose.png --frame=60 && remotion still src/index.ts TipReel-FirstSale out/cover-FirstSale.png --frame=60",
+    "build:tips2": "remotion render src/index.ts TipReel-Storefront out/TipReel-Storefront.mp4 && remotion render src/index.ts TipReel-Amazon out/TipReel-Amazon.mp4 && remotion render src/index.ts TipReel-Stack out/TipReel-Stack.mp4 && remotion render src/index.ts TipReel-Templates out/TipReel-Templates.mp4 && remotion render src/index.ts TipReel-SalesPage out/TipReel-SalesPage.mp4 && remotion render src/index.ts TipReel-ContentMonth out/TipReel-ContentMonth.mp4",
+    "covers:tips2": "remotion still src/index.ts TipReel-Storefront out/cover-Storefront.png --frame=60 && remotion still src/index.ts TipReel-Amazon out/cover-Amazon.png --frame=60 && remotion still src/index.ts TipReel-Stack out/cover-Stack.png --frame=60 && remotion still src/index.ts TipReel-Templates out/cover-Templates.png --frame=60 && remotion still src/index.ts TipReel-SalesPage out/cover-SalesPage.png --frame=60 && remotion still src/index.ts TipReel-ContentMonth out/cover-ContentMonth.png --frame=60",
+    "build:ai": "remotion render src/index.ts AiShowcase-Mountain out/AiShowcase-Mountain.mp4 && remotion render src/index.ts AiShowcase-CarNeon out/AiShowcase-CarNeon.mp4 && remotion render src/index.ts AiShowcase-CarSunset out/AiShowcase-CarSunset.mp4 && remotion render src/index.ts AiShowcase-Studio out/AiShowcase-Studio.mp4 && remotion render src/index.ts AiShowcase-Mirror out/AiShowcase-Mirror.mp4",
+    "build:design": "remotion render src/index.ts DesignThinking out/DesignThinking.mp4 && remotion still src/index.ts DesignThinking out/cover-DesignThinking.png --frame=75",
+    "build:showcase": "remotion render src/index.ts ProductShowcase-Serum out/ProductShowcase-Serum.mp4 && remotion render src/index.ts ProductShowcase-Jewelry out/ProductShowcase-Jewelry.mp4 && remotion render src/index.ts ProductShowcase-Portofino out/ProductShowcase-Portofino.mp4 && remotion render src/index.ts ProductShowcase-Casino out/ProductShowcase-Casino.mp4",
+    "build:follow": "remotion render src/index.ts FollowReel out/FollowReel.mp4 && remotion render src/index.ts FollowReel-Feed out/FollowReel-Feed.mp4 && remotion still src/index.ts FollowReel out/cover-FollowReel.png --frame=40",
+    "build:ebook-reel": "remotion render src/index.ts EbookReel out/EbookReel.mp4 && remotion render src/index.ts EbookReel-Feed out/EbookReel-Feed.mp4 && remotion still src/index.ts EbookReel out/cover-EbookReel.png --frame=45",
+    "build:claude-reel": "remotion render src/index.ts ClaudeReel out/ClaudeReel.mp4 && remotion still src/index.ts ClaudeReel-Cover out/cover-ClaudeReel.png && remotion render src/index.ts ClaudeReel-Edit out/ClaudeReel-Edit.mp4 && remotion still src/index.ts ClaudeReel-Edit-Cover out/cover-ClaudeReel-Edit.png"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "remotion": "^4.0.190",
+    "@remotion/cli": "^4.0.190",
+    "@remotion/google-fonts": "^4.0.190",
+    "@remotion/zod-types": "4.0.524",
+    "zod": "4.5.4"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.1",
+    "@types/react-dom": "^18.3.1",
+    "typescript": "^5.5.4"
+  }
+}
