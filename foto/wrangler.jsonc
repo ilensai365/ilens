@@ -1,0 +1,12 @@
+{
+  // Agnieszka Fierek Photography — separate site from iLens, served at foto.ilens.co.
+  // Plain static files in ./site (no build step). Deploy: cd foto && npx wrangler deploy
+  "name": "foto-ilens",
+  "compatibility_date": "2026-09-26",
+  "assets": {
+    "directory": "./site"
+  },
+  "routes": [
+    { "pattern": "foto.ilens.co", "custom_domain": true }
+  ]
+}

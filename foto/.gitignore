@@ -1,0 +1,5 @@
+tools/node_modules/
+# contact sheets are working files built from the full shoots
+tools/sheets/
+.wrangler/
+tools/extra/
