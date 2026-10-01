@@ -1,0 +1,12 @@
+{
+  // iLens Resell — separate PLR/MRR site, served at resell.ilens.co. Independent from the main ilens.co Worker.
+  // Build locally (npm run build), commit dist, then: cd resell && npx wrangler deploy
+  "name": "ilens-resell",
+  "compatibility_date": "2026-09-26",
+  "assets": {
+    "directory": "./dist"
+  },
+  "routes": [
+    { "pattern": "resell.ilens.co", "custom_domain": true }
+  ]
+}
