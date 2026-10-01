@@ -1,0 +1,31 @@
+# Repo is PUBLIC on GitHub — paid content and heavy media stay local only.
+
+# dependencies / tool caches
+node_modules/
+.wrangler/
+.remotion/
+
+# archived working files (uploaded reels/graphics) — local only
+_archiwum/upload-*/
+.upload-tmp/
+
+# PAID content — never commit
+ebooks/
+remotion/src/Course/lessons/
+remotion/src/Course/lessons-archive/
+remotion/public/course/
+
+# heavy media (render sources) — keep on disk / Google Drive
+remotion/public/**/*.mp4
+
+# Claude local working files
+.claude/settings.local.json
+.claude/skills/
+.claude/references/
+.claude/store-upload/
+
+# personal photos (owner asked to keep her image off public places)
+remotion/public/claude-reel/me*.jpg
+
+# foto.ilens.co photos — local until the owner approves them for the public repo
+foto/site/img/
