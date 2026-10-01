@@ -42,7 +42,9 @@ export type Product = {
     sub: string;
     proof: string[];
     /** Small looping reel beside the cover on the hero card. */
-    reel: { src: string; poster: string; label: string };
+    reel?: { src: string; poster: string; label: string };
+    /** Flagship look: lit cover with a floating AI-answer card instead of the reel. */
+    flagship?: boolean;
   };
   /** Columns out of 12 on desktop. */
   span: 3 | 4 | 6 | 8 | 12;
@@ -69,7 +71,7 @@ export const products: Product[] = [
       "14-day plan, prompts and checklists",
     ],
     spotlight: {
-      label: "New · AI visibility guide",
+      label: "Flagship · AI visibility guide",
       lead: "Your next customer is asking ChatGPT. Make sure it can recommend you.",
       body: [
         "People don’t only google anymore — they ask ChatGPT and get two or three suggestions, not ten links. This guide shows how AI answers pick products and how to make yours easy to understand, find and recommend.",
@@ -85,7 +87,7 @@ export const products: Product[] = [
       tagline: "recommended by ChatGPT.",
       sub: "How AI answers pick products, how to be one of them — and what the new ChatGPT ads change.",
       proof: ["34 pages", "8 chapters", "Instant download", "VAT included"],
-      reel: { src: IMG + "video/chatgpt-reel.mp4", poster: IMG + "video/chatgpt-reel-poster.jpg", label: "Our reel about ChatGPT ads" },
+      flagship: true,
     },
     span: 12,
   },
