@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { aiAssistant, businessTypes, industries, storeAddOns, storeExternal, storeFaq, storePackages } from "../data/shops";
 import { CONTACT_EMAIL, socials } from "../data/site";
+import { clients, projects } from "../data/studio";
 import LeadForm from "../marketing/LeadForm";
 
 const nav = [
@@ -17,6 +18,72 @@ const formProps = {
   extraLabel: "When do you want to launch?",
   extraOptions: ["As soon as possible", "Within 1–2 months", "In 3+ months", "Just exploring"],
 };
+
+// Hero promises: all things we control (no results guaranteed).
+const promises = ["Fixed price before we start", "Live in 2–6 weeks", "You own the store and accounts", "Only 30% to start"];
+
+/** Scrolling strip of the industry concepts under the hero, so visitors see the result before the details. */
+function ConceptStrip() {
+  const shots = [...industries, ...industries];
+  return (
+    <div className="relative overflow-hidden border-y hairline py-6" aria-hidden="true">
+      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-ink to-transparent" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-ink to-transparent" />
+      <div className="flex w-max animate-[marquee_60s_linear_infinite] gap-4 motion-reduce:animate-none">
+        {shots.map((x, i) => (
+          <img key={i} src={x.image} alt="" loading="lazy" className="h-[180px] w-auto rounded-[14px] ring-1 ring-ivory/10 sm:h-[230px]" />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+/** Wordmark strip of brands we've worked with. */
+export function ClientStrip() {
+  return (
+    <div className="container-x py-10">
+      <p className="text-center font-mono text-[11px] uppercase tracking-[0.25em] text-ivory/45">Brands we've worked with</p>
+      <ul className="mt-6 flex flex-wrap items-center justify-center gap-x-12 gap-y-4">
+        {clients.map((c) => (
+          <li key={c} className="font-display text-[22px] tracking-[-0.01em] text-ivory/60 sm:text-[26px]">{c}</li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+/** Real web projects from the studio portfolio (same data as /studio). */
+function Work() {
+  const ids = ["ilens-guides", "g-volt", "centrum-seo", "block-street", "property-developer", "cube-casino"];
+  const items = ids.map((id) => projects.find((p) => p.id === id)).filter((p): p is (typeof projects)[number] => !!p);
+  return (
+    <section id="work" className="border-t hairline py-section">
+      <div className="container-x">
+        <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
+          <div>
+            <p className="eyebrow">Selected work</p>
+            <h2 className="mt-5 max-w-3xl text-h1 font-medium">Websites & stores <span className="serif-i text-accent">we've designed.</span></h2>
+          </div>
+          <a href="/studio/#work" className="btn btn-ghost shrink-0 self-start lg:self-auto">Full portfolio →</a>
+        </div>
+        <div className="mt-12 grid grid-cols-2 gap-3 md:grid-cols-3">
+          {items.map((p) => (
+            <a key={p.id} href="/studio/#work" className="group relative block aspect-[4/3] overflow-hidden rounded-[20px] bg-black">
+              <img src={p.cover} alt={p.title} loading="lazy" style={{ objectPosition: p.focus ?? "50% 45%" }} className="absolute inset-0 h-full w-full object-cover opacity-60 transition-all duration-700 group-hover:scale-[1.04] group-hover:opacity-80" />
+              <div className="absolute inset-0 bg-[linear-gradient(to_top,#0B0A08_10%,rgba(11,10,8,0.4)_55%,transparent)]" aria-hidden="true" />
+              <div className="absolute inset-0 rounded-[20px] ring-1 ring-inset ring-ivory/10 transition-colors group-hover:ring-accent/50" aria-hidden="true" />
+              <div className="absolute inset-x-4 bottom-4">
+                <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-accent">{p.sector}</p>
+                <p className="mt-1 font-display text-[20px] leading-tight sm:text-[24px]">{p.title}</p>
+                <p className="text-muted mt-1 hidden text-[13px] sm:block">{p.deliverables.slice(0, 3).join(" · ")}</p>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
 
 function Header() {
   return (
@@ -69,9 +136,12 @@ export default function ShopsPage() {
                 <a href="#quote" className="btn btn-accent">Get my quote →</a>
                 <a href="#industries" className="btn btn-ghost">Find your industry</a>
               </div>
-              <ul className="mt-10 flex flex-wrap gap-x-5 gap-y-2 font-mono text-[12px] uppercase tracking-[0.2em] text-ivory/50">
-                {["Shopify", "WooCommerce", "Payhip", "AI assistant", "GDPR-ready", "SEO"].map((t) => (
-                  <li key={t}><span className="mr-2 text-accent">·</span>{t}</li>
+              <ul className="mt-10 grid max-w-xl gap-3 sm:grid-cols-2">
+                {promises.map((t) => (
+                  <li key={t} className="flex items-center gap-3 text-[15px]">
+                    <span className="grid h-6 w-6 flex-none place-items-center rounded-full bg-accent text-[12px] font-bold text-ink" aria-hidden="true">✓</span>
+                    {t}
+                  </li>
                 ))}
               </ul>
             </div>
@@ -81,6 +151,9 @@ export default function ShopsPage() {
           </div>
         </section>
 
+        <ConceptStrip />
+        <ClientStrip />
+
         {/* Industries */}
         <section id="industries" className="border-t hairline py-section">
           <div className="container-x">
@@ -88,7 +161,11 @@ export default function ShopsPage() {
             <h2 className="mt-5 max-w-3xl text-h1 font-medium">Built for <span className="serif-i text-accent">your kind of business.</span></h2>
             <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
               {industries.map((x) => (
-                <article key={x.id} id={x.id} className="surface flex scroll-mt-24 flex-col rounded-card p-7">
+                <article key={x.id} id={x.id} className="surface group flex scroll-mt-24 flex-col overflow-hidden rounded-card">
+                  <div className="relative aspect-[16/10] overflow-hidden border-b hairline bg-black">
+                    <img src={x.image} alt={`Example ${x.tag.toLowerCase()} store concept`} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
+                  </div>
+                  <div className="flex flex-1 flex-col p-7">
                   <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-accent">{x.tag}</p>
                   <h3 className="mt-3 text-h3 font-medium">{x.title}</h3>
                   <p className="text-muted mt-2">{x.lead}</p>
@@ -98,6 +175,7 @@ export default function ShopsPage() {
                   <div className="mt-7 flex items-center justify-between gap-4">
                     <p className="text-[20px] font-medium">{x.price}</p>
                     <a href="#quote" className="rounded-full border hairline px-4 py-2 text-[13px] text-ivory/85 transition-colors hover:border-accent hover:text-accent">Ask →</a>
+                  </div>
                   </div>
                 </article>
               ))}
@@ -109,6 +187,8 @@ export default function ShopsPage() {
             </div>
           </div>
         </section>
+
+        <Work />
 
         {/* AI assistant */}
         <section id="ai" className="relative overflow-hidden border-t hairline py-section">

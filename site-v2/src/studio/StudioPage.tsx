@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState, type FormEvent } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { categories, heroEbooks, packages, process, projects, sectors, services, studioFaq, type Category, type Project } from "../data/studio";
+import { categories, clients, heroEbooks, packages, process, projects, sectors, services, studioFaq, type Category, type Project } from "../data/studio";
 import { CONTACT_EMAIL, CONTACT_FORM_ENDPOINT, socials } from "../data/site";
 
 const nav = [
@@ -378,6 +378,18 @@ export default function StudioPage() {
             </div>
           </div>
         </section>
+
+        {/* Brands we've worked with (wordmarks, not logo files) */}
+        <div className="border-t hairline">
+          <div className="container-x py-10">
+            <p className="text-center font-mono text-[11px] uppercase tracking-[0.25em] text-ivory/45">Brands we've worked with</p>
+            <ul className="mt-6 flex flex-wrap items-center justify-center gap-x-12 gap-y-4">
+              {clients.map((c) => (
+                <li key={c} className="font-display text-[22px] tracking-[-0.01em] text-ivory/60 sm:text-[26px]">{c}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
 
         <Work />
 

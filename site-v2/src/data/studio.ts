@@ -283,6 +283,9 @@ export const process = [
   { title: "Deliver", body: "Files, templates and a system you keep using." },
 ];
 
+/** Brands the owner has worked with (her list, 2026-10-07). Shown as wordmarks, not logo files (trademarks). */
+export const clients = ["Bolt", "Getty Images", "Centrum SEO", "G-Volt"];
+
 export const sectors = ["iGaming", "Real estate", "Energy", "Beauty & wellness", "Food & drink", "Tech"];
 
 export const studioFaq = [

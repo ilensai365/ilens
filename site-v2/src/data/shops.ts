@@ -1,11 +1,13 @@
 // Content for ilens.co/shops — websites and online stores by industry (Malta & EU), 2026 price list.
 // Based on the owner's 2021 PL store price list (5 990 / 6 990 / 8 990 zł), rebuilt for 2026:
 // EU payments, Malta shipping, AI product content, GA4 + Consent Mode, SEO, accessibility.
+const SHOT = import.meta.env.BASE_URL + "images/shops/";
 // All prices are net (excl. VAT) "from" prices proposed 2026-10-07 and raised at the owner's request: owner to confirm.
 
 export const industries = [
   {
     id: "ecommerce",
+    image: SHOT + "ecommerce.webp",
     tag: "E-commerce",
     title: "Online store",
     lead: "A complete shop that sells while you sleep.",
@@ -19,6 +21,7 @@ export const industries = [
   },
   {
     id: "beauty-salon",
+    image: SHOT + "beauty-salon.webp",
     tag: "Beauty salon",
     title: "Salon website with online booking",
     lead: "Fewer DMs, more booked chairs.",
@@ -32,6 +35,7 @@ export const industries = [
   },
   {
     id: "cosmetics",
+    image: SHOT + "cosmetics.webp",
     tag: "Cosmetics",
     title: "Cosmetics & skincare store",
     lead: "Product pages that answer every question before it's asked.",
@@ -45,6 +49,7 @@ export const industries = [
   },
   {
     id: "electronics",
+    image: SHOT + "electronics.webp",
     tag: "Electronics",
     title: "Electronics & tech store",
     lead: "Hundreds of products, still easy to find.",
@@ -58,6 +63,7 @@ export const industries = [
   },
   {
     id: "fashion",
+    image: SHOT + "fashion.webp",
     tag: "Fashion",
     title: "Fashion boutique",
     lead: "Lookbook style, store-level checkout.",
@@ -71,6 +77,7 @@ export const industries = [
   },
   {
     id: "restaurant",
+    image: SHOT + "restaurant.webp",
     tag: "Restaurant & café",
     title: "Restaurant & café website",
     lead: "Menu, table booking and directions in two taps.",
@@ -84,6 +91,7 @@ export const industries = [
   },
   {
     id: "digital",
+    image: SHOT + "digital.webp",
     tag: "Digital products",
     title: "Store for ebooks, courses & coaching",
     lead: "Sell knowledge, delivered automatically.",
