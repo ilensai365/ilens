@@ -14,6 +14,14 @@ const cols = [
     ],
   },
   {
+    title: "Services",
+    links: [
+      { label: "Websites & stores", href: "/shops/" },
+      { label: "Google Ads & tracking", href: "/marketing/" },
+      { label: "Studio", href: "/studio/" },
+    ],
+  },
+  {
     title: "Connect",
     links: [
       { label: "Contact", href: "#contact" },
@@ -25,10 +33,10 @@ const cols = [
 export default function Footer() {
   return (
     <footer className="border-t hairline">
-      <div className="container-x grid gap-12 py-16 md:grid-cols-3">
+      <div className="container-x grid gap-12 py-16 sm:grid-cols-2 md:grid-cols-4">
         <div>
           <p className="font-display text-3xl">iLens</p>
-          <p className="text-muted mt-3 font-mono text-mono">Digital products / Content that sells</p>
+          <p className="text-muted mt-3 font-mono text-mono">Digital products / Stores / Ads that sell</p>
         </div>
         {cols.map((c) => (
           <nav key={c.title} aria-label={c.title}>

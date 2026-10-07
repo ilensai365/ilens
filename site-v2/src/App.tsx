@@ -3,6 +3,7 @@ import Loader from "./components/Loader";
 import Nav from "./components/Nav";
 import Hero from "./components/Hero";
 import Shop from "./components/Shop";
+import Grow from "./components/Grow";
 import Offer from "./components/Offer";
 import Method from "./components/Method";
 import About from "./components/About";
@@ -39,6 +40,7 @@ export default function App() {
       <main id="main" ref={mainRef}>
         <Hero ready={loaded} />
         <Shop />
+        <Grow />
         <Offer />
         <Method />
         <Inside />

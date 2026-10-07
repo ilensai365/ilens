@@ -25,13 +25,14 @@ export const socials = [
  */
 export const heroVideo: { src: string; poster?: string } = { src: "" };
 
+// Top menu: the guides first, then the done-for-you offers (2026-10-07). Offer/Method stay on the page and in the footer.
 export const nav = [
-  { label: "Shop", href: "#shop" },
-  { label: "Offer", href: "#offer" },
-  { label: "Method", href: "#method" },
-  { label: "About", href: "#about" },
+  { label: "Guides", href: "#shop" },
+  { label: "Stores", href: "/shops/" },
+  { label: "Google Ads", href: "/marketing/" },
   { label: "Studio", href: "/studio/" },
-  { label: "FAQ", href: "#faq" },
+  { label: "Free prompts", href: "/free/" },
+  { label: "About", href: "#about" },
 ];
 
 export const offer = [
