@@ -25,7 +25,7 @@ GUIDES (PDF ebooks, instant download, sold on Payhip):
 After purchase the PDF link arrives by email from Payhip (check spam/Promotions). Problems: hello@ilens.co.
 
 WEBSITES & ONLINE STORES (https://ilens.co/shops/, quote form https://ilens.co/shops/#quote), net prices:
-- Online store from €1,990; beauty salon website with online booking from €1,490; cosmetics & skincare store from €3,490; electronics store from €5,490; fashion boutique from €2,990; restaurant & café website from €990; store for ebooks/courses/coaching from €1,490.
+- Online store from €1,990; beauty salon website with online booking from €1,990; cosmetics & skincare store from €3,490; electronics store from €5,490; fashion boutique from €2,990; restaurant & café website from €1,990; store for ebooks/courses/coaching from €1,990.
 - Packages: Start from €1,990, Business from €3,490, Premium from €5,490 (Premium includes the AI shop assistant and a Google Ads launch).
 - Add-ons: AI shop assistant from €490 (AI usage billed by the provider, about €20–60/month), Tracking Setup from €290, SEO & Google Maps from €390, Google Ads launch from €590, AI product photos from €25/photo, extra language from €490, support €65/hour.
 - Paid to other providers: domain, hosting or Shopify plan, legal policies.

@@ -5,23 +5,19 @@ import { products } from "../data/products";
 import { gsap, prefersReducedMotion } from "../lib/motion";
 import Dust from "./Dust";
 import HeroVideo from "./HeroVideo";
-import HeroCtas from "./hero/HeroCtas";
 import GuideCard from "./hero/GuideCard";
 
 // Hero carousel: every product with a `hero` block gets a slide (headline + card), newest first.
 const slides = products.filter((p) => p.hero);
 const SLIDE_MS = 9000;
-const PHRASE_MS = 2800;
 const ease = [0.16, 1, 0.3, 1] as const;
 
-/** Cinematic background (light beams, dust, giant wordmark) with a carousel of new guides: rotating headline + checkout card. */
+/** Cinematic background with the done-for-you website offer on the left and a carousel of the newest guides on the right. */
 export default function Hero({ ready }: { ready: boolean }) {
   const root = useRef<HTMLElement>(null);
   const [slide, setSlide] = useState(0);
-  const [i, setI] = useState(0);
   const [paused, setPaused] = useState(false);
   const p = slides[slide];
-  const h = p.hero!;
   const reduced = prefersReducedMotion();
 
   useLayoutEffect(() => {
@@ -31,14 +27,6 @@ export default function Hero({ ready }: { ready: boolean }) {
     }, root);
     return () => ctx.revert();
   }, [ready]);
-
-  // Rotating first line within the current slide.
-  useEffect(() => {
-    setI(0);
-    if (reduced) return;
-    const t = setInterval(() => setI((n) => (n + 1) % h.phrases.length), PHRASE_MS);
-    return () => clearInterval(t);
-  }, [slide, reduced, h.phrases.length]);
 
   // Auto-advance slides; paused while hovered/focused, and when the user prefers reduced motion.
   useEffect(() => {
@@ -86,55 +74,43 @@ export default function Hero({ ready }: { ready: boolean }) {
         onBlur={() => setPaused(false)}
       >
         <div data-hero className="lg:col-span-7">
+          <p className="eyebrow">iLens Studio · Malta & Europe</p>
+          <h1 className="mt-7 font-medium leading-[1.04] tracking-[-0.02em] [font-size:clamp(36px,9.5vw,56px)] lg:[font-size:clamp(52px,4.6vw,72px)]">
+            A website like this one, <span className="serif-i block text-accent">built for you.</span>
+          </h1>
+          <p className="text-muted mt-7 max-w-lg text-[17px]">
+            Premium websites and online stores for salons, cosmetics, fashion, electronics, restaurants and digital
+            products. Designed, built, tracked and ready for Google Ads, with an AI assistant if you want one.
+          </p>
+          <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+            <a href="/shops/#quote" className="btn btn-accent">Get my quote · from €1,990 →</a>
+            <a href="/shops/" className="btn btn-ghost">See store offers</a>
+          </div>
+          <ul className="mt-10 grid max-w-xl gap-3 sm:grid-cols-2">
+            {["Live in 2–6 weeks", "Fixed price before we start", "GDPR-ready, tracked, SEO", "You own the site and accounts"].map((x) => (
+              <li key={x} className="flex items-center gap-3 text-[15px]">
+                <span className="grid h-6 w-6 flex-none place-items-center rounded-full bg-accent text-[12px] font-bold text-ink" aria-hidden="true">✓</span>
+                {x}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div data-hero className="lg:col-span-5">
           <AnimatePresence mode="wait" initial={false}>
             <motion.div
               key={p.id}
-              initial={{ opacity: 0, x: 28 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -28 }}
+              initial={{ opacity: 0, y: 24, rotate: 1.5 }}
+              animate={{ opacity: 1, y: 0, rotate: 0 }}
+              exit={{ opacity: 0, y: -24, rotate: -1.5 }}
               transition={{ duration: 0.55, ease }}
             >
-              <p className="eyebrow">{h.eyebrow}</p>
-
-              <h1 className="mt-7 font-medium leading-[1.04] tracking-[-0.02em] [font-size:clamp(36px,9.5vw,56px)] lg:[font-size:clamp(52px,4.6vw,72px)]">
-                <span className="sr-only">
-                  {h.phrases.join(", ")} — {h.tagline}
-                </span>
-                <span aria-hidden="true" className="relative block h-[1.1em] overflow-hidden whitespace-nowrap">
-                  <AnimatePresence mode="popLayout" initial={false}>
-                    <motion.span
-                      key={h.phrases[i] ?? h.phrases[0]}
-                      className="block"
-                      initial={{ y: "100%", opacity: 0 }}
-                      animate={{ y: "0%", opacity: 1 }}
-                      exit={{ y: "-100%", opacity: 0 }}
-                      transition={{ duration: 0.6, ease }}
-                    >
-                      {h.phrases[i] ?? h.phrases[0]}
-                    </motion.span>
-                  </AnimatePresence>
-                </span>
-                <span aria-hidden="true" className="serif-i block text-accent">
-                  {h.tagline}
-                </span>
-              </h1>
-
-              <p className="text-muted mt-7 max-w-lg text-[17px]">{h.sub}</p>
-              <HeroCtas p={p} className="mt-10" />
-              <ul className="mt-10 flex flex-wrap gap-x-5 gap-y-2 font-mono text-[12px] uppercase tracking-[0.2em] text-ivory/50">
-                {h.proof.map((x) => (
-                  <li key={x}>
-                    <span className="mr-2 text-accent">✓</span>
-                    {x}
-                  </li>
-                ))}
-              </ul>
+              <GuideCard p={p} />
             </motion.div>
           </AnimatePresence>
-
           {/* Slide picker: one tab per guide, the active one fills with gold until the next slide. */}
           {slides.length > 1 && (
-            <div className="mt-12 flex max-w-xl gap-4" role="tablist" aria-label="New guides">
+            <div className="mt-6 flex gap-4" role="tablist" aria-label="New guides">
               {slides.map((s, n) => (
                 <button
                   key={s.id}
@@ -162,20 +138,6 @@ export default function Hero({ ready }: { ready: boolean }) {
               ))}
             </div>
           )}
-        </div>
-
-        <div data-hero className="lg:col-span-5">
-          <AnimatePresence mode="wait" initial={false}>
-            <motion.div
-              key={p.id}
-              initial={{ opacity: 0, y: 24, rotate: 1.5 }}
-              animate={{ opacity: 1, y: 0, rotate: 0 }}
-              exit={{ opacity: 0, y: -24, rotate: -1.5 }}
-              transition={{ duration: 0.55, ease }}
-            >
-              <GuideCard p={p} />
-            </motion.div>
-          </AnimatePresence>
         </div>
       </div>
 

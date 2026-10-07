@@ -25,7 +25,7 @@ export const industries = [
     tag: "Beauty salon",
     title: "Salon website with online booking",
     lead: "Fewer DMs, more booked chairs.",
-    price: "from €1,490",
+    price: "from €1,990",
     points: [
       "Online booking linked to your system, e.g. Fresha, or a new one",
       "Treatment menu with prices, durations and before-and-after gallery",
@@ -81,7 +81,7 @@ export const industries = [
     tag: "Restaurant & café",
     title: "Restaurant & café website",
     lead: "Menu, table booking and directions in two taps.",
-    price: "from €990",
+    price: "from €1,990",
     points: [
       "Mobile menu you can update yourself",
       "Table booking and links to Wolt and Bolt Food",
@@ -95,7 +95,7 @@ export const industries = [
     tag: "Digital products",
     title: "Store for ebooks, courses & coaching",
     lead: "Sell knowledge, delivered automatically.",
-    price: "from €1,490",
+    price: "from €1,990",
     points: [
       "Payhip or Shopify with instant digital delivery",
       "Free lead magnet and welcome email series",

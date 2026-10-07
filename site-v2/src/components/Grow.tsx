@@ -6,7 +6,7 @@ const offers = [
     tag: "New · 2026",
     title: "Websites & online stores",
     body: "For salons, cosmetics, electronics, fashion, restaurants and digital products. GDPR-ready, tracked, with an AI shop assistant if you want one.",
-    price: "from €990",
+    price: "from €1,990",
     href: "/shops/",
     cta: "See store offers",
     featured: true,
