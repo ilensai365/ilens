@@ -7,11 +7,13 @@ export default defineConfig({
   server: { port: 5173, strictPort: true },
   build: {
     rollupOptions: {
-      // Main one-pager, /free (Instagram DM landing page) and /studio (portfolio + services).
+      // Main one-pager, /free (Instagram DM landing page), /studio (portfolio + services) and /thanks.
       input: {
         main: resolve(__dirname, "index.html"),
         free: resolve(__dirname, "free/index.html"),
         studio: resolve(__dirname, "studio/index.html"),
+        // Payhip redirects buyers here after checkout; the Google Ads purchase conversion fires on this page.
+        thanks: resolve(__dirname, "thanks/index.html"),
       },
     },
   },
