@@ -37,7 +37,7 @@ GOOGLE ADS & TRACKING (https://ilens.co/marketing/, quote form https://ilens.co/
 - Ads Care from €390/month: weekly optimisation, new visuals, monthly report. Ad budget is paid directly to Google.
 
 STUDIO (https://ilens.co/studio/, contact form https://ilens.co/studio/#contact):
-- Social media from €99/month, brand identity from €1,200, landing pages from €199, starter websites from €599, campaigns & key visuals from €200, packaging & print from €299, ebook design from €299, AI video.
+- Social media from €99/month, brand identity from €1,200, landing pages and starter websites from €599, campaigns & key visuals from €200, packaging & print from €299, ebook design from €299, AI video.
 - Packages: Content from €99/month, Launch (brand + website) from €1,490/project, 1:1 Creative Partner from €299/month, 1:1 Partner Pro from €999/month.
 - We work in English and Polish, for brands in Malta and across Europe.
 
