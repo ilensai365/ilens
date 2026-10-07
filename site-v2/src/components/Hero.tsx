@@ -77,15 +77,16 @@ export default function Hero({ ready }: { ready: boolean }) {
         <div data-hero className="lg:col-span-7">
           <p className="eyebrow">iLens Studio · Malta & Europe</p>
           <h1 className="mt-7 font-medium leading-[1.04] tracking-[-0.02em] [font-size:clamp(36px,9.5vw,56px)] lg:[font-size:clamp(52px,4.6vw,72px)]">
-            A website like this one, <span className="serif-i block text-accent">built for you.</span>
+            <span className="block lg:whitespace-nowrap">A site like this,</span>
+            <span className="serif-i block text-accent">built for you.</span>
           </h1>
-          <p className="text-muted mt-7 max-w-lg text-[17px]">
+          <p className="text-muted mt-7 max-w-lg text-[17px] leading-relaxed">
             Premium websites and online stores for salons, cosmetics, fashion, electronics, restaurants and digital
             products. Designed, built, tracked and ready for Google Ads, with an AI assistant if you want one.
           </p>
           <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-            <a href="/shops/#quote" className="btn btn-accent">Get my quote · from €1,990 →</a>
-            <a href="/shops/" className="btn btn-ghost">See store offers</a>
+            <a href="/studio/#contact" className="btn btn-accent">Get my quote · from €1,990 →</a>
+            <a href="/studio/#work" className="btn btn-ghost">See our work</a>
           </div>
           <ul className="mt-10 grid max-w-xl gap-3 sm:grid-cols-2">
             {["Live in 2–6 weeks", "Fixed price before we start", "GDPR-ready, tracked, SEO", "You own the site and accounts"].map((x) => (

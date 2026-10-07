@@ -8,7 +8,7 @@ const nav = [
   { label: "Services", href: "#services" },
   { label: "Packages", href: "#packages" },
   { label: "Process", href: "#process" },
-  { label: "Stores", href: "/shops/" },
+  // { label: "Stores", href: "/shops/" }, // hidden until /shops is finished (owner, 2026-10-07)
   { label: "Google Ads", href: "/marketing/" },
 ];
 

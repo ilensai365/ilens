@@ -6,7 +6,7 @@ const nav = [
   { label: "Services", href: "#services" },
   { label: "Packages", href: "#packages" },
   { label: "How it works", href: "#how" },
-  { label: "Stores", href: "/shops/" },
+  // { label: "Stores", href: "/shops/" }, // hidden until /shops is finished (owner, 2026-10-07)
   { label: "Studio", href: "/studio/" },
 ];
 

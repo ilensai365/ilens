@@ -201,7 +201,7 @@ export const services = [
     title: "Websites & landing pages",
     body: "Designed and built, fast and mobile-first. Like the site you're on. Landing pages from €199; full websites and online stores by industry.",
     from: "from €199",
-    links: [{ label: "Stores & websites 2026", href: "/shops/" }],
+    // links: [{ label: "Stores & websites 2026", href: "/shops/" }], // hidden until /shops is finished
   },
   { title: "Campaigns & key visuals", body: "Launches, ads, events and seasonal campaigns across social, print and OOH.", from: "from €200" },
   // Marketing services added 2026-10-07 (prices proposed, owner to confirm).

@@ -16,7 +16,7 @@ const cols = [
   {
     title: "Services",
     links: [
-      { label: "Websites & stores", href: "/shops/" },
+      // { label: "Websites & stores", href: "/shops/" }, // hidden until /shops is finished
       { label: "Google Ads & tracking", href: "/marketing/" },
       { label: "Studio", href: "/studio/" },
     ],
