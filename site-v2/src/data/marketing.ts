@@ -69,14 +69,14 @@ export const marketingPackages = [
   {
     name: "Tracking Setup",
     tagline: "Measure before you spend",
-    price: "from €149",
+    price: "from €290",
     unit: "one-off",
     features: ["GA4 + Search Console", "Conversion tracking for sales or leads", "GDPR cookie banner with Consent Mode v2", "Short video walkthrough of your data"],
   },
   {
     name: "Ads Launch",
     tagline: "Tracking + your first campaign",
-    price: "from €349",
+    price: "from €590",
     unit: "one-off",
     premium: true,
     features: ["Everything in Tracking Setup", "Google Ads campaign built and launched", "Ad copy and visuals in your brand style", "Review call after the first two weeks"],
@@ -84,7 +84,7 @@ export const marketingPackages = [
   {
     name: "Ads Care",
     tagline: "We run it, you grow",
-    price: "from €249",
+    price: "from €390",
     unit: "/ month",
     features: ["Weekly checks and optimisation", "New ad visuals each month", "Monthly report in plain English", "Ad budget paid directly to Google"],
   },

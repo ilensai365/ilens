@@ -203,19 +203,19 @@ export const services = [
   {
     title: "Google Ads",
     body: "Search and Performance Max campaigns set up and run for you: keywords, ad copy, visuals and a budget that fits. Monthly report in plain English.",
-    from: "from €249",
+    from: "from €590",
     links: [{ label: "Google Ads & tracking", href: "/marketing/" }],
   },
   {
     title: "Analytics & tracking",
     body: "GA4, conversion tracking, a GDPR cookie banner and Search Console, so you can see which posts, pages and ads actually bring sales.",
-    from: "from €149",
+    from: "from €290",
     links: [{ label: "See what's included", href: "/marketing/" }],
   },
   {
     title: "SEO & Google Maps",
     body: "Get found in Malta: Google Business Profile, local SEO, page titles and structured data, so people searching nearby find you first.",
-    from: "from €199",
+    from: "from €390",
   },
   { title: "Packaging & print", body: "Packaging systems, catalogues and print that hold up on the shelf.", from: "from €299" },
   {
