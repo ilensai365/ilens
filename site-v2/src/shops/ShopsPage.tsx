@@ -1,4 +1,5 @@
-import type { ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { aiAssistant, businessTypes, industries, storeAddOns, storeExternal, storeFaq, storePackages } from "../data/shops";
 import { CONTACT_EMAIL, socials } from "../data/site";
 import { clients, projects } from "../data/studio";
@@ -19,24 +20,47 @@ const formProps = {
   extraOptions: ["As soon as possible", "Within 1–2 months", "In 3+ months", "Just exploring"],
 };
 
-// Hero promises: all things we control (no results guaranteed).
-const promises = ["Fixed price before we start", "Live in 2–6 weeks", "You own the store and accounts", "Only 30% to start"];
+const ease = [0.16, 1, 0.3, 1] as const;
+const phrases = ["that sell.", "that get booked.", "that convert.", "that rank on Google."];
 
-/** Scrolling strip of the industry concepts under the hero, so visitors see the result before the details. */
-function ConceptStrip() {
-  const shots = [...industries, ...industries];
+/** Gold hero line that cycles through what the sites do; static when the visitor prefers reduced motion. */
+function RotatingLine() {
+  const reduced = useReducedMotion();
+  const [i, setI] = useState(0);
+  useEffect(() => {
+    if (reduced) return;
+    const t = setInterval(() => setI((n) => (n + 1) % phrases.length), 2600);
+    return () => clearInterval(t);
+  }, [reduced]);
   return (
-    <div className="relative overflow-hidden border-y hairline py-6" aria-hidden="true">
-      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-ink to-transparent" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-ink to-transparent" />
-      <div className="flex w-max animate-[marquee_60s_linear_infinite] gap-4 motion-reduce:animate-none">
-        {shots.map((x, i) => (
-          <img key={i} src={x.image} alt="" loading="lazy" className="h-[180px] w-auto rounded-[14px] ring-1 ring-ivory/10 sm:h-[230px]" />
-        ))}
-      </div>
-    </div>
+    <span className="relative block h-[1.3em] overflow-hidden">
+      <span className="sr-only">{phrases[0]}</span>
+      <AnimatePresence mode="popLayout" initial={false}>
+        <motion.span
+          key={phrases[i]}
+          aria-hidden="true"
+          className="serif-i block whitespace-nowrap text-accent"
+          initial={{ y: "100%", opacity: 0 }}
+          animate={{ y: "0%", opacity: 1 }}
+          exit={{ y: "-100%", opacity: 0 }}
+          transition={{ duration: 0.6, ease }}
+        >
+          {phrases[i]}
+        </motion.span>
+      </AnimatePresence>
+    </span>
   );
 }
+
+/** Staggered fade-up for hero blocks on first load. */
+const rise = (n: number) => ({
+  initial: { opacity: 0, y: 28 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.9, ease, delay: 0.08 * n },
+});
+
+// Hero promises: all things we control (no results guaranteed).
+const promises = ["Fixed price before we start", "Live in 2–6 weeks", "You own the store and accounts", "Only 30% to start"];
 
 /** Wordmark strip of brands we've worked with. */
 export function ClientStrip() {
@@ -123,10 +147,12 @@ export default function ShopsPage() {
             aria-hidden="true"
           />
           <div className="container-x relative grid items-center gap-12 pb-20 pt-16 lg:grid-cols-12 lg:pt-24">
-            <div className="lg:col-span-7">
+            <motion.div {...rise(0)} className="lg:col-span-7">
               <p className="eyebrow">iLens Stores · Malta · 2026</p>
-              <h1 className="mt-6 text-display font-medium">
-                Websites & online stores <span className="serif-i text-accent">that sell.</span>
+              <h1 className="mt-7 font-medium leading-[1.04] tracking-[-0.02em] [font-size:clamp(36px,9.5vw,56px)] lg:[font-size:clamp(52px,4.6vw,72px)]">
+                <span className="block">Websites &</span>
+                <span className="block whitespace-nowrap">online stores</span>
+                <RotatingLine />
               </h1>
               <p className="text-muted mt-7 max-w-xl text-[18px]">
                 For salons, cosmetics brands, electronics shops, boutiques, restaurants and digital products in Malta and
@@ -144,14 +170,15 @@ export default function ShopsPage() {
                   </li>
                 ))}
               </ul>
-            </div>
-            <div className="scroll-mt-24 lg:col-span-5">
-              <LeadForm id="quote" {...formProps} />
-            </div>
+            </motion.div>
+            <motion.div {...rise(4)} className="scroll-mt-24 lg:col-span-5">
+              <motion.div animate={{ y: [0, -8, 0] }} transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}>
+                <LeadForm id="quote" {...formProps} />
+              </motion.div>
+            </motion.div>
           </div>
         </section>
 
-        <ConceptStrip />
         <ClientStrip />
 
         {/* Industries */}
