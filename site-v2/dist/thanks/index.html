@@ -54,8 +54,14 @@
   <p class="foot">No email after 10 minutes? Write to <a href="mailto:hello@ilens.co">hello@ilens.co</a> and we'll sort it out.</p>
 </main>
 <script>
-  // Purchase signal for Google Ads; the "Zakup" conversion counts visits to /thanks/.
-  gtag("event", "purchase", { currency: "EUR", value: 35 });
+  // Google Ads "Zakup" conversion. Payhip redirects paid checkouts here (free products excluded).
+  // Value is an average order (~35 EUR); a session flag stops reloads from counting twice.
+  (function () {
+    var seen = false;
+    try { seen = sessionStorage.getItem("ilens-purchase") === "1"; sessionStorage.setItem("ilens-purchase", "1"); } catch (e) {}
+    if (seen) return;
+    gtag("event", "conversion", { send_to: "AW-18498538143/Ej3QCPrv4JMdEJ-V5fRE", value: 35.0, currency: "EUR" });
+  })();
 </script>
 </body>
 </html>
