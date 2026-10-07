@@ -8,6 +8,7 @@ const nav = [
   { label: "Services", href: "#services" },
   { label: "Packages", href: "#packages" },
   { label: "Process", href: "#process" },
+  { label: "Google Ads", href: "/marketing/" },
 ];
 
 function Header() {
@@ -264,7 +265,9 @@ function Work() {
   );
 }
 
-function StudioForm() {
+/** Enquiry form; the marketing page reuses it with its own service list. */
+export function StudioForm({ options, defaultService = "Not sure yet" }: { options?: string[]; defaultService?: string } = {}) {
+  const serviceOptions = options ?? [...services.map((s) => s.title), ...packages.map((p) => `Package: ${p.name}`), "Photography", "Not sure yet"];
   const [state, setState] = useState<{ msg: string; ok?: boolean; sending?: boolean }>({ msg: "" });
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -301,8 +304,8 @@ function StudioForm() {
       </div>
       <div>
         <label htmlFor="s-service" className={label}>What do you need?</label>
-        <select id="s-service" name="service" className={field} defaultValue="Not sure yet">
-          {[...services.map((s) => s.title), ...packages.map((p) => `Package: ${p.name}`), "Photography", "Not sure yet"].map((o) => (
+        <select id="s-service" name="service" className={field} defaultValue={defaultService}>
+          {serviceOptions.map((o) => (
             <option key={o} className="bg-ink">{o}</option>
           ))}
         </select>
@@ -346,20 +349,20 @@ export default function StudioPage() {
           />
           <div className="container-x relative grid items-center gap-12 pb-20 pt-16 lg:grid-cols-12 lg:pt-24">
             <div className="lg:col-span-7">
-              <p className="eyebrow">iLens Studio</p>
+              <p className="eyebrow">iLens Studio · Malta</p>
               <h1 className="mt-6 text-display font-medium">
                 A creative studio for brands that <span className="serif-i text-accent">want to be seen.</span>
               </h1>
               <p className="text-muted mt-7 max-w-xl text-[18px]">
-                Brand identity, websites, campaigns, social media and ebooks, designed with editorial craft and built
-                faster with AI.
+                Brand identity, websites, social media, Google Ads and SEO for brands in Malta and across Europe,
+                designed with editorial craft and built faster with AI.
               </p>
               <div className="mt-10 flex flex-col gap-3 sm:flex-row">
                 <a href="#work" className="btn btn-accent">See the work →</a>
                 <a href="#contact" className="btn btn-ghost">Start a project</a>
               </div>
               <ul className="mt-10 flex flex-wrap gap-x-5 gap-y-2 font-mono text-[12px] uppercase tracking-[0.2em] text-ivory/50">
-                {["Branding", "Web", "Social media", "Campaigns", "Packaging", "Ebooks", "AI systems"].map((t) => (
+                {["Branding", "Web", "Social media", "Google Ads", "SEO", "Analytics", "Ebooks", "AI systems"].map((t) => (
                   <li key={t}><span className="mr-2 text-accent">·</span>{t}</li>
                 ))}
               </ul>
@@ -381,7 +384,7 @@ export default function StudioPage() {
         <section id="services" className="border-t hairline py-section">
           <div className="container-x">
             <p className="eyebrow">Services</p>
-            <h2 className="mt-5 max-w-3xl text-h1 font-medium">What we <span className="serif-i text-accent">design and build.</span></h2>
+            <h2 className="mt-5 max-w-3xl text-h1 font-medium">What we <span className="serif-i text-accent">design, build and grow.</span></h2>
             <div className="mt-12 grid gap-px overflow-hidden rounded-card border hairline bg-ivory/[0.08] sm:grid-cols-2 lg:grid-cols-3">
               {services.map((s) => (
                 <article

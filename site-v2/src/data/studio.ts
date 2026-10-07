@@ -199,6 +199,24 @@ export const services = [
   { title: "Brand identity", body: "Logo, colour, typography and a brand guide your team can actually use.", from: "from €1,200" },
   { title: "Websites & landing pages", body: "Designed and built, fast and mobile-first. Like the site you're on.", from: "from €199" },
   { title: "Campaigns & key visuals", body: "Launches, ads, events and seasonal campaigns across social, print and OOH.", from: "from €200" },
+  // Marketing services added 2026-10-07 (prices proposed, owner to confirm).
+  {
+    title: "Google Ads",
+    body: "Search and Performance Max campaigns set up and run for you: keywords, ad copy, visuals and a budget that fits. Monthly report in plain English.",
+    from: "from €249",
+    links: [{ label: "Google Ads & tracking", href: "/marketing/" }],
+  },
+  {
+    title: "Analytics & tracking",
+    body: "GA4, conversion tracking, a GDPR cookie banner and Search Console, so you can see which posts, pages and ads actually bring sales.",
+    from: "from €149",
+    links: [{ label: "See what's included", href: "/marketing/" }],
+  },
+  {
+    title: "SEO & Google Maps",
+    body: "Get found in Malta: Google Business Profile, local SEO, page titles and structured data, so people searching nearby find you first.",
+    from: "from €199",
+  },
   { title: "Packaging & print", body: "Packaging systems, catalogues and print that hold up on the shelf.", from: "from €299" },
   {
     title: "AI content systems",
