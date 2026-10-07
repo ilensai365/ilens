@@ -184,7 +184,7 @@ export default function MarketingPage() {
                 </article>
               ))}
             </div>
-            <p className="text-muted mt-6 text-[15px]">Ad budget is paid directly to Google and isn't included in our prices.</p>
+            <p className="text-muted mt-6 text-[15px]">All prices exclude VAT. Ad budget is paid directly to Google and isn't included.</p>
           </div>
         </section>
 

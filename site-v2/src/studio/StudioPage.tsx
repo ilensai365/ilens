@@ -418,7 +418,7 @@ export default function StudioPage() {
               ))}
             </div>
             <p className="text-muted mt-6 text-[15px]">
-              Brand & product photography:{" "}
+              All prices exclude VAT. Brand & product photography:{" "}
               <a href="https://foto.ilens.co" className="text-ivory underline decoration-accent/60 underline-offset-4 hover:text-accent">foto.ilens.co</a>
             </p>
           </div>
@@ -459,7 +459,7 @@ export default function StudioPage() {
               ))}
             </div>
             <p className="text-muted mt-6 text-[15px]">
-              Prefer to do it yourself? Our guides start at €19 —{" "}
+              Package prices exclude VAT. Prefer to do it yourself? Our guides start at €19 —{" "}
               <a href="/#shop" className="text-ivory underline decoration-accent/60 underline-offset-4 hover:text-accent">visit the shop</a>.
             </p>
           </div>
