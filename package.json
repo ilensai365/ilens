@@ -1,0 +1,9 @@
+{
+  "name": "ilens-worker",
+  "private": true,
+  "type": "module",
+  "description": "Cloudflare Worker for ilens.co: static site (site-v2/dist) + /api/chat",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.131.0"
+  }
+}
