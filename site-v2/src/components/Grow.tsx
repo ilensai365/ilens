@@ -5,8 +5,8 @@ const offers = [
   {
     tag: "New · 2026",
     title: "Websites & online stores",
-    body: "For salons, cosmetics, electronics, fashion, restaurants and digital products. GDPR-ready, tracked, with an AI shop assistant if you want one.",
-    price: "from €1,990",
+    body: "Starter website from €599: up to 3 pages, mobile-first, contact form, WhatsApp, Google Maps and basic SEO, live in 1–2 weeks. Full online stores from €1,990.",
+    price: "from €599",
     href: "/studio/#contact", // /shops hidden until finished
     cta: "Get a quote",
     featured: true,

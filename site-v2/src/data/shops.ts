@@ -107,6 +107,12 @@ export const industries = [
 
 export const storePackages = [
   {
+    name: "Starter",
+    tagline: "A simple website, fast",
+    price: "from €599",
+    features: ["Up to 3 pages, no online shop", "Our proven layout in your logo, colours and fonts", "Mobile-first, fast, SSL", "Contact form, WhatsApp button and Google Maps", "Basic SEO + Google Analytics", "GDPR cookie banner", "Your texts and photos, 1 round of changes", "Live in 1–2 weeks"],
+  },
+  {
     name: "Start",
     tagline: "A clean store, ready to sell",
     price: "from €1,990",

@@ -26,7 +26,7 @@ After purchase the PDF link arrives by email from Payhip (check spam/Promotions)
 
 WEBSITES & ONLINE STORES (https://ilens.co/shops/, quote form https://ilens.co/shops/#quote), net prices:
 - Online store from €1,990; beauty salon website with online booking from €1,990; cosmetics & skincare store from €3,490; electronics store from €5,490; fashion boutique from €2,990; restaurant & café website from €1,990; store for ebooks/courses/coaching from €1,990.
-- Packages: Start from €1,990, Business from €3,490, Premium from €5,490 (Premium includes the AI shop assistant and a Google Ads launch).
+- Packages: Starter website from €599 (up to 3 pages, no shop; mobile-first, contact form, WhatsApp, Google Maps, basic SEO + Google Analytics, GDPR cookie banner, client's own texts/photos, 1 round of changes, live in 1–2 weeks), Start (online store) from €1,990, Business from €3,490, Premium from €5,490 (Premium includes the AI shop assistant and a Google Ads launch).
 - Add-ons: AI shop assistant from €490 (AI usage billed by the provider, about €20–60/month), Tracking Setup from €290, SEO & Google Maps from €390, Google Ads launch from €590, AI product photos from €25/photo, extra language from €490, support €65/hour.
 - Paid to other providers: domain, hosting or Shopify plan, legal policies.
 - Platforms: Shopify, WooCommerce, Payhip. Typical delivery 2–6 weeks. 30% to start, the rest at launch.
@@ -37,8 +37,8 @@ GOOGLE ADS & TRACKING (https://ilens.co/marketing/, quote form https://ilens.co/
 - Ads Care from €390/month: weekly optimisation, new visuals, monthly report. Ad budget is paid directly to Google.
 
 STUDIO (https://ilens.co/studio/, contact form https://ilens.co/studio/#contact):
-- Social media from €99/month, brand identity from €1,200, landing pages from €199, campaigns & key visuals from €200, packaging & print from €299, ebook design from €299, AI video.
-- Packages: Content from €99/month, Launch from €199/project, 1:1 Creative Partner from €299/month, 1:1 Partner Pro from €999/month.
+- Social media from €99/month, brand identity from €1,200, landing pages from €199, starter websites from €599, campaigns & key visuals from €200, packaging & print from €299, ebook design from €299, AI video.
+- Packages: Content from €99/month, Launch (brand + website) from €1,490/project, 1:1 Creative Partner from €299/month, 1:1 Partner Pro from €999/month.
 - We work in English and Polish, for brands in Malta and across Europe.
 
 Contact: hello@ilens.co · Instagram @ilens.co`;

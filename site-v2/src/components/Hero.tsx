@@ -85,11 +85,11 @@ export default function Hero({ ready }: { ready: boolean }) {
             products. Designed, built, tracked and ready for Google Ads, with an AI assistant if you want one.
           </p>
           <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-            <a href="/studio/#contact" className="btn btn-accent">Get my quote · from €1,990 →</a>
+            <a href="/studio/#contact" className="btn btn-accent">Get my quote · from €599 →</a>
             <a href="/studio/#work" className="btn btn-ghost">See our work</a>
           </div>
           <ul className="mt-10 grid max-w-xl gap-3 sm:grid-cols-2">
-            {["Live in 2–6 weeks", "Fixed price before we start", "GDPR-ready, tracked, SEO", "You own the site and accounts"].map((x) => (
+            {["Live in 1–6 weeks", "Fixed price before we start", "GDPR-ready, tracked, SEO", "You own the site and accounts"].map((x) => (
               <li key={x} className="flex items-center gap-3 text-[15px]">
                 <span className="grid h-6 w-6 flex-none place-items-center rounded-full bg-accent text-[12px] font-bold text-ink" aria-hidden="true">✓</span>
                 {x}

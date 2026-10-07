@@ -199,7 +199,7 @@ export const services = [
   { title: "Brand identity", body: "Logo, colour, typography and a brand guide your team can actually use.", from: "from €1,200" },
   {
     title: "Websites & landing pages",
-    body: "Designed and built, fast and mobile-first. Like the site you're on. Landing pages from €199; full websites and online stores by industry.",
+    body: "Designed and built, fast and mobile-first. Like the site you're on. Landing pages from €199, starter websites from €599, online stores from €1,990.",
     from: "from €199",
     // links: [{ label: "Stores & websites 2026", href: "/shops/" }], // hidden until /shops is finished
   },
@@ -252,7 +252,7 @@ export const packages = [
   {
     name: "Launch",
     tagline: "Brand + website, ready to sell",
-    price: "from €199",
+    price: "from €1,490",
     unit: "/ project",
     features: ["Brand identity and guide", "Website or landing page", "Launch campaign visuals", "Social templates"],
   },

@@ -270,8 +270,8 @@ export default function ShopsPage() {
         <section id="packages" className="border-t hairline py-section">
           <div className="container-x">
             <p className="eyebrow">Store packages 2026</p>
-            <h2 className="mt-5 max-w-3xl text-h1 font-medium">Three ways <span className="serif-i text-accent">to launch.</span></h2>
-            <div className="mt-12 grid gap-4 md:grid-cols-3">
+            <h2 className="mt-5 max-w-3xl text-h1 font-medium">Four ways <span className="serif-i text-accent">to launch.</span></h2>
+            <div className="mt-12 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
               {storePackages.map((p) => (
                 <article key={p.name} className={`flex flex-col rounded-card p-7 ${p.premium ? "glass border border-accent/40" : "surface"}`}>
                   {p.premium && <p className="mb-3 font-mono text-[11px] uppercase tracking-[0.25em] text-accent">Most chosen</p>}
