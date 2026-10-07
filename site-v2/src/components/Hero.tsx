@@ -8,7 +8,8 @@ import HeroVideo from "./HeroVideo";
 import GuideCard from "./hero/GuideCard";
 
 // Hero carousel: every product with a `hero` block gets a slide (headline + card), newest first.
-const slides = products.filter((p) => p.hero);
+// Owner wants the ChatGPT guide on the side of the hero (2026-10-07); other guides live in the shop below.
+const slides = products.filter((p) => p.hero && p.id === "chatgpt-visibility");
 const SLIDE_MS = 9000;
 const ease = [0.16, 1, 0.3, 1] as const;
 
