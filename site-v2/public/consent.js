@@ -1,8 +1,9 @@
-// Google tag (Google Ads AW-18498538143) with Consent Mode v2 and a small cookie banner.
+// Google tag (Google Ads AW-18498538143 + GA4 G-C835QSVJ9M) with Consent Mode v2 and a small cookie banner.
 // Ad/analytics storage stays denied until the visitor clicks "Accept"; the choice is remembered.
 // Loaded as a plain script in every page's <head> (index, free, studio, thanks).
 (function () {
   var TAG_ID = "AW-18498538143";
+  var GA4_ID = "G-C835QSVJ9M";
   var KEY = "ilens-consent";
 
   window.dataLayer = window.dataLayer || [];
@@ -29,6 +30,7 @@
   document.head.appendChild(s);
   gtag("js", new Date());
   gtag("config", TAG_ID);
+  gtag("config", GA4_ID);
 
   function choose(value) {
     try { localStorage.setItem(KEY, value); } catch (e) {}

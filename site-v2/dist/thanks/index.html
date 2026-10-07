@@ -61,6 +61,7 @@
     try { seen = sessionStorage.getItem("ilens-purchase") === "1"; sessionStorage.setItem("ilens-purchase", "1"); } catch (e) {}
     if (seen) return;
     gtag("event", "conversion", { send_to: "AW-18498538143/Ej3QCPrv4JMdEJ-V5fRE", value: 35.0, currency: "EUR" });
+    gtag("event", "purchase", { send_to: "G-C835QSVJ9M", value: 35.0, currency: "EUR", transaction_id: "t" + Date.now() });
   })();
 </script>
 </body>
