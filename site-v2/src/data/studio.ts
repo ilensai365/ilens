@@ -197,7 +197,12 @@ export const heroEbooks = [
 export const services = [
   { title: "Social media", body: "Monthly content, templates and captions that look like one brand, not twenty posts.", from: "from €99 / month" },
   { title: "Brand identity", body: "Logo, colour, typography and a brand guide your team can actually use.", from: "from €1,200" },
-  { title: "Websites & landing pages", body: "Designed and built, fast and mobile-first. Like the site you're on.", from: "from €199" },
+  {
+    title: "Websites & landing pages",
+    body: "Designed and built, fast and mobile-first. Like the site you're on. Landing pages from €199; full websites and online stores by industry.",
+    from: "from €199",
+    links: [{ label: "Stores & websites 2026", href: "/shops/" }],
+  },
   { title: "Campaigns & key visuals", body: "Launches, ads, events and seasonal campaigns across social, print and OOH.", from: "from €200" },
   // Marketing services added 2026-10-07 (prices proposed, owner to confirm).
   {

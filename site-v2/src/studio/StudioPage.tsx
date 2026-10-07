@@ -8,6 +8,7 @@ const nav = [
   { label: "Services", href: "#services" },
   { label: "Packages", href: "#packages" },
   { label: "Process", href: "#process" },
+  { label: "Stores", href: "/shops/" },
   { label: "Google Ads", href: "/marketing/" },
 ];
 

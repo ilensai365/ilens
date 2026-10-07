@@ -28,7 +28,26 @@ function Chips({ name, options, value, onPick }: { name: string; options: string
   );
 }
 
-export default function LeadForm({ id = "quote" }: { id?: string }) {
+type LeadFormProps = {
+  id?: string;
+  /** Step 1 question and answers; the shops page asks about the business type instead of the ad goal. */
+  question?: string;
+  goalOptions?: string[];
+  /** Formspree subject prefix, so enquiries from each page are easy to tell apart. */
+  subject?: string;
+  /** Third question on step 2 (default: ads already running). */
+  extraLabel?: string;
+  extraOptions?: string[];
+};
+
+export default function LeadForm({
+  id = "quote",
+  question = "What do you want from your ads?",
+  goalOptions = goals,
+  subject = "Marketing quote",
+  extraLabel = "Running ads already?",
+  extraOptions = running,
+}: LeadFormProps) {
   const [step, setStep] = useState(0);
   const [goal, setGoal] = useState("");
   const [platform, setPlatform] = useState("");
@@ -52,8 +71,8 @@ export default function LeadForm({ id = "quote" }: { id?: string }) {
     data.append("goal", goal);
     data.append("platform", platform);
     data.append("daily_budget", budget);
-    data.append("ads_running", ads);
-    data.append("_subject", `Marketing quote: ${goal || "general"} · ${platform || "site?"}`);
+    data.append("extra", `${extraLabel} ${ads}`);
+    data.append("_subject", `${subject}: ${goal || "general"} · ${platform || "site?"}`);
     setState({ msg: "", sending: true });
     try {
       const res = await fetch(CONTACT_FORM_ENDPOINT, { method: "POST", body: data, headers: { Accept: "application/json" } });
@@ -61,7 +80,7 @@ export default function LeadForm({ id = "quote" }: { id?: string }) {
       form.reset();
       setStep(3);
       setState({ msg: "" });
-      window.gtag?.("event", "generate_lead", { form: "marketing_quote", goal });
+      window.gtag?.("event", "generate_lead", { form: subject, goal });
     } catch {
       setState({ msg: `Something went wrong. Please email ${CONTACT_EMAIL} directly.`, ok: false });
     }
@@ -89,9 +108,9 @@ export default function LeadForm({ id = "quote" }: { id?: string }) {
 
       {step === 0 && (
         <div className="mt-7">
-          <h3 className="text-h3 font-medium">What do you want from your ads?</h3>
+          <h3 className="text-h3 font-medium">{question}</h3>
           <div className="mt-5">
-            <Chips name="Goal" options={goals} value={goal} onPick={(v) => { setGoal(v); setStep(1); }} />
+            <Chips name="Goal" options={goalOptions} value={goal} onPick={(v) => { setGoal(v); setStep(1); }} />
           </div>
         </div>
       )}
@@ -107,8 +126,8 @@ export default function LeadForm({ id = "quote" }: { id?: string }) {
             <div className="mt-3"><Chips name="Budget" options={budgets} value={budget} onPick={setBudget} /></div>
           </div>
           <div>
-            <p className={label}>Running ads already?</p>
-            <div className="mt-3"><Chips name="Ads running" options={running} value={ads} onPick={setAds} /></div>
+            <p className={label}>{extraLabel}</p>
+            <div className="mt-3"><Chips name={extraLabel} options={extraOptions} value={ads} onPick={setAds} /></div>
           </div>
           <div className="flex items-center justify-between">
             <button type="button" onClick={() => setStep(0)} className="text-muted text-[14px] hover:text-ivory">← Back</button>

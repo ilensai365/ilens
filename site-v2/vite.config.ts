@@ -14,6 +14,8 @@ export default defineConfig({
         studio: resolve(__dirname, "studio/index.html"),
         // Google Ads / GA4 / tracking / consent / Search Console services.
         marketing: resolve(__dirname, "marketing/index.html"),
+        // Websites & online stores by industry, 2026 price list.
+        shops: resolve(__dirname, "shops/index.html"),
         // Payhip redirects buyers here after checkout; the Google Ads purchase conversion fires on this page.
         thanks: resolve(__dirname, "thanks/index.html"),
       },
