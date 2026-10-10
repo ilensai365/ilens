@@ -1,24 +1,25 @@
 import { useState, type FormEvent } from "react";
 import { CONTACT_EMAIL, CONTACT_FORM_ENDPOINT } from "../data/site";
+import { t } from "../lib/i18n";
 
 type Field = "name" | "email" | "message";
 
 const validators: Record<Field, (v: string) => string> = {
-  name: (v) => (v.trim() ? "" : "Please enter your name."),
+  name: (v) => (v.trim() ? "" : t("Please enter your name.", "Podaj swoje imię.")),
   email: (v) => {
-    if (!v.trim()) return "Please enter your email.";
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()) ? "" : "Please enter a valid email address.";
+    if (!v.trim()) return t("Please enter your email.", "Podaj swój e-mail.");
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()) ? "" : t("Please enter a valid email address.", "Podaj poprawny adres e-mail.");
   },
   message: (v) => {
-    if (!v.trim()) return "Please enter a message.";
-    return v.trim().length >= 10 ? "" : "Message should be at least 10 characters.";
+    if (!v.trim()) return t("Please enter a message.", "Wpisz wiadomość.");
+    return v.trim().length >= 10 ? "" : t("Message should be at least 10 characters.", "Wiadomość powinna mieć co najmniej 10 znaków.");
   },
 };
 
 const fields: { name: Field; label: string; type?: string; autoComplete?: string }[] = [
-  { name: "name", label: "Name", autoComplete: "name" },
-  { name: "email", label: "Email", type: "email", autoComplete: "email" },
-  { name: "message", label: "Message" },
+  { name: "name", label: t("Name", "Imię"), autoComplete: "name" },
+  { name: "email", label: "E-mail", type: "email", autoComplete: "email" },
+  { name: "message", label: t("Message", "Wiadomość") },
 ];
 
 /**
@@ -44,7 +45,7 @@ export default function ContactForm() {
 
     const valid = fields.map((f) => check(f.name, String(data.get(f.name) ?? ""))).every(Boolean);
     if (!valid) {
-      setStatus({ msg: "Please fix the highlighted fields.", ok: false });
+      setStatus({ msg: t("Please fix the highlighted fields.", "Popraw zaznaczone pola."), ok: false });
       return;
     }
 
@@ -60,14 +61,14 @@ export default function ContactForm() {
         const body = await res.json().catch(() => null);
         const msg = body?.errors?.length
           ? body.errors.map((x: { message: string }) => x.message).join(" ")
-          : "Something went wrong sending your message.";
+          : t("Something went wrong sending your message.", "Coś poszło nie tak przy wysyłaniu wiadomości.");
         throw new Error(msg);
       }
       form.reset();
-      setStatus({ msg: "Thank you — your message has been sent. We'll be in touch soon.", ok: true });
+      setStatus({ msg: t("Thank you — your message has been sent. We'll be in touch soon.", "Dziękujemy — wiadomość wysłana. Odezwiemy się wkrótce."), ok: true });
     } catch (err) {
-      const msg = err instanceof Error ? err.message : "Something went wrong sending your message.";
-      setStatus({ msg: `${msg} Please email ${CONTACT_EMAIL} directly.`, ok: false });
+      const msg = err instanceof Error ? err.message : t("Something went wrong sending your message.", "Coś poszło nie tak przy wysyłaniu wiadomości.");
+      setStatus({ msg: `${msg} ${t("Please email", "Napisz bezpośrednio na")} ${CONTACT_EMAIL}.`, ok: false });
     } finally {
       setSending(false);
     }
@@ -122,7 +123,7 @@ export default function ContactForm() {
 
       <div className="flex flex-col items-start gap-3 md:col-span-2 md:flex-row md:items-center md:justify-between">
         <button type="submit" disabled={sending} className="btn btn-ghost disabled:opacity-60">
-          {sending ? "Sending…" : "Send message"}
+          {sending ? t("Sending…", "Wysyłanie…") : t("Send message", "Wyślij wiadomość")}
         </button>
         <p role="status" aria-live="polite" className={`text-[14px] ${status.ok ? "text-accent" : "text-red-300"}`}>
           {status.msg}

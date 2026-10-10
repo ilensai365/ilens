@@ -1,4 +1,5 @@
 import { BUNDLE, PAYHIP } from "./site";
+import { isPl } from "../lib/i18n";
 
 /** Base-relative image prefix, so the site also works from a sub-path (e.g. the accent preview build). */
 const IMG = import.meta.env.BASE_URL;
@@ -50,7 +51,7 @@ export type Product = {
   span: 3 | 4 | 6 | 8 | 12;
 };
 
-export const products: Product[] = [
+const productsEn: Product[] = [
   {
     id: "chatgpt-visibility",
     title: "Your Business in ChatGPT",
@@ -240,3 +241,105 @@ export const products: Product[] = [
     span: 4,
   },
 ];
+
+/** Polish copy for /pl/: the guides themselves are in English, so titles stay; descriptions are translated. */
+const pl: Record<string, Partial<Product>> = {
+  "chatgpt-visibility": {
+    title: "Twoja firma w ChatGPT",
+    blurb: "Spraw, żeby ChatGPT polecał Twoją firmę i produkty — i zrozum nowe reklamy w ChatGPT.",
+    pages: "34 strony",
+    includes: [
+      "Jak ChatGPT decyduje, co polecić",
+      "Test jednego zdania i strona, którą AI zrozumie",
+      "Upewnij się, że Twoja strona nie blokuje ChatGPT",
+      "Niech mówią o Tobie tam, gdzie zagląda AI",
+      "Comiesięczny audyt: czy ChatGPT Cię zna?",
+      "Reklamy w ChatGPT i pierwszy test na małym budżecie",
+      "Plan na 14 dni, prompty i checklisty",
+    ],
+    spotlight: {
+      label: "Flagowy · Widoczność w AI",
+      lead: "Twój następny klient pyta ChatGPT. Zadbaj o to, żeby mógł polecić właśnie Ciebie.",
+      body: [
+        "Ludzie już nie tylko googlują — pytają ChatGPT i dostają dwie, trzy propozycje zamiast dziesięciu linków. Ten poradnik pokazuje, jak odpowiedzi AI wybierają produkty i jak sprawić, żeby Twój był łatwy do zrozumienia, znalezienia i polecenia.",
+        "A od 2026 roku w ChatGPT są reklamy: wyjaśniamy, jak działają, ile kosztują i kiedy mały test ma sens — na podstawie oficjalnych informacji OpenAI, prostym językiem.",
+      ],
+      short: "Jak AI wybiera produkty, jak sprawić, żeby polecało Twój, i gdzie w tym wszystkim nowe reklamy w ChatGPT.",
+      chapters: ["Jak ChatGPT wybiera, co polecić", "Strona produktu czytelna dla AI", "Bądź tam, gdzie zagląda AI", "Reklamy w ChatGPT w pigułce", "Plan na 14 dni"],
+      stats: ["Jednorazowo", "VAT w cenie", "34 strony"],
+    },
+  },
+  "claude-remotion": {
+    blurb: "Twórz filmy w barwach marki, po prostu je opisując — bez programu do montażu i przeciągania na osi czasu.",
+    pages: "49 stron",
+    includes: [
+      "Konfiguracja w dziesięć minut z Claude Code",
+      "Prompt, który buduje gotową rolkę",
+      "Podgląd, poprawki zwykłymi słowami, render do MP4",
+      "Szablony na całe serie i projekty dla klientów",
+      "Jak brandować i oznaczać materiały z AI",
+      "Case study: nasza 30-sekundowa rolka klatka po klatce",
+      "Biblioteka promptów, ściąga komend i rozwiązania problemów",
+    ],
+    spotlight: {
+      label: "Nowość · Poradnik wideo",
+      lead: "Twórz filmy w barwach marki, opisując je — Claude pisze kod, Remotion renderuje MP4.",
+      body: [
+        "Każda rolka zrobiona w edytorze to jednorazówka: tytuł, font, timing — w kółko od nowa. Ten poradnik zamienia Twój format w szablon, więc dziesiąty film zajmuje minuty zamiast wieczoru — zawsze w Twoich kolorach i fontach.",
+        "Robimy rolki — dla iLens i dla marek — i każda w tym poradniku jest prawdziwa: intro marki, rolki edukacyjne, szablony produktowe dla klientów, klipy AI i pełne case study naszej 30-sekundowej rolki. Nie musisz umieć programować.",
+      ],
+      short: "Tak robimy nasze rolki. Opisujesz, Claude pisze, Remotion renderuje. W środku: nasza 30-sekundowa rolka klatka po klatce.",
+      chapters: ["Konfiguracja w dziesięć minut", "Prompt, który buduje rolkę", "Podgląd, poprawki, render", "Jedna rolka, wiele filmów", "Case study: nasza 30-sekundowa rolka"],
+      stats: ["Jednorazowo", "VAT w cenie", "49 stron"],
+    },
+  },
+  bundle: {
+    blurb:
+      "Wszystkie cztery poradniki w jednym pliku — AI Content System, The 60-Minute Storefront, The 24-Hour Ebook i Zero to First Sale. Wszystko od pomysłu do pierwszej sprzedaży.",
+  },
+  "ai-content-system": {
+    blurb: "Planuj, twórz i przetwarzaj treści z AI — szybciej i mądrzej.",
+    pages: "29 stron",
+    includes: [
+      "Pięcioetapowa pętla treści: od strategii do recyklingu",
+      "30 gotowych promptów AI do pomysłów, hooków i opisów",
+      "Siedem typów hooków i tygodniowy system treści",
+      "7-dniowe wyzwanie wdrożeniowe",
+    ],
+  },
+  storefront: {
+    blurb: "Uruchom prawdziwą stronę i sklep w około godzinę.",
+    pages: "40 stron",
+    includes: [
+      "Plan budowy minuta po minucie",
+      "Główny prompt AI na czystą stronę mobile-first",
+      "Sklep Payhip, przyciski Kup i działający formularz kontaktowy",
+      "Strona na własnej domenie przez GitHub + Cloudflare",
+    ],
+  },
+  "ebook-24h": {
+    blurb: "Napisz, wydaj i zacznij sprzedawać swój pierwszy ebook, zanim skończy się dzień.",
+    pages: "40 stron",
+    includes: [
+      "Test 1-1-1: temat, za który ludzie płacą",
+      "Sprint pisania godzina po godzinie i szablon rozdziału",
+      "AI jako współautor — Twoim własnym głosem",
+      "Cena, płatność w Payhip i skrypty na start",
+    ],
+  },
+  "first-sale": {
+    blurb: "Strona, produkt i płatności — dokładnie ten system, na którym działa ta strona, w jeden wieczór.",
+    pages: "40 stron",
+    includes: [
+      "Zweryfikuj ofertę w 15 minut",
+      "Elementy budujące zaufanie i karta produktu, która sprzedaje",
+      "Płatności, podstawy VAT w UE i polityka zwrotów",
+      "Plan 10–10–10 na pierwszych stu odwiedzających",
+    ],
+  },
+  "template-kit": { blurb: "Gotowe do edycji posty, karuzele i relacje dla spójnego feedu premium." },
+  "prompt-vault": { blurb: "Sprawdzone prompty AI do hooków, opisów i tekstów sprzedażowych, które brzmią jak Ty." },
+  presets: { blurb: "Ciepłe, czyste presety do zdjęć — ponadczasowy, edytorski wygląd jednym kliknięciem." },
+};
+
+export const products: Product[] = isPl ? productsEn.map((p) => ({ ...p, ...pl[p.id] })) : productsEn;

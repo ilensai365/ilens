@@ -1,15 +1,16 @@
 import { offer } from "../data/site";
 import SectionHead from "./SectionHead";
+import { t } from "../lib/i18n";
 
 export default function Offer() {
   return (
     <section id="offer" className="border-t hairline py-section">
       <div className="container-x">
         <SectionHead
-          eyebrow="What iLens teaches"
+          eyebrow={t("What iLens teaches", "Czego uczy iLens")}
           title={
             <>
-              Everything you need to turn <span className="serif-i text-accent">content into income.</span>
+              {t("Everything you need to turn ", "Wszystko, czego potrzebujesz, żeby zamienić ")}<span className="serif-i text-accent">{t("content into income.", "treści w dochód.")}</span>
             </>
           }
         />
@@ -20,7 +21,7 @@ export default function Offer() {
                 <span className="font-mono text-mono text-accent">0{i + 1}</span>
                 {o.soon && (
                   <span className="rounded-full border hairline px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-ivory/50">
-                    Coming soon
+                    {t("Coming soon", "Wkrótce")}
                   </span>
                 )}
               </div>

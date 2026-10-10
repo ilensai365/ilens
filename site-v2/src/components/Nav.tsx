@@ -1,6 +1,27 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { nav } from "../data/site";
+import { href, isPl, otherLangUrl, t } from "../lib/i18n";
+
+/** EN / PL switch: the current language in gold, the other one links to the same page in that language. */
+function LangSwitch() {
+  const cls = "transition-colors hover:text-ivory";
+  return (
+    <span className="flex items-center gap-1.5 font-mono text-[12px] uppercase tracking-[0.15em] text-ivory/45">
+      {isPl ? (
+        <a href={otherLangUrl()} hrefLang="en" lang="en" className={cls}>EN</a>
+      ) : (
+        <span className="text-accent" aria-current="true">EN</span>
+      )}
+      <span aria-hidden="true">/</span>
+      {isPl ? (
+        <span className="text-accent" aria-current="true">PL</span>
+      ) : (
+        <a href={otherLangUrl()} hrefLang="pl" lang="pl" className={cls}>PL</a>
+      )}
+    </span>
+  );
+}
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -27,7 +48,7 @@ export default function Nav() {
       }`}
     >
       <div className="container-x flex h-[72px] items-center justify-between">
-        <a href="#top" className="font-display text-2xl" aria-label="iLens home">
+        <a href="#top" className="font-display text-2xl" aria-label={t("iLens home", "iLens — strona główna")}>
           iLens
         </a>
 
@@ -35,22 +56,28 @@ export default function Nav() {
           <ul className="flex items-center gap-8 text-[14px]">
             {nav.map((l) => (
               <li key={l.href}>
-                <a href={l.href} className="text-muted transition-colors hover:text-ivory">
+                <a href={href(l.href)} className="text-muted transition-colors hover:text-ivory">
                   {l.label}
                 </a>
               </li>
             ))}
             <li>
+              <LangSwitch />
+            </li>
+            <li>
               <a href="#contact" className="btn btn-ghost px-5 py-2 text-[14px]">
-                Contact
+                {t("Contact", "Kontakt")}
               </a>
             </li>
           </ul>
         </nav>
 
+        <div className="ml-auto mr-3 lg:hidden">
+          <LangSwitch />
+        </div>
         <button
           className="relative h-10 w-10 lg:hidden"
-          aria-label={open ? "Close menu" : "Open menu"}
+          aria-label={open ? t("Close menu", "Zamknij menu") : t("Open menu", "Otwórz menu")}
           aria-expanded={open}
           aria-controls="mobile-nav"
           onClick={() => setOpen((o) => !o)}
@@ -76,9 +103,9 @@ export default function Nav() {
             className="overflow-hidden lg:hidden"
           >
             <ul className="container-x flex flex-col gap-1 pb-6">
-              {[...nav, { label: "Contact", href: "#contact" }].map((l) => (
+              {[...nav, { label: t("Contact", "Kontakt"), href: "#contact" }].map((l) => (
                 <li key={l.href}>
-                  <a href={l.href} onClick={() => setOpen(false)} className="block py-3 font-display text-2xl">
+                  <a href={href(l.href)} onClick={() => setOpen(false)} className="block py-3 font-display text-2xl">
                     {l.label}
                   </a>
                 </li>

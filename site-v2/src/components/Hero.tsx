@@ -6,6 +6,7 @@ import { gsap, prefersReducedMotion } from "../lib/motion";
 import Dust from "./Dust";
 import HeroVideo from "./HeroVideo";
 import GuideCard from "./hero/GuideCard";
+import { href, t } from "../lib/i18n";
 
 // Hero carousel: every product with a `hero` block gets a slide (headline + card), newest first.
 // Owner wants the ChatGPT guide on the side of the hero (2026-10-07); other guides live in the shop below.
@@ -32,8 +33,8 @@ export default function Hero({ ready }: { ready: boolean }) {
   // Auto-advance slides; paused while hovered/focused, and when the user prefers reduced motion.
   useEffect(() => {
     if (reduced || paused || slides.length < 2) return;
-    const t = setTimeout(() => setSlide((n) => (n + 1) % slides.length), SLIDE_MS);
-    return () => clearTimeout(t);
+    const timer = setTimeout(() => setSlide((n) => (n + 1) % slides.length), SLIDE_MS);
+    return () => clearTimeout(timer);
   }, [slide, paused, reduced]);
 
   return (
@@ -75,21 +76,23 @@ export default function Hero({ ready }: { ready: boolean }) {
         onBlur={() => setPaused(false)}
       >
         <div data-hero className="lg:col-span-7">
-          <p className="eyebrow">iLens Studio · Malta & Europe</p>
+          <p className="eyebrow">{t("iLens Studio · Malta & Europe", "iLens Studio · Malta i Europa")}</p>
           <h1 className="mt-7 font-medium leading-[1.04] tracking-[-0.02em] [font-size:clamp(36px,9.5vw,56px)] lg:[font-size:clamp(52px,4.6vw,72px)]">
-            <span className="block lg:whitespace-nowrap">A site like this,</span>
-            <span className="serif-i block text-accent">built for you.</span>
+            <span className="block lg:whitespace-nowrap">{t("A site like this,", "Taka strona jak ta,")}</span>
+            <span className="serif-i block text-accent">{t("built for you.", "zbudowana dla Ciebie.")}</span>
           </h1>
           <p className="text-muted mt-7 max-w-lg text-[17px] leading-relaxed">
-            Premium websites and online stores for salons, cosmetics, fashion, electronics, restaurants and digital
-            products. Designed, built, tracked and ready for Google Ads, with an AI assistant if you want one.
+            {t(
+              "Premium websites and online stores for salons, cosmetics, fashion, electronics, restaurants and digital products. Designed, built, tracked and ready for Google Ads, with an AI assistant if you want one.",
+              "Strony i sklepy internetowe premium dla salonów, kosmetyków, mody, elektroniki, restauracji i produktów cyfrowych. Zaprojektowane, zbudowane, z analityką i gotowe na Google Ads — a jeśli chcesz, z asystentem AI.",
+            )}
           </p>
           <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-            <a href="/studio/#contact" className="btn btn-accent">Get my quote · from €599 →</a>
-            <a href="/studio/#work" className="btn btn-ghost">See our work</a>
+            <a href={href("/studio/#contact")} className="btn btn-accent">{t("Get my quote · from €599 →", "Wycena · od €599 →")}</a>
+            <a href={href("/studio/#work")} className="btn btn-ghost">{t("See our work", "Zobacz realizacje")}</a>
           </div>
           <ul className="mt-10 grid max-w-xl gap-3 sm:grid-cols-2">
-            {["Live in 1–6 weeks", "Fixed price before we start", "GDPR-ready, tracked, SEO", "You own the site and accounts"].map((x) => (
+            {t(["Live in 1–6 weeks", "Fixed price before we start", "GDPR-ready, tracked, SEO", "You own the site and accounts"], ["Online w 1–6 tygodni", "Stała cena przed startem", "RODO, analityka, SEO", "Strona i konta są Twoje"]).map((x) => (
               <li key={x} className="flex items-center gap-3 text-[15px]">
                 <span className="grid h-6 w-6 flex-none place-items-center rounded-full bg-accent text-[12px] font-bold text-ink" aria-hidden="true">✓</span>
                 {x}
@@ -112,7 +115,7 @@ export default function Hero({ ready }: { ready: boolean }) {
           </AnimatePresence>
           {/* Slide picker: one tab per guide, the active one fills with gold until the next slide. */}
           {slides.length > 1 && (
-            <div className="mt-6 flex gap-4" role="tablist" aria-label="New guides">
+            <div className="mt-6 flex gap-4" role="tablist" aria-label={t("New guides", "Nowe poradniki")}>
               {slides.map((s, n) => (
                 <button
                   key={s.id}

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import type { Product } from "../../data/products";
+import { t } from "../../lib/i18n";
 
 /**
  * Flagship visual: the cover on a lit, dotted "screen" panel with a floating glass AI-answer card
@@ -17,7 +18,7 @@ function FlagshipVisual({ p }: { p: Product }) {
       >
         <img
           src={p.cover}
-          alt={`${p.title} cover`}
+          alt={t(`${p.title} cover`, `Okładka: ${p.title}`)}
           width={640}
           height={908}
           className="w-24 rounded-[3px] shadow-[0_20px_40px_-12px_rgba(0,0,0,0.9),0_0_0_1px_rgba(226,180,100,.35)] sm:w-28"
@@ -31,15 +32,15 @@ function FlagshipVisual({ p }: { p: Product }) {
       >
         <p className="flex items-center gap-1.5 uppercase tracking-[0.18em] text-ivory/45">
           <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-accent" />
-          AI answer
+          {t("AI answer", "Odpowiedź AI")}
         </p>
         <p className="mt-1.5 flex items-center gap-1.5 rounded-[6px] border border-accent/60 bg-accent/10 px-1.5 py-1 font-sans text-[10px] text-ivory">
           <span className="grid h-3.5 w-3.5 place-items-center rounded-full bg-accent text-[8px] font-semibold text-ink">1</span>
-          Your product ✓
+          {t("Your product ✓", "Twój produkt ✓")}
         </p>
         <p className="mt-1.5 flex items-center justify-between text-ivory/40">
-          <span className="rounded-full border border-accent/50 px-1.5 py-[1px] uppercase tracking-[0.15em] text-accent">Ad</span>
-          sits below
+          <span className="rounded-full border border-accent/50 px-1.5 py-[1px] uppercase tracking-[0.15em] text-accent">{t("Ad", "Reklama")}</span>
+          {t("sits below", "niżej")}
         </p>
       </motion.div>
     </div>
@@ -56,7 +57,7 @@ export default function GuideCard({ p }: { p: Product }) {
       <div className="rounded-[18px] border hairline bg-ink/70 p-6 md:p-7">
         <div className="flex items-center justify-between">
           <span className="font-mono text-[11px] uppercase tracking-[0.25em] text-accent">{s.label}</span>
-          <span className="shrink-0 whitespace-nowrap rounded-full bg-accent px-2.5 py-1 font-mono text-[11px] font-medium text-ink">New</span>
+          <span className="shrink-0 whitespace-nowrap rounded-full bg-accent px-2.5 py-1 font-mono text-[11px] font-medium text-ink">{t("New", "Nowość")}</span>
         </div>
 
         <div className="mt-6 flex gap-5">
@@ -66,7 +67,7 @@ export default function GuideCard({ p }: { p: Product }) {
           <div className="flex shrink-0 items-start self-start">
             <img
               src={p.cover}
-              alt={`${p.title} cover`}
+              alt={t(`${p.title} cover`, `Okładka: ${p.title}`)}
               width={640}
               height={908}
               className="w-24 rounded-[3px] shadow-[0_20px_40px_-12px_rgba(0,0,0,0.9)] sm:w-28"
@@ -111,10 +112,10 @@ export default function GuideCard({ p }: { p: Product }) {
           <div>
             <p className="font-mono text-[12px] uppercase tracking-[0.2em] text-ivory/40">{p.pages}</p>
             <p className="text-[40px] font-semibold leading-none tracking-[-0.03em]">{p.price}</p>
-            <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.2em] text-ivory/50">VAT incl. · PDF</p>
+            <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.2em] text-ivory/50">{t("VAT incl. · PDF", "VAT w cenie · PDF")}</p>
           </div>
           <motion.a href={p.href} className="btn btn-accent" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-            Get it now →
+            {t("Get it now →", "Kup teraz →")}
           </motion.a>
         </div>
       </div>

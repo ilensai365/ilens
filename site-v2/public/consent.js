@@ -62,10 +62,13 @@
     var d = document.createElement("div");
     d.id = "ilens-consent";
     d.setAttribute("role", "dialog");
-    d.setAttribute("aria-label", "Cookie consent");
+    var pl = document.documentElement.lang === "pl";
+    d.setAttribute("aria-label", pl ? "Zgoda na cookies" : "Cookie consent");
     d.innerHTML =
-      "<p>We use cookies to measure our ads and improve the site. Nothing is stored for ads unless you accept.</p>" +
-      '<div class="b"><button class="n" type="button">Reject</button><button class="y" type="button">Accept</button></div>';
+      (pl
+        ? "<p>Używamy cookies, żeby mierzyć skuteczność reklam i ulepszać stronę. Nic nie zapisujemy na potrzeby reklam bez Twojej zgody.</p>"
+        : "<p>We use cookies to measure our ads and improve the site. Nothing is stored for ads unless you accept.</p>") +
+      '<div class="b"><button class="n" type="button">' + (pl ? "Odrzuć" : "Reject") + '</button><button class="y" type="button">' + (pl ? "Akceptuję" : "Accept") + "</button></div>";
     d.querySelector(".n").onclick = function () { choose("denied"); };
     d.querySelector(".y").onclick = function () { choose("granted"); };
     document.body.appendChild(d);

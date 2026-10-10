@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { insideFacts, insideStats, proof } from "../data/site";
 import { products } from "../data/products";
 import { prefersReducedMotion } from "../lib/motion";
+import { t } from "../lib/i18n";
 
 /** Counts from 0 to `to` the first time the number scrolls into view. */
 function CountUp({ to }: { to: number }) {
@@ -46,10 +47,10 @@ export default function Inside() {
         <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <div>
             <p data-reveal className="eyebrow">
-              By the numbers
+              {t("By the numbers", "W liczbach")}
             </p>
             <h2 data-reveal className="mt-5 max-w-2xl text-h1 font-medium">
-              From idea to income, <span className="serif-i text-accent">on a real timeline.</span>
+              {t("From idea to income, ", "Od pomysłu do dochodu, ")}<span className="serif-i text-accent">{t("on a real timeline.", "w realnym czasie.")}</span>
             </h2>
           </div>
           {proof.customers !== null && (
@@ -57,7 +58,7 @@ export default function Inside() {
               <p className="text-[40px] font-semibold leading-none tracking-[-0.03em]">
                 <CountUp to={proof.customers} />+
               </p>
-              <p className="text-muted mt-1 font-mono text-[11px] uppercase tracking-[0.2em]">creators already inside</p>
+              <p className="text-muted mt-1 font-mono text-[11px] uppercase tracking-[0.2em]">{t("creators already inside", "twórców już w środku")}</p>
             </div>
           )}
         </div>
@@ -109,10 +110,10 @@ export default function Inside() {
         <div className="mt-24 grid gap-10 lg:grid-cols-12">
           <div className="lg:col-span-4">
             <p data-reveal className="eyebrow">
-              What's inside
+              {t("What's inside", "Co jest w środku")}
             </p>
             <h2 data-reveal className="mt-5 text-h1 font-medium">
-              Four guides. <span className="serif-i text-accent">One path.</span>
+              {t("Four guides. ", "Cztery poradniki. ")}<span className="serif-i text-accent">{t("One path.", "Jedna ścieżka.")}</span>
             </h2>
           </div>
           <ol className="lg:col-span-7 lg:col-start-6">

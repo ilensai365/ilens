@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { products, type Product } from "../data/products";
 import { BUNDLE } from "../data/site";
 import SectionHead from "./SectionHead";
+import { t } from "../lib/i18n";
 
 const spanClass: Record<Product["span"], string> = {
   3: "md:col-span-6 lg:col-span-3",
@@ -26,7 +27,7 @@ function Cover({ p, large, accent, fill }: { p: Product; large?: boolean; accent
       <div className={`absolute inset-0 flex items-center justify-center ${large ? (fill ? "py-[7%] md:py-[5%]" : "py-[7%] md:py-[12%]") : "py-[7%]"}`}>
         <img
           src={p.cover}
-          alt={`${p.title} cover`}
+          alt={t(`${p.title} cover`, `Okładka: ${p.title}`)}
           width={320}
           height={460}
           loading="lazy"
@@ -52,14 +53,14 @@ function BundleCard({ p }: { p: Product }) {
         <Cover p={p} large />
         <div className="flex flex-col p-5 md:p-8">
           <div className="flex items-center justify-between gap-3">
-            <span className="font-mono text-[11px] uppercase tracking-[0.25em] text-accent">Bundle · 4 guides</span>
+            <span className="font-mono text-[11px] uppercase tracking-[0.25em] text-accent">{t("Bundle · 4 guides", "Pakiet · 4 poradniki")}</span>
             <span className="whitespace-nowrap rounded-full bg-accent px-2.5 py-1 font-mono text-[11px] font-medium text-ink">
-              Save {BUNDLE.save}
+              {t("Save", "Oszczędzasz")} {BUNDLE.save}
             </span>
           </div>
 
           <h3 className="mt-5 text-[30px] font-medium leading-tight tracking-[-0.02em] md:text-[34px]">{p.title}</h3>
-          <p className="text-muted mt-2 text-[15px] leading-relaxed">The complete iLens library — from idea to first sale.</p>
+          <p className="text-muted mt-2 text-[15px] leading-relaxed">{t("The complete iLens library — from idea to first sale.", "Cała biblioteka iLens — od pomysłu do pierwszej sprzedaży.")}</p>
 
           <ul className="mt-6 grid gap-x-5 gap-y-2.5 border-t hairline pt-5 text-[14px] sm:grid-cols-2">
             {included.map((g) => (
@@ -69,7 +70,7 @@ function BundleCard({ p }: { p: Product }) {
                 </span>
                 <span>
                   {g.title}
-                  {g.pages && <span className="ml-1.5 font-mono text-[11px] text-ivory/40">{g.pages.replace(" pages", " p.")}</span>}
+                  {g.pages && <span className="ml-1.5 font-mono text-[11px] text-ivory/40">{g.pages.replace(/ (pages|strony|stron)$/, t(" p.", " s."))}</span>}
                 </span>
               </li>
             ))}
@@ -81,10 +82,10 @@ function BundleCard({ p }: { p: Product }) {
                 <span className="text-[40px] font-semibold leading-none tracking-[-0.03em]">{p.price}</span>
                 {p.compareAt && <s className="font-mono text-[14px] text-ivory/40">{p.compareAt}</s>}
               </p>
-              <p className="mt-2 font-mono text-[11px] uppercase tracking-[0.2em] text-ivory/45">One-time · VAT incl.</p>
+              <p className="mt-2 font-mono text-[11px] uppercase tracking-[0.2em] text-ivory/45">{t("One-time · VAT incl.", "Jednorazowo · VAT w cenie")}</p>
             </div>
             <span className="btn btn-accent">
-              Get the bundle
+              {t("Get the bundle", "Kup pakiet")}
               <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">
                 →
               </span>
@@ -112,7 +113,7 @@ function SpotlightCard({ p }: { p: Product }) {
         <div className="flex flex-col p-5 md:p-8">
           <div className="flex items-center justify-between gap-3">
             <span className="font-mono text-[11px] uppercase tracking-[0.25em] text-accent">{s.label}</span>
-            <span className="whitespace-nowrap rounded-full bg-accent px-2.5 py-1 font-mono text-[11px] font-medium text-ink">New</span>
+            <span className="whitespace-nowrap rounded-full bg-accent px-2.5 py-1 font-mono text-[11px] font-medium text-ink">{t("New", "Nowość")}</span>
           </div>
 
           <h3 className="mt-5 text-[30px] font-medium leading-tight tracking-[-0.02em] md:text-[34px]">{p.title}</h3>
@@ -138,7 +139,7 @@ function SpotlightCard({ p }: { p: Product }) {
               <p className="mt-2 font-mono text-[11px] uppercase tracking-[0.2em] text-ivory/45">{s.stats.join(" · ")}</p>
             </div>
             <span className="btn btn-accent">
-              Get the guide
+              {t("Get the guide", "Kup poradnik")}
               <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">
                 →
               </span>
@@ -165,13 +166,13 @@ function ProductCard({ p }: { p: Product }) {
         <Cover p={p} />
         <div className="flex flex-1 flex-col px-3 pb-2 pt-5">
           <span className={`font-mono text-[11px] uppercase tracking-[0.25em] ${soon ? "text-ivory/40" : "text-accent"}`}>
-            {soon ? "Coming soon" : `Guide · PDF${p.pages ? ` · ${p.pages}` : ""}`}
+            {soon ? t("Coming soon", "Wkrótce") : `${t("Guide", "Poradnik")} · PDF${p.pages ? ` · ${p.pages}` : ""}`}
           </span>
           <h3 className="mt-2.5 text-[20px] font-medium leading-snug tracking-[-0.01em]">{p.title}</h3>
           <p className="text-muted mb-6 mt-2 line-clamp-2 text-[15px] leading-relaxed">{p.blurb}</p>
           {p.includes && (
             <div className="mb-6">
-              <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-ivory/40">Inside</p>
+              <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-ivory/40">{t("Inside", "W środku")}</p>
               <ul className="mt-3 space-y-2 text-[14px] leading-snug text-ivory/80">
                 {p.includes.map((item) => (
                   <li key={item} className="flex gap-2.5">
@@ -185,10 +186,10 @@ function ProductCard({ p }: { p: Product }) {
 
           <div className="mt-auto flex items-center justify-between border-t hairline pt-4">
             <span className={`text-[18px] font-semibold tracking-[-0.01em] ${soon ? "text-ivory/40" : ""}`}>
-              {p.price ?? "Soon"}
+              {p.price ?? t("Soon", "Wkrótce")}
             </span>
             <span className={`inline-flex items-center gap-2 text-[14px] font-medium ${soon ? "text-ivory/60" : "text-accent"}`}>
-              {soon ? "Get notified" : "Get the guide"}
+              {soon ? t("Get notified", "Powiadom mnie") : t("Get the guide", "Kup poradnik")}
               <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">
                 →
               </span>
@@ -205,10 +206,10 @@ export default function Shop() {
     <section id="shop" className="py-section">
       <div className="container-x">
         <SectionHead
-          eyebrow="The Shop"
+          eyebrow={t("The Shop", "Sklep")}
           title={
             <>
-              Guides and tools to create, <span className="serif-i text-accent">launch and sell.</span>
+              {t("Guides and tools to create, ", "Poradniki i narzędzia, żeby tworzyć, ")}<span className="serif-i text-accent">{t("launch and sell.", "startować i sprzedawać.")}</span>
             </>
           }
         />
@@ -218,7 +219,7 @@ export default function Shop() {
           ))}
         </div>
         <p data-reveal className="mt-8 text-center font-mono text-[12px] uppercase tracking-[0.2em] text-ivory/45">
-          One-time payment · VAT included · Instant PDF download
+          {t("One-time payment · VAT included · Instant PDF download", "Jednorazowa płatność · VAT w cenie · PDF od razu")}
         </p>
       </div>
     </section>

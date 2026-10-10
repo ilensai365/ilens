@@ -14,6 +14,7 @@ import FinalCta from "./components/FinalCta";
 import Footer from "./components/Footer";
 import FloatingCta from "./components/FloatingCta";
 import { initReveals, ScrollTrigger } from "./lib/motion";
+import { t } from "./lib/i18n";
 
 export default function App() {
   const mainRef = useRef<HTMLElement>(null);
@@ -33,7 +34,7 @@ export default function App() {
         href="#main"
         className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-ivory focus:px-4 focus:py-2 focus:text-ink"
       >
-        Skip to content
+        {t("Skip to content", "Przejdź do treści")}
       </a>
       <Loader onDone={() => setLoaded(true)} />
       <Nav />

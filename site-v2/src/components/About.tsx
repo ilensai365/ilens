@@ -1,4 +1,5 @@
 import { about } from "../data/site";
+import { t } from "../lib/i18n";
 
 export default function About() {
   return (
@@ -6,10 +7,10 @@ export default function About() {
       <div className="container-x grid gap-14 lg:grid-cols-12 lg:gap-6">
         <div className="lg:col-span-6">
           <p data-reveal className="eyebrow">
-            About iLens
+            {t("About iLens", "O iLens")}
           </p>
           <h2 data-reveal className="mt-5 text-h1 font-medium">
-            Where creative craft <span className="serif-i text-accent">meets intelligent systems.</span>
+            {t("Where creative craft ", "Gdzie kreatywny warsztat ")}<span className="serif-i text-accent">{t("meets intelligent systems.", "spotyka inteligentne systemy.")}</span>
           </h2>
           <p data-reveal className="mt-8 font-display text-h3 leading-snug text-ivory/90">
             {about.lead}
@@ -30,7 +31,7 @@ export default function About() {
 
         <div className="lg:col-span-5 lg:col-start-8">
           <div data-reveal className="glass rounded-card p-8 md:p-10 lg:sticky lg:top-32">
-            <p className="eyebrow">How we work</p>
+            <p className="eyebrow">{t("How we work", "Jak pracujemy")}</p>
             <ol className="mt-8">
               {about.principles.map((pr, i) => (
                 <li key={pr.title} className="flex gap-5 border-t hairline py-5 first:border-t-0 first:pt-0 last:pb-0">

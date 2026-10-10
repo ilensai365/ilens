@@ -3,6 +3,8 @@
 (function () {
   var API = "/api/chat";
   var KEY = "ilens-chat";
+  var PL = document.documentElement.lang === "pl";
+  function tr(en, pl) { return PL ? pl : en; }
   var history = [];
   try { history = JSON.parse(sessionStorage.getItem(KEY) || "[]"); } catch (e) {}
 
@@ -50,17 +52,17 @@
     var btn = el("button"); btn.id = "ilc-btn"; btn.type = "button"; btn.setAttribute("aria-label", "Chat with iLens");
     btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="#14110B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg>';
     var box = el("div"); box.id = "ilc"; box.setAttribute("role", "dialog"); box.setAttribute("aria-label", "iLens assistant");
-    box.innerHTML = '<header><i></i><div><b>iLens assistant</b><small>AI · answers about guides, stores & ads</small></div><button type="button" aria-label="Close">×</button></header>';
+    box.innerHTML = '<header><i></i><div><b>' + tr("iLens assistant", "Asystent iLens") + '</b><small>' + tr("AI · answers about guides, stores &amp; ads", "AI · pytania o poradniki, sklepy i reklamy") + '</small></div><button type="button" aria-label="' + tr("Close", "Zamknij") + '">×</button></header>';
     var log = el("div", "log"); log.setAttribute("aria-live", "polite"); box.appendChild(log);
-    var form = el("form"); var input = el("input"); input.placeholder = "Ask about stores, ads or guides…"; input.maxLength = 1000; input.setAttribute("aria-label", "Message");
-    var send = el("button", null, "Send"); send.type = "submit"; form.appendChild(input); form.appendChild(send); box.appendChild(form);
+    var form = el("form"); var input = el("input"); input.placeholder = tr("Ask about stores, ads or guides…", "Zapytaj o sklepy, reklamy albo poradniki…"); input.maxLength = 1000; input.setAttribute("aria-label", tr("Message", "Wiadomość"));
+    var send = el("button", null, tr("Send", "Wyślij")); send.type = "submit"; form.appendChild(input); form.appendChild(send); box.appendChild(form);
     box.appendChild(el("p", "note", "AI can make mistakes. Don't share sensitive data."));
     document.body.appendChild(box); document.body.appendChild(btn);
 
     function bubble(role, text) { var m = el("div", "m " + (role === "user" ? "u" : "a")); addText(m, text); log.appendChild(m); log.scrollTop = log.scrollHeight; return m; }
 
     function greet() {
-      bubble("assistant", "Hi! I can help you choose a guide, a website or online store, or Google Ads & tracking. What are you working on?");
+      bubble("assistant", tr("Hi! I can help you choose a guide, a website or online store, or Google Ads & tracking. What are you working on?", "Cześć! Pomogę Ci wybrać poradnik, stronę lub sklep internetowy albo Google Ads i analitykę. Nad czym pracujesz?"));
       var chips = el("div", "chips");
       ["I need an online store", "Google Ads for my business", "Which guide should I start with?"].forEach(function (q) {
         var b = el("button", null, q); b.type = "button"; b.onclick = function () { chips.remove(); ask(q); }; chips.appendChild(b);
@@ -79,7 +81,7 @@
         .then(function (r) { return r.json(); })
         .then(function (d) {
           wait.remove();
-          var reply = d.reply || d.error || "Sorry, something went wrong. Please write to hello@ilens.co.";
+          var reply = d.reply || d.error || tr("Sorry, something went wrong. Please write to hello@ilens.co.", "Przepraszamy, coś poszło nie tak. Napisz na hello@ilens.co.");
           if (d.reply) { history.push({ role: "assistant", content: reply }); save(); }
           bubble("assistant", reply);
           if (window.gtag) window.gtag("event", "chat_message", { page: location.pathname });

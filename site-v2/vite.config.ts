@@ -10,6 +10,8 @@ export default defineConfig({
       // Main one-pager, /free (Instagram DM landing page), /studio (portfolio + services) and /thanks.
       input: {
         main: resolve(__dirname, "index.html"),
+        // Polish home page: same App, copy picked by <html lang="pl"> (src/lib/i18n.ts).
+        pl: resolve(__dirname, "pl/index.html"),
         free: resolve(__dirname, "free/index.html"),
         studio: resolve(__dirname, "studio/index.html"),
         // Google Ads / GA4 / tracking / consent / Search Console services.

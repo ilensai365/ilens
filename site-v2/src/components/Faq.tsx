@@ -2,6 +2,7 @@ import { useId, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { faq } from "../data/site";
 import SectionHead from "./SectionHead";
+import { t } from "../lib/i18n";
 
 function Item({ q, a, open, onToggle }: { q: string; a: string; open: boolean; onToggle: () => void }) {
   const id = useId();
@@ -54,10 +55,10 @@ export default function Faq() {
       <div className="container-x grid gap-12 lg:grid-cols-12">
         <div className="lg:col-span-4">
           <SectionHead
-            eyebrow="FAQ"
+            eyebrow={t("FAQ", "Pytania")}
             title={
               <>
-                Good <span className="serif-i text-accent">questions.</span>
+                {t("Good ", "Dobre ")}<span className="serif-i text-accent">{t("questions.", "pytania.")}</span>
               </>
             }
           />

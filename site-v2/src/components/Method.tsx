@@ -2,6 +2,7 @@ import { useLayoutEffect, useRef, useState } from "react";
 import { method } from "../data/site";
 import { ScrollTrigger, gsap, isDesktop, prefersReducedMotion } from "../lib/motion";
 import SectionHead from "./SectionHead";
+import { t } from "../lib/i18n";
 
 /** One simple line glyph per step: See, Think, Create, Scale. */
 const glyphs = [
@@ -50,10 +51,10 @@ export default function Method() {
         <div className="lg:col-span-5">
           <div className="lg:sticky lg:top-32">
             <SectionHead
-              eyebrow="The iLens Method"
+              eyebrow={t("The iLens Method", "Metoda iLens")}
               title={
                 <>
-                  From idea to income <span className="serif-i text-accent">in four steps.</span>
+                  {t("From idea to income ", "Od pomysłu do dochodu ")}<span className="serif-i text-accent">{t("in four steps.", "w czterech krokach.")}</span>
                 </>
               }
             />

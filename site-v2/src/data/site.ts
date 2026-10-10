@@ -1,4 +1,6 @@
 // All editable copy and links live in src/data — change text here, not in components.
+// Polish copy sits next to the English as t(en, pl); pages under /pl/ pick it automatically.
+import { t } from "../lib/i18n";
 
 /** Payhip product page (description, mockups, then Buy) — not the bare checkout. */
 export const PAYHIP = (code: string) => `https://payhip.com/b/${code}`;
@@ -27,15 +29,15 @@ export const heroVideo: { src: string; poster?: string } = { src: "" };
 
 // Top menu: the guides first, then the done-for-you offers (2026-10-07). Offer/Method stay on the page and in the footer.
 export const nav = [
-  { label: "Ebooks", href: "#shop" },
+  { label: t("Ebooks", "Ebooki"), href: "#shop" },
   // { label: "Stores", href: "/shops/" }, // hidden until /shops is finished (owner, 2026-10-07)
   { label: "Google Ads", href: "/marketing/" },
   { label: "Studio", href: "/studio/" },
-  { label: "Free prompts", href: "/free/" },
-  { label: "About", href: "#about" },
+  { label: t("Free prompts", "Darmowe prompty"), href: "/free/" },
+  { label: t("About", "O nas"), href: "#about" },
 ];
 
-export const offer = [
+const offerEn = [
   {
     title: "Ebooks & Playbooks",
     body: "Step-by-step guides you can finish in an evening — from building your shop to launching your first product.",
@@ -61,7 +63,35 @@ export const offer = [
   },
 ];
 
-export const about = {
+const offerPl: typeof offerEn = [
+  {
+    title: "Ebooki i poradniki",
+    body: "Instrukcje krok po kroku do przerobienia w jeden wieczór — od zbudowania sklepu po start pierwszego produktu.",
+  },
+  {
+    title: "Paczki promptów AI",
+    body: "Sprawdzone prompty do pomysłów, hooków, opisów i tekstów sprzedażowych, które brzmią jak Ty, a nie jak szablon.",
+  },
+  {
+    title: "Treści, które sprzedają",
+    body: "Hooki, struktury i oferty stojące za treściami, które zamieniają obserwujących w klientów.",
+  },
+  {
+    title: "Szablony",
+    body: "Gotowe układy postów, karuzel, stron produktowych i materiałów marki — edytujesz, publikujesz, gotowe.",
+    soon: true,
+  },
+  { title: "Presety", body: "Presety do zdjęć dla spójnego feedu premium jednym kliknięciem.", soon: true },
+  {
+    title: "Kursy",
+    body: "Programy z prowadzeniem, które przeprowadzą Cię od pierwszego pomysłu do pierwszej sprzedaży, lekcja po lekcji.",
+    soon: true,
+  },
+];
+
+export const offer = t(offerEn, offerPl);
+
+const aboutEn = {
   lead: "iLens is a creative and strategy studio working at the intersection of design, marketing and artificial intelligence.",
   body: [
     "We help brands, founders and creators turn ideas into clear positioning, distinctive visual identities and content systems that scale. Every project combines editorial-level design craft with rigorous strategic thinking — so what looks good also works.",
@@ -76,27 +106,55 @@ export const about = {
   tags: ["Brand Strategy", "Creative Direction", "Visual Identity", "Content Systems", "AI Workflows", "Digital Products"],
 };
 
+const aboutPl: typeof aboutEn = {
+  lead: "iLens to studio kreatywno-strategiczne działające na styku designu, marketingu i sztucznej inteligencji.",
+  body: [
+    "Pomagamy markom, founderom i twórcom zamieniać pomysły w jasne pozycjonowanie, wyrazistą identyfikację wizualną i systemy treści, które rosną razem z biznesem. Każdy projekt łączy design na poziomie edytorskim z przemyślaną strategią — tak, żeby to, co dobrze wygląda, także działało.",
+    "AI to część naszej pracy, a nie gadżet. Dzięki niej szybciej robimy research, testujemy więcej pomysłów i budujemy powtarzalne procesy, a każda decyzja kreatywna zostaje ludzka, przemyślana i zgodna z marką. Na tym samym myśleniu opierają się nasze produkty cyfrowe: praktyczne poradniki i systemy, które wdrożysz tego samego dnia.",
+  ],
+  principles: [
+    { title: "Najpierw jasność", body: "Strategia przed estetyką — każdy projekt zaczynamy od tego, co ma osiągnąć." },
+    { title: "Jakość, która zostaje", body: "Design na poziomie edytorskim, zbudowany jako system działający w każdym kanale." },
+    { title: "AI z intencją", body: "Szybszy research, więcej pomysłów, powtarzalne procesy — z ludzkim osądem przy każdej decyzji." },
+    { title: "Systemy, nie jednorazówki", body: "Frameworki, szablony i procesy, z których korzystasz długo po starcie." },
+  ],
+  tags: ["Strategia marki", "Kierunek kreatywny", "Identyfikacja wizualna", "Systemy treści", "Procesy AI", "Produkty cyfrowe"],
+};
+
+export const about = t(aboutEn, aboutPl);
+
 export const heroProof = ["49 pages", "9 chapters", "Instant download", "VAT included"];
 
-export const method = [
-  { n: "01", title: "See", body: "Find the problem your audience will gladly pay you to solve." },
-  { n: "02", title: "Think", body: "Shape the offer, the message and the hook that makes people stop scrolling." },
-  { n: "03", title: "Create", body: "Build the product and the content around it — with AI for speed and craft for quality." },
-  { n: "04", title: "Scale", body: "Sell, repurpose and systemise what works, so every launch is easier than the last." },
-];
+export const method = t(
+  [
+    { n: "01", title: "See", body: "Find the problem your audience will gladly pay you to solve." },
+    { n: "02", title: "Think", body: "Shape the offer, the message and the hook that makes people stop scrolling." },
+    { n: "03", title: "Create", body: "Build the product and the content around it — with AI for speed and craft for quality." },
+    { n: "04", title: "Scale", body: "Sell, repurpose and systemise what works, so every launch is easier than the last." },
+  ],
+  [
+    { n: "01", title: "Zobacz", body: "Znajdź problem, za którego rozwiązanie Twoi odbiorcy chętnie zapłacą." },
+    { n: "02", title: "Przemyśl", body: "Ułóż ofertę, przekaz i hook, który zatrzymuje scrollowanie." },
+    { n: "03", title: "Stwórz", body: "Zbuduj produkt i treści wokół niego — z AI dla tempa i warsztatem dla jakości." },
+    { n: "04", title: "Skaluj", body: "Sprzedawaj, przetwarzaj i systematyzuj to, co działa, żeby każdy kolejny start był łatwiejszy." },
+  ],
+);
 
 /**
  * "By the numbers" cards: what each guide promises. `count` animates up to that number.
  * Only real, verifiable numbers here — no invented customer counts.
  */
 export const insideStats = [
-  { count: 60, unit: "min", title: "to a live website & shop", source: "The 60-Minute Storefront", progress: 0.25 },
-  { count: 24, unit: "h", title: "from blank page to published ebook", source: "The 24-Hour Ebook", progress: 0.5 },
-  { count: 1, unit: "evening", title: "to set up the system behind your first sale", source: "Zero to First Sale", progress: 0.75 },
-  { count: 99, prefix: "€", title: `for all four guides — ${BUNDLE.compareAt} separately`, source: "Build. Launch. Sell.", progress: 1 },
+  { count: 60, unit: "min", title: t("to a live website & shop", "do działającej strony i sklepu"), source: "The 60-Minute Storefront", progress: 0.25 },
+  { count: 24, unit: "h", title: t("from blank page to published ebook", "od pustej strony do wydanego ebooka"), source: "The 24-Hour Ebook", progress: 0.5 },
+  { count: 1, unit: t("evening", "wieczór"), title: t("to set up the system behind your first sale", "na system, który da Ci pierwszą sprzedaż"), source: "Zero to First Sale", progress: 0.75 },
+  { count: 99, prefix: "€", title: t(`for all four guides — ${BUNDLE.compareAt} separately`, `za wszystkie cztery poradniki — osobno ${BUNDLE.compareAt}`), source: "Build. Launch. Sell.", progress: 1 },
 ];
 
-export const insideFacts = ["149 pages", "Instant PDF download", "VAT included", "Pay once — no subscription"];
+export const insideFacts = t(
+  ["149 pages", "Instant PDF download", "VAT included", "Pay once — no subscription"],
+  ["149 stron", "PDF od razu po zakupie", "VAT w cenie", "Płacisz raz — bez subskrypcji"],
+);
 
 /**
  * Social proof. Leave `customers` at null until there is a real number (Payhip → Customers);
@@ -123,7 +181,7 @@ export const services = [
   },
 ];
 
-export const faq = [
+const faqEn = [
   {
     q: "What format are the guides?",
     a: "Every guide is a PDF you can read on your phone, tablet or computer — and print if you prefer paper.",
@@ -158,4 +216,44 @@ export const faq = [
   },
 ];
 
-export const marquee = ["Content that sells", "Built with AI", "Made by humans"];
+const faqPl: typeof faqEn = [
+  {
+    q: "W jakim formacie są poradniki?",
+    a: "Każdy poradnik to PDF, który przeczytasz na telefonie, tablecie albo komputerze — i wydrukujesz, jeśli wolisz papier.",
+  },
+  {
+    q: "Kiedy dostanę dostęp?",
+    a: "Od razu. Po płatności Payhip pokazuje link do pobrania i wysyła go mailem, więc możesz zacząć w tej samej minucie.",
+  },
+  {
+    q: "Czy VAT jest wliczony w cenę?",
+    a: "Tak. Cena na tej stronie to kwota końcowa przy płatności — żaden podatek nie zostanie doliczony później.",
+  },
+  {
+    q: "Czym różni się pakiet od pojedynczych poradników?",
+    a: `Pakiet Build. Launch. Sell. zawiera wszystkie cztery poradniki za ${BUNDLE.price} zamiast ${BUNDLE.compareAt} przy zakupie osobno. Jeśli potrzebujesz tylko jednego kroku — treści, sklepu, ebooka albo pierwszej sprzedaży — wybierz ten jeden poradnik.`,
+  },
+  {
+    q: "Dlaczego przy zakupie pakietu muszę założyć konto?",
+    a: "Payhip, nasz operator płatności, wymaga darmowego konta klienta przy pakietach, żeby wszystkie cztery pliki były w jednej bibliotece, do której zawsze wrócisz. Pojedyncze poradniki nie wymagają konta.",
+  },
+  {
+    q: "W jakim języku są poradniki?",
+    a: "Po angielsku — prostym, praktycznym językiem, z jasnymi krokami, które przejdziesz bez wcześniejszego doświadczenia.",
+  },
+  {
+    q: "Dla kogo są te poradniki?",
+    a: "Dla twórców, freelancerów i małych marek, które chcą zamienić swoją wiedzę w produkt cyfrowy i treści, które sprzedają — szczególnie jeśli zaczynasz od zera.",
+  },
+  {
+    q: "Czy mogę współpracować z iLens bezpośrednio?",
+    a: "Tak. iLens Studio projektuje marki, strony internetowe, kampanie i social media, a najwyższy pakiet to współpraca kreatywna 1:1. Zajrzyj na ilens.co/studio albo napisz do nas poniżej.",
+  },
+];
+
+export const faq = t(faqEn, faqPl);
+
+export const marquee = t(
+  ["Content that sells", "Built with AI", "Made by humans"],
+  ["Treści, które sprzedają", "Zbudowane z AI", "Tworzone przez ludzi"],
+);

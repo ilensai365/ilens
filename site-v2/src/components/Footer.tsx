@@ -1,30 +1,31 @@
 import { socials } from "../data/site";
+import { href, t } from "../lib/i18n";
 
 const cols = [
   {
     title: "iLens",
     links: [
-      { label: "Shop", href: "#shop" },
-      { label: "Offer", href: "#offer" },
-      { label: "Method", href: "#method" },
-      { label: "About", href: "#about" },
+      { label: t("Shop", "Sklep"), href: "#shop" },
+      { label: t("Offer", "Oferta"), href: "#offer" },
+      { label: t("Method", "Metoda"), href: "#method" },
+      { label: t("About", "O nas"), href: "#about" },
       { label: "Studio", href: "/studio/" },
-      { label: "FAQ", href: "#faq" },
-      { label: "Free prompts", href: "/free/" },
+      { label: t("FAQ", "Pytania"), href: "#faq" },
+      { label: t("Free prompts", "Darmowe prompty"), href: "/free/" },
     ],
   },
   {
-    title: "Services",
+    title: t("Services", "Usługi"),
     links: [
       // { label: "Websites & stores", href: "/shops/" }, // hidden until /shops is finished
-      { label: "Google Ads & tracking", href: "/marketing/" },
+      { label: t("Google Ads & tracking", "Google Ads i analityka"), href: "/marketing/" },
       { label: "Studio", href: "/studio/" },
     ],
   },
   {
-    title: "Connect",
+    title: t("Connect", "Kontakt"),
     links: [
-      { label: "Contact", href: "#contact" },
+      { label: t("Contact", "Napisz do nas"), href: "#contact" },
       ...socials,
     ],
   },
@@ -36,7 +37,7 @@ export default function Footer() {
       <div className="container-x grid gap-12 py-16 sm:grid-cols-2 md:grid-cols-4">
         <div>
           <p className="font-display text-3xl">iLens</p>
-          <p className="text-muted mt-3 font-mono text-mono">Digital products / Stores / Ads that sell</p>
+          <p className="text-muted mt-3 font-mono text-mono">{t("Digital products / Stores / Ads that sell", "Produkty cyfrowe / Sklepy / Reklamy, które sprzedają")}</p>
         </div>
         {cols.map((c) => (
           <nav key={c.title} aria-label={c.title}>
@@ -47,7 +48,7 @@ export default function Footer() {
                 return (
                   <li key={l.label}>
                     <a
-                      href={l.href}
+                      href={href(l.href)}
                       className="text-muted transition-colors hover:text-ivory"
                       {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                     >
@@ -61,8 +62,8 @@ export default function Footer() {
         ))}
       </div>
       <div className="container-x flex flex-col justify-between gap-4 border-t hairline py-8 text-[13px] text-ivory/45 sm:flex-row">
-        <p>© {new Date().getFullYear()} iLens Studio. All rights reserved.</p>
-        <p className="select-none font-display text-[13px] italic">Built with AI · Made by humans</p>
+        <p>© {new Date().getFullYear()} iLens Studio. {t("All rights reserved.", "Wszelkie prawa zastrzeżone.")}</p>
+        <p className="select-none font-display text-[13px] italic">{t("Built with AI · Made by humans", "Zbudowane z AI · Tworzone przez ludzi")}</p>
       </div>
     </footer>
   );

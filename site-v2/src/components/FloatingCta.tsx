@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { BUNDLE, SHOP_URL } from "../data/site";
+import { t } from "../lib/i18n";
 
 /** Bundle pill that appears after the hero and hides again near the contact section. */
 export default function FloatingCta() {
@@ -23,7 +24,7 @@ export default function FloatingCta() {
       {show && (
         <motion.a
           href={SHOP_URL}
-          aria-label={`Go to the shop — Build. Launch. Sell. bundle, ${BUNDLE.price}`}
+          aria-label={t(`Go to the shop — Build. Launch. Sell. bundle, ${BUNDLE.price}`, `Przejdź do sklepu — pakiet Build. Launch. Sell., ${BUNDLE.price}`)}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 20 }}
@@ -31,8 +32,8 @@ export default function FloatingCta() {
           whileHover={{ scale: 1.02 }}
           className="glass fixed bottom-5 right-5 z-40 flex items-center gap-3 rounded-full py-2 pl-5 pr-2 text-[14px] shadow-2xl"
         >
-          <span className="hidden text-ivory/70 sm:inline">All 4 guides · {BUNDLE.price}</span>
-          <span className="btn btn-accent px-4 py-2 text-[14px]">Get the bundle →</span>
+          <span className="hidden text-ivory/70 sm:inline">{t("All 4 guides", "Wszystkie 4 poradniki")} · {BUNDLE.price}</span>
+          <span className="btn btn-accent px-4 py-2 text-[14px]">{t("Get the bundle →", "Kup pakiet →")}</span>
         </motion.a>
       )}
     </AnimatePresence>
